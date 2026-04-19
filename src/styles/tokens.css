@@ -1,0 +1,182 @@
+/* ═══════════════════════════════════════════════════════
+   Delta for Business — Design Tokens
+   EXTRACTED FROM FIGMA (file: a2Xx676U8t3nZj5AOlMeOw)
+   Source nodes: 242:7645 (homepage), 251:8690 (design system)
+   Last extracted: April 2026
+   ═══════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Brand Color Primitives (from Figma variables) ── */
+  --color-delta-blue-700:    #002d59;   /* Primary navy — nav, deep UI */
+  --color-delta-blue-600:    #003366;   /* Headings, active tabs */
+  --color-delta-blue-500:    #004080;   /* Body text, card text */
+  --color-delta-blue-300:    #0057ad;   /* Links, interactive */
+  --color-delta-blue-200:    #0066cc;   /* Hover states */
+  --color-delta-red-400:     #c01933;   /* Primary CTA red */
+  --color-delta-red-100:     #e8354d;   /* Lighter red accent */
+  --color-delta-red-50:      #fce8ec;   /* Red tint — icon bg, selected states */
+  --color-delta-blue-50:     #e6edf5;   /* Blue tint — icon bg, info panels */
+
+  /* ── Legacy aliases (for backward compat) ────────── */
+  --color-delta-navy:    var(--color-delta-blue-700);
+  --color-delta-blue:    var(--color-delta-blue-600);  /* Alias for unsuffixed references */
+  --color-delta-red:     var(--color-delta-red-400);
+  --color-delta-white:   #ffffff;
+  --color-delta-gray:    var(--color-neutral-700);
+  --color-delta-light-gray: var(--color-neutral-5);
+
+  /* ── Neutral Scale ────────────────────────────────── */
+  --color-neutral-0:     #ffffff;   /* White — card bg, page bg */
+  --color-neutral-2:     #f9fafb;   /* Off-white — text on red CTA */
+  --color-neutral-5:     #f2f3f5;   /* Light gray — borders, promo bg */
+  --color-neutral-10:    #eaebee;   /* Dividers, separators */
+  --color-neutral-50:    #dfe0e6;   /* Secondary button bg, chips */
+  --color-neutral-400:   #aaadbd;   /* Promo header bg, muted */
+  --color-neutral-500:   #9599ac;   /* Placeholder text */
+  --color-neutral-600:   #80859c;   /* Secondary text */
+  --color-neutral-700:   #6c718a;   /* Labels, small print */
+  --color-neutral-800:   #5d6176;   /* Dark button bg */
+
+  /* ── Card Tier Name Colors ────────────────────────── */
+  --color-card-blue:      #5970c2;   /* Blue card (member-200) */
+  --color-card-gold:      #8f6c32;   /* Gold card (gold-600) */
+  --color-card-gold-light: #b8904f;  /* Gold accent (gold-400) */
+  --color-card-platinum:  #6f7f8d;   /* Platinum card (silver-200) */
+  --color-card-reserve:   #726394;   /* Reserve card (platinum-400) */
+  --color-card-platinum-light: #b8b0ca; /* Platinum accent (platinum-50) */
+  --color-card-diamond:   #97b4c8;   /* Diamond accent (diamond-100) */
+
+  /* ── Medallion Tier Colors ────────────────────────── */
+  --color-medallion-silver:   #6f7f8d;
+  --color-medallion-gold:     #8f6c32;
+  --color-medallion-platinum: #726394;
+  --color-medallion-diamond:  #002d59;
+
+  /* ── Segment Colors ───────────────────────────────── */
+  --color-segment-individual:   #0097A9;
+  --color-segment-smb:          #00B2A9;
+  --color-segment-mid:          #003DA5;
+  --color-segment-enterprise:   #002244;
+
+  /* ── Special Colors ───────────────────────────────── */
+  --color-aura-secondary:  #0b1f66;   /* Dark navy accent */
+  --color-stroke-chips:    #f2f3f5;   /* Chip/tab border */
+
+  /* ── UI Semantic Colors ───────────────────────────── */
+  --color-success:  #059669;
+  --color-warning:  #D97706;
+  --color-error:    #DC2626;
+  --color-info:     #2563EB;
+
+  /* ── Typography — Font Families ───────────────────── */
+  --font-display:    'Whitney Semibold', 'Whitney', system-ui, sans-serif;
+  --font-body:       'Whitney', system-ui, sans-serif;
+  --font-weight-700: 'Whitney Semibold';  /* Figma: typography/font-family-weight/700 */
+  --font-weight-500: 'Whitney';           /* Figma: typography/font-family-weight/500 */
+
+  /* ── Typography — Type Scale ──────────────────────── */
+  --type-scale-64:   64px;    /* Display */
+  --type-scale-48:   48px;    /* H1 */
+  --type-scale-40:   40px;    /* H2 */
+  --type-scale-28:   28px;    /* H3 */
+  --type-scale-22:   22px;    /* Subheading */
+  --type-scale-20:   20px;    /* Large body / card title */
+  --type-scale-18:   18px;    /* Body L */
+  --type-scale-16:   16px;    /* Body Standard / Button */
+  --type-scale-14:   14px;    /* Labels / Small Print */
+  --type-scale-13:   13px;    /* Small labels */
+  --type-scale-12:   12px;    /* Micro labels */
+  --type-scale-11:   11px;    /* Eyebrow / tag super-small */
+
+  /* ── Typography — Line Heights ────────────────────── */
+  --line-height-heading-xxxl:  64px;   /* Display 64 */
+  --line-height-heading-xxl:   58px;   /* H1 48 */
+  --line-height-heading-xl:    48px;   /* H2 36 */
+  --line-height-heading-m:     36px;   /* H3 28 */
+  --line-height-heading-xs:    28px;   /* Body L bold */
+  --line-height-body-medium:   24px;   /* Body standard / Body L semibold */
+  --line-height-body-small:    20px;   /* Labels */
+
+  /* ── Typography — Letter Spacing ──────────────────── */
+  --letter-spacing-heading-xxxl:     -0.64px;   /* Display + H1 */
+  --letter-spacing-heading-xl:       -0.40px;   /* H2 */
+  --letter-spacing-heading-xxs:      -0.18px;   /* H3 */
+  --letter-spacing-marketing-small:   0.14px;   /* Body text */
+  --letter-spacing-marketing-x-large: 0.32px;   /* Labels + Buttons */
+
+  /* ── Legacy text aliases ──────────────────────────── */
+  --text-xs:    0.75rem;
+  --text-sm:    0.875rem;
+  --text-base:  1rem;
+  --text-lg:    1.125rem;
+  --text-xl:    1.25rem;
+  --text-2xl:   1.5rem;
+  --text-3xl:   1.875rem;
+  --text-4xl:   2.25rem;
+  --text-5xl:   3rem;
+  --text-hero:  4rem;
+
+  /* ── Spacing (from Figma variables) ───────────────── */
+  --spacing-0:    0px;
+  --spacing-4:    4px;
+  --spacing-8:    8px;
+  --spacing-12:   12px;
+  --spacing-16:   16px;
+  --spacing-24:   24px;
+  --spacing-32:   32px;
+  --spacing-40:   40px;
+  --spacing-48:   48px;
+  --spacing-56:   56px;
+  --spacing-72:   72px;
+  --spacing-96:   96px;
+
+  /* Legacy spacing aliases */
+  --space-1:   0.25rem;
+  --space-2:   0.5rem;
+  --space-3:   0.75rem;
+  --space-4:   1rem;
+  --space-6:   1.5rem;
+  --space-8:   2rem;
+  --space-12:  3rem;
+  --space-16:  4rem;
+  --space-20:  5rem;
+  --space-24:  6rem;
+
+  /* ── Layout ───────────────────────────────────────── */
+  --nav-height:       72px;
+  --nav-height-mob:   56px;
+  --container-narrow: 1024px;
+  --container-wide:   1200px;
+  --container-max:    1448px;
+  --container-pad:    var(--spacing-32);
+  --sidebar-width:    260px;
+  --page-width:       1512px;
+
+  /* ── Border Radius (from Figma) ───────────────────── */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-l:    10px;     /* Cards, content containers (Figma: radius/radius-l) */
+  --radius-lg:   12px;
+  --radius-xl:   16px;
+  --radius-2xl:  24px;
+  --radius-full: 999px;    /* Buttons, pills, tabs (Figma: radius/radius-full) */
+  --radius-button: 9999px; /* Alias for button pill shape */
+
+  /* ── Shadows (from Figma) ─────────────────────────── */
+  --shadow-card:       0px 4px 30px 0px rgba(0, 0, 0, 0.05);
+  --shadow-card-hover: 0px 8px 40px 0px rgba(0, 0, 0, 0.10);
+  --shadow-button:     0px 2px 5px 0px rgba(12, 125, 238, 0.1);
+  --shadow-nav:        0px 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-modal:      0px 25px 50px rgba(0, 0, 0, 0.25);
+  --shadow-drop:       0px 4px 30px 0px rgba(0, 0, 0, 0.05);
+
+  /* ── Transitions ──────────────────────────────────── */
+  --transition-fast:   150ms ease;
+  --transition-base:   250ms ease;
+  --transition-slow:   400ms ease;
+
+  /* ── Z-index ──────────────────────────────────────── */
+  --z-nav:      100;
+  --z-modal:    200;
+  --z-toast:    300;
+}

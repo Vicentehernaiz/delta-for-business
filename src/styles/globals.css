@@ -1,0 +1,32 @@
+@import './tokens.css';
+@import '@phosphor-icons/web/regular';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base styles ────────────────────────── */
+body {
+  font-family: var(--font-body);
+  color: var(--color-delta-navy);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
+
+/* ── Container ──────────────────────────── */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-left: var(--container-pad);
+  padding-right: var(--container-pad);
+}
+
+/* ── Phosphor icon sizing ───────────────── */
+.ph, [class^="ph-"] {
+  font-size: inherit;
+  line-height: 1;
+}
