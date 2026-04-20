@@ -1,5 +1,12 @@
 import Link from 'next/link'
 
+const SKYTEAM_BADGE   = 'https://upload.wikimedia.org/wikipedia/commons/9/90/Skyteam_Logo_Alliance.svg'
+const LOGO_KLM        = 'https://upload.wikimedia.org/wikipedia/commons/c/c7/KLM_logo.svg'
+const LOGO_AIRFRANCE  = 'https://upload.wikimedia.org/wikipedia/commons/4/44/Air_France_Logo.svg'
+const LOGO_VIRGIN     = 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Virgin_Atlantic_logo_2018.svg'
+const LOGO_ALASKA     = 'https://upload.wikimedia.org/wikipedia/commons/6/67/Alaska_Airlines_Logo.svg'
+const LOGO_AEROMEXICO = 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Aerom%C3%A9xico_wordmark_2024.svg'
+
 const companyPerks = [
   'Company earns SkyMiles',
   'Exchange company SkyMiles for eCredits or flight tickets',
@@ -16,11 +23,11 @@ const employeePerks = [
 ]
 
 const partnerLogos = [
-  { alt: 'KLM' },
-  { alt: 'Air France' },
-  { alt: 'Virgin Atlantic' },
-  { alt: 'Alaska Airlines' },
-  { alt: 'AeroMexico' },
+  { src: LOGO_KLM,        alt: 'KLM',             h: 45 },
+  { src: LOGO_AIRFRANCE,  alt: 'Air France',      h: 32 },
+  { src: LOGO_VIRGIN,     alt: 'Virgin Atlantic', h: 48 },
+  { src: LOGO_ALASKA,     alt: 'Alaska Airlines', h: 40 },
+  { src: LOGO_AEROMEXICO, alt: 'AeroMexico',      h: 32 },
 ]
 
 const cardStyle: React.CSSProperties = {
@@ -59,22 +66,37 @@ export function SkyMilesTeaser() {
         gap: '48px',
       }}
     >
-      {/* Heading */}
-      <h2
-        className="text-center"
-        style={{
-          fontSize: 'clamp(2rem, 5vw, var(--type-scale-64))',
-          lineHeight: 'var(--line-height-heading-xxxl)',
-          letterSpacing: 'var(--letter-spacing-heading-xxxl)',
-          color: 'var(--color-delta-blue-700)',
-          fontFamily: 'var(--font-display)',
-          fontWeight: '700',
-        }}
-      >
-        SkyMiles for
-        <br />
-        Business
-      </h2>
+      {/* Heading with SkyTeam badge */}
+      <div className="relative flex items-center justify-center shrink-0">
+        <h2
+          className="text-center"
+          style={{
+            fontSize: 'clamp(2rem, 5vw, var(--type-scale-64))',
+            lineHeight: 'var(--line-height-heading-xxxl)',
+            letterSpacing: 'var(--letter-spacing-heading-xxxl)',
+            color: 'var(--color-delta-blue-700)',
+            fontFamily: 'var(--font-display)',
+            fontWeight: '700',
+          }}
+        >
+          SkyMiles for
+          <br />
+          Business
+        </h2>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={SKYTEAM_BADGE}
+          alt="SkyTeam alliance"
+          width={90}
+          height={60}
+          style={{
+            position: 'absolute',
+            right: '-100px',
+            top: '-30px',
+            objectFit: 'contain',
+          }}
+        />
+      </div>
 
       {/* Content area */}
       <div
@@ -140,22 +162,16 @@ export function SkyMilesTeaser() {
               Airline partners where you can redeem SkyMiles: Air France, KLM, Virgin Atlantic, Air Mexico, Korean Air, WestJet, Alaska Airlines, Hawaiian Airlines, GOL, LATAM, China Eastern, China Southern, and more+.
             </p>
           </div>
-          <div className="flex flex-wrap items-center justify-between w-full" style={{ gap: '24px' }}>
+          <div className="flex flex-wrap items-center justify-around w-full" style={{ gap: '24px' }}>
             {partnerLogos.map((logo) => (
-              <span
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
                 key={logo.alt}
-                style={{
-                  fontSize: 'var(--type-scale-18)',
-                  lineHeight: 'var(--line-height-heading-xs)',
-                  color: 'var(--color-delta-blue-700)',
-                  fontFamily: 'var(--font-display)',
-                  fontWeight: '700',
-                  letterSpacing: 'var(--letter-spacing-marketing-x-large)',
-                  opacity: 0.75,
-                }}
-              >
-                {logo.alt}
-              </span>
+                src={logo.src}
+                alt={logo.alt}
+                height={logo.h}
+                style={{ height: `${logo.h}px`, width: 'auto', objectFit: 'contain', opacity: 0.85 }}
+              />
             ))}
           </div>
         </div>
