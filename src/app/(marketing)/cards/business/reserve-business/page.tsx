@@ -3,8 +3,8 @@ import Link from 'next/link'
 import { cards } from '@/config/cards'
 
 const card = cards['reserve-business']
-const hex = '#1e3a5f'
-const bg = 'rgba(30,58,95,0.08)'
+const hex = '#726394'
+const bg = 'rgba(114,99,148,0.10)'
 
 export const metadata: Metadata = {
   title: 'Delta SkyMiles® Reserve Business American Express Card | Delta for Business',
@@ -17,7 +17,7 @@ export default function ReserveBusinessCardPage() {
   return (
     <main>
       {/* Hero */}
-      <section className="py-16 px-6" style={{ background: 'linear-gradient(135deg, #0B1940 0%, #1e3a5f 100%)' }}>
+      <section className="py-16 px-6" style={{ background: 'linear-gradient(135deg, #2E1F4A 0%, #726394 100%)' }}>
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
@@ -37,9 +37,8 @@ export default function ReserveBusinessCardPage() {
               </a>
             </div>
             <div className="flex items-center justify-center">
-              <div className="w-64 h-40 rounded-2xl flex items-center justify-center shadow-2xl" style={{ background: 'linear-gradient(135deg, #0B1940, #2d5282)' }}>
-                <i className="ph-fill ph-credit-card text-8xl" style={{ color: 'rgba(255,255,255,0.5)' }}></i>
-              </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/assets/images/cards/delta-amex-reserve-card.png" alt="Delta SkyMiles Reserve Business Card" style={{ width: '340px', maxWidth: '100%', filter: 'drop-shadow(0 24px 48px rgba(0,0,0,0.35))' }} />
             </div>
           </div>
         </div>
@@ -47,7 +46,7 @@ export default function ReserveBusinessCardPage() {
 
       {/* Welcome bonus bar */}
       {card.welcomeBonus && (
-        <section className="py-8 px-6" style={{ background: 'rgba(30,58,95,0.05)', borderBottom: '1px solid var(--color-neutral-10)' }}>
+        <section className="py-8 px-6" style={{ background: 'rgba(114,99,148,0.07)', borderBottom: '1px solid var(--color-neutral-10)' }}>
           <div className="max-w-4xl mx-auto text-center">
             <p style={{ fontSize: 'var(--type-scale-12)', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--color-neutral-600)', marginBottom: '4px' }}>Welcome offer</p>
             <p style={{ fontSize: 'var(--type-scale-28)', fontFamily: 'var(--font-display)', fontWeight: '700', color: hex }}>{card.welcomeBonus.miles.toLocaleString()} bonus miles</p>

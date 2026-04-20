@@ -3,8 +3,8 @@ import Link from 'next/link'
 import { cards } from '@/config/cards'
 
 const card = cards['gold-business']
-const hex = '#d97706'
-const bg = 'rgba(217,119,6,0.08)'
+const hex = '#BF9B5F'
+const bg = 'rgba(191,155,95,0.10)'
 
 export const metadata: Metadata = {
   title: 'Delta SkyMiles® Gold Business American Express Card | Delta for Business',
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function GoldBusinessCardPage() {
   return (
     <main>
-      <section className="py-16 px-6" style={{ background: 'linear-gradient(135deg, #92400e 0%, #d97706 100%)' }}>
+      <section className="py-16 px-6" style={{ background: 'linear-gradient(135deg, #7A5C2A 0%, #BF9B5F 100%)' }}>
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
@@ -32,9 +32,8 @@ export default function GoldBusinessCardPage() {
               </a>
             </div>
             <div className="flex items-center justify-center">
-              <div className="w-64 h-40 rounded-2xl flex items-center justify-center shadow-2xl" style={{ background: 'linear-gradient(135deg, #b45309, #f59e0b)' }}>
-                <i className="ph-fill ph-credit-card text-8xl" style={{ color: 'rgba(255,255,255,0.6)' }}></i>
-              </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/assets/images/cards/delta-amex-gold-card.png" alt="Delta SkyMiles Gold Business Card" style={{ width: '340px', maxWidth: '100%', filter: 'drop-shadow(0 24px 48px rgba(0,0,0,0.35))' }} />
             </div>
           </div>
         </div>

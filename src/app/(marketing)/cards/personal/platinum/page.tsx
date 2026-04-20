@@ -3,8 +3,8 @@ import Link from 'next/link'
 import { cards } from '@/config/cards'
 
 const card = cards.platinum
-const hex = '#7c3aed'
-const bg = 'rgba(124,58,237,0.08)'
+const hex = '#9BA6B0'
+const bg = 'rgba(155,166,176,0.10)'
 
 export const metadata: Metadata = {
   title: 'Delta SkyMiles® Platinum American Express Card | Delta for Business',
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function PlatinumCardPage() {
   return (
     <main>
-      <section className="py-16 px-6" style={{ background: 'linear-gradient(135deg, #4c1d95 0%, #7c3aed 100%)' }}>
+      <section className="py-16 px-6" style={{ background: 'linear-gradient(135deg, #4A5760 0%, #9BA6B0 100%)' }}>
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
@@ -32,16 +32,15 @@ export default function PlatinumCardPage() {
               </a>
             </div>
             <div className="flex items-center justify-center">
-              <div className="w-64 h-40 rounded-2xl flex items-center justify-center shadow-2xl" style={{ background: 'linear-gradient(135deg, #6d28d9, #a78bfa)' }}>
-                <i className="ph-fill ph-credit-card text-8xl" style={{ color: 'rgba(255,255,255,0.6)' }}></i>
-              </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/assets/images/cards/delta-amex-platinum-card.png" alt="Delta SkyMiles Platinum Card" style={{ width: '340px', maxWidth: '100%', filter: 'drop-shadow(0 24px 48px rgba(0,0,0,0.35))' }} />
             </div>
           </div>
         </div>
       </section>
 
       {card.welcomeBonus && (
-        <section className="py-8 px-6" style={{ background: 'rgba(124,58,237,0.06)', borderBottom: '1px solid var(--color-neutral-10)' }}>
+        <section className="py-8 px-6" style={{ background: 'rgba(155,166,176,0.08)', borderBottom: '1px solid var(--color-neutral-10)' }}>
           <div className="max-w-4xl mx-auto text-center">
             <p style={{ fontSize: 'var(--type-scale-12)', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--color-neutral-600)', marginBottom: '4px' }}>Welcome offer</p>
             <p style={{ fontSize: 'var(--type-scale-28)', fontFamily: 'var(--font-display)', fontWeight: '700', color: hex }}>{card.welcomeBonus.miles.toLocaleString()} bonus miles</p>
