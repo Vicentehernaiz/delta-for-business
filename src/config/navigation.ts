@@ -46,7 +46,7 @@ export const utilityNav: NavItem[] = [
 
 // ── Auth navigation ────────────────────────────────────────
 export const authNav = {
-  login: { label: 'Log In', href: '/account/dashboard' },
+  login: { label: 'Log In', href: '/login' },
   cta: { label: 'Get Started', href: '/enroll/individual' },
 }
 

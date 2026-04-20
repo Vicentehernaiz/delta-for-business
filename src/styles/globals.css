@@ -9,6 +9,10 @@
 @tailwind utilities;
 
 /* ── Base styles ────────────────────────── */
+html, body {
+  overflow-x: hidden;
+}
+
 body {
   font-family: var(--font-body);
   color: var(--color-delta-navy);

@@ -184,7 +184,7 @@ function CardTile({ card, narrow = false }: { card: CardData; narrow?: boolean }
         padding: p,
         gap: '24px',
         flex: narrow ? '0 0 auto' : '1 0 0',
-        minWidth: narrow ? '300px' : '470px',
+        minWidth: narrow ? 'min(300px, calc(100vw - 48px))' : '470px',
         width: narrow ? '336px' : undefined,
       }}
     >

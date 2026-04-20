@@ -1,8 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { Nav } from '@/components/marketing/Nav'
-import { Footer } from '@/components/marketing/Footer'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -32,8 +30,6 @@ export default function EnrollIndividualPage() {
 
   return (
     <>
-      <Nav />
-      <main style={{ paddingTop: 'var(--nav-height)', background: 'var(--color-neutral-5)', minHeight: '80vh' }}>
         <div className="grid grid-cols-1 lg:grid-cols-2" style={{ minHeight: 'calc(100vh - var(--nav-height))' }}>
           {/* Left: benefits panel */}
           <div
@@ -292,8 +288,6 @@ export default function EnrollIndividualPage() {
             )}
           </div>
         </div>
-      </main>
-      <Footer />
     </>
   )
 }

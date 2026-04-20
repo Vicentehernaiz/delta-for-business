@@ -1,8 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { Nav } from '@/components/marketing/Nav'
-import { Footer } from '@/components/marketing/Footer'
 import Link from 'next/link'
 
 const COMPANY_SIZES = ['50–200 travelers', '200–500 travelers', '500–1,000 travelers', '1,000+ travelers']
@@ -36,8 +34,6 @@ export default function EnrollEnterprisePage() {
 
   return (
     <>
-      <Nav />
-      <main style={{ paddingTop: 'var(--nav-height)', background: 'var(--color-neutral-5)', minHeight: '80vh' }}>
         <div className="grid grid-cols-1 lg:grid-cols-2" style={{ minHeight: 'calc(100vh - var(--nav-height))' }}>
           {/* Left panel */}
           <div
@@ -242,8 +238,6 @@ export default function EnrollEnterprisePage() {
             )}
           </div>
         </div>
-      </main>
-      <Footer />
     </>
   )
 }

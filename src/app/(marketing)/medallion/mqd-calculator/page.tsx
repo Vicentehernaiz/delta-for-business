@@ -1,7 +1,5 @@
 import type { Metadata } from 'next'
 import { MQDCalculator } from '@/components/tools/MQDCalculator'
-import { Nav } from '@/components/marketing/Nav'
-import { Footer } from '@/components/marketing/Footer'
 
 export const metadata: Metadata = {
   title: 'MQD Calculator — Medallion Status Projection | Delta for Business',
@@ -13,8 +11,6 @@ export const metadata: Metadata = {
 export default function MQDCalculatorPage() {
   return (
     <>
-      <Nav />
-      <main style={{ paddingTop: 'var(--nav-height)' }}>
         <section
           className="py-16"
           style={{ background: `linear-gradient(135deg, var(--color-delta-blue-700) 0%, var(--color-delta-blue-600) 100%)` }}
@@ -42,8 +38,6 @@ export default function MQDCalculatorPage() {
             <MQDCalculator />
           </div>
         </section>
-      </main>
-      <Footer />
     </>
   )
 }

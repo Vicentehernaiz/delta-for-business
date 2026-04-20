@@ -1,8 +1,6 @@
 import type { Metadata } from 'next'
 import { segments } from '@/config/segments'
 import { notFound } from 'next/navigation'
-import { Nav } from '@/components/marketing/Nav'
-import { Footer } from '@/components/marketing/Footer'
 import { ProgramFinder } from '@/components/marketing/ProgramFinder'
 import Link from 'next/link'
 
@@ -99,8 +97,6 @@ export default function SegmentPage({ params }: { params: { segment: string } })
 
   return (
     <>
-      <Nav />
-      <main style={{ paddingTop: 'var(--nav-height)' }}>
         {/* Hero */}
         <section
           className="py-20"
@@ -315,8 +311,6 @@ export default function SegmentPage({ params }: { params: { segment: string } })
 
         {/* Compare all programs */}
         <ProgramFinder activeSegment={params.segment} />
-      </main>
-      <Footer />
     </>
   )
 }

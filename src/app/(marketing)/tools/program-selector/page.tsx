@@ -1,7 +1,5 @@
 import type { Metadata } from 'next'
 import { ProgramQuiz } from '@/components/tools/ProgramQuiz'
-import { Nav } from '@/components/marketing/Nav'
-import { Footer } from '@/components/marketing/Footer'
 
 export const metadata: Metadata = {
   title: 'Find Your Delta Business Travel Program | 60-Second Quiz',
@@ -13,8 +11,6 @@ export const metadata: Metadata = {
 export default function ProgramSelectorPage() {
   return (
     <>
-      <Nav />
-      <main style={{ paddingTop: 'var(--nav-height)' }}>
         {/* Hero */}
         <section
           className="py-16"
@@ -57,8 +53,6 @@ export default function ProgramSelectorPage() {
             <ProgramQuiz />
           </div>
         </section>
-      </main>
-      <Footer />
     </>
   )
 }

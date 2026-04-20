@@ -2,8 +2,6 @@
 
 import type { Metadata } from 'next'
 import { useState } from 'react'
-import { Nav } from '@/components/marketing/Nav'
-import { Footer } from '@/components/marketing/Footer'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -275,9 +273,7 @@ export default function EnrollSMBPage() {
 
   if (submitted) {
     return (
-      <>
-        <Nav />
-        <main style={{ paddingTop: 'var(--nav-height)', minHeight: '80vh', background: 'var(--color-neutral-5)' }}>
+      <div style={{ minHeight: '80vh', background: 'var(--color-neutral-5)' }}>
           <div className="flex items-center justify-center py-20 px-6">
             <div
               className="rounded-[var(--radius-l)] p-12 text-center"
@@ -329,16 +325,12 @@ export default function EnrollSMBPage() {
               </Link>
             </div>
           </div>
-        </main>
-        <Footer />
-      </>
+      </div>
     )
   }
 
   return (
-    <>
-      <Nav />
-      <main style={{ paddingTop: 'var(--nav-height)', minHeight: '80vh', background: 'var(--color-neutral-5)' }}>
+    <div style={{ minHeight: '80vh', background: 'var(--color-neutral-5)' }}>
         {/* Hero strip */}
         <section
           className="py-10"
@@ -516,8 +508,6 @@ export default function EnrollSMBPage() {
             </div>
           </div>
         </section>
-      </main>
-      <Footer />
-    </>
+    </div>
   )
 }

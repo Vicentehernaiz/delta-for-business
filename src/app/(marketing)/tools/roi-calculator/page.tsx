@@ -1,7 +1,5 @@
 import type { Metadata } from 'next'
 import { ROICalculator } from '@/components/tools/ROICalculator'
-import { Nav } from '@/components/marketing/Nav'
-import { Footer } from '@/components/marketing/Footer'
 
 export const metadata: Metadata = {
   title: 'Delta for Business ROI Calculator | See Your Savings',
@@ -13,8 +11,6 @@ export const metadata: Metadata = {
 export default function ROICalculatorPage() {
   return (
     <>
-      <Nav />
-      <main style={{ paddingTop: 'var(--nav-height)' }}>
         {/* Hero */}
         <section
           className="py-16"
@@ -57,8 +53,6 @@ export default function ROICalculatorPage() {
             <ROICalculator />
           </div>
         </section>
-      </main>
-      <Footer />
     </>
   )
 }
