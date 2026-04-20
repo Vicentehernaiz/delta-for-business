@@ -7,9 +7,9 @@ import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const BENEFITS = [
-  { icon: 'ph-fill ph-buildings', title: 'Hertz Five Star status', desc: 'Skip the counter, free upgrades' },
-  { icon: 'ph-fill ph-lightning', title: 'CLEAR Plus discount', desc: 'Expedited airport security — $119/yr' },
-  { icon: 'ph-fill ph-briefcase', title: 'Industrious coworking', desc: '$99/month (vs $149 retail)' },
+  { icon: 'ph-fill ph-car-profile', title: 'Hertz Five Star status', desc: 'Skip the counter, free upgrades' },
+  { icon: 'ph-fill ph-fingerprint', title: 'CLEAR Plus discount', desc: 'Expedited airport security — $119/yr' },
+  { icon: 'ph-fill ph-buildings', title: 'Industrious coworking', desc: '$99/month (vs $149 retail)' },
   { icon: 'ph-fill ph-linkedin-logo', title: 'LinkedIn Premium', desc: 'Discounted access for business travelers' },
 ]
 
