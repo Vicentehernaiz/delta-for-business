@@ -1,5 +1,6 @@
 'use client'
 
+import { useRef } from 'react'
 import { useQuizStore } from '@/stores/quiz'
 import type { QuizContext, QuizCompanySize, QuizSpend, QuizGoal } from '@/stores/quiz'
 import { segments } from '@/config/segments'
@@ -441,7 +442,7 @@ function Step4() {
   )
 }
 
-function ResultScreen() {
+function ResultScreen({ onScrollToBenefits }: { onScrollToBenefits?: () => void }) {
   const { result, reset } = useQuizStore()
   if (!result) return null
 
@@ -559,6 +560,25 @@ function ResultScreen() {
         </div>
       )}
 
+      {/* Mobile-only: scroll to benefits */}
+      {onScrollToBenefits && (
+        <button
+          onClick={onScrollToBenefits}
+          className="lg:hidden w-full flex items-center justify-center gap-2 font-semibold mb-1"
+          style={{
+            height: '44px',
+            borderRadius: 'var(--radius-full)',
+            background: 'var(--color-delta-blue-50)',
+            border: '1px solid var(--color-delta-blue-300)',
+            color: 'var(--color-delta-blue-700)',
+            fontSize: 'var(--type-scale-15)',
+          }}
+        >
+          <i className="ph ph-list-checks text-base"></i>
+          Ver todos los beneficios <i className="ph ph-arrow-down text-sm"></i>
+        </button>
+      )}
+
       {/* CTAs */}
       <div className="flex flex-col gap-3">
         {segment && (
@@ -625,16 +645,13 @@ function PlanDetails({ programId }: { programId: string }) {
 
   return (
     <div
-      className="rounded-[var(--radius-l)] flex flex-col"
+      className="rounded-[var(--radius-l)] flex flex-col w-full"
       style={{
         background: 'var(--color-neutral-0)',
         border: '1px solid var(--color-neutral-10)',
         boxShadow: 'var(--shadow-card)',
         padding: '32px',
         gap: '24px',
-        maxWidth: '560px',
-        margin: '0 auto',
-        width: '100%',
       }}
     >
       {/* Header */}
@@ -755,55 +772,79 @@ function PlanDetails({ programId }: { programId: string }) {
 
 export function ProgramQuiz() {
   const { currentStep, totalSteps, isComplete, result } = useQuizStore()
+  const planDetailsRef = useRef<HTMLDivElement>(null)
 
-  return (
-    <div className="flex flex-col" style={{ gap: '24px' }}>
-      {/* Quiz card */}
-      <div
-        className="mx-auto rounded-[var(--radius-l)] w-full"
-        style={{
-          maxWidth: '560px',
-          background: 'var(--color-neutral-0)',
-          border: '1px solid var(--color-neutral-10)',
-          boxShadow: 'var(--shadow-card)',
-          padding: '32px',
-        }}
+  const scrollToBenefits = () => {
+    planDetailsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
+  if (isComplete && result) {
+    return (
+      <motion.div
+        className="grid grid-cols-1 lg:grid-cols-2 items-start"
+        style={{ gap: '24px' }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.35 }}
       >
-        {!isComplete && <ProgressBar current={currentStep} total={totalSteps} />}
+        {/* Left: result card */}
+        <div
+          className="rounded-[var(--radius-l)] w-full"
+          style={{
+            background: 'var(--color-neutral-0)',
+            border: '1px solid var(--color-neutral-10)',
+            boxShadow: 'var(--shadow-card)',
+            padding: '32px',
+          }}
+        >
+          <ResultScreen onScrollToBenefits={scrollToBenefits} />
+        </div>
 
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={isComplete ? 'result' : currentStep}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
-            transition={{ duration: 0.3, ease: 'easeOut' }}
-          >
-            {isComplete ? (
-              <ResultScreen />
-            ) : currentStep === 1 ? (
-              <Step1 />
-            ) : currentStep === 2 ? (
-              <Step2 />
-            ) : currentStep === 3 ? (
-              <Step3 />
-            ) : (
-              <Step4 />
-            )}
-          </motion.div>
-        </AnimatePresence>
-      </div>
-
-      {/* Plan details — shown below the card once complete */}
-      {isComplete && result && (
+        {/* Right: plan details */}
         <motion.div
+          ref={planDetailsRef}
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, ease: 'easeOut', delay: 0.2 }}
+          transition={{ duration: 0.4, ease: 'easeOut', delay: 0.15 }}
         >
           <PlanDetails programId={result.program} />
         </motion.div>
-      )}
+      </motion.div>
+    )
+  }
+
+  return (
+    <div
+      className="mx-auto rounded-[var(--radius-l)] w-full"
+      style={{
+        maxWidth: '560px',
+        background: 'var(--color-neutral-0)',
+        border: '1px solid var(--color-neutral-10)',
+        boxShadow: 'var(--shadow-card)',
+        padding: '32px',
+      }}
+    >
+      <ProgressBar current={currentStep} total={totalSteps} />
+
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={currentStep}
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -20 }}
+          transition={{ duration: 0.3, ease: 'easeOut' }}
+        >
+          {currentStep === 1 ? (
+            <Step1 />
+          ) : currentStep === 2 ? (
+            <Step2 />
+          ) : currentStep === 3 ? (
+            <Step3 />
+          ) : (
+            <Step4 />
+          )}
+        </motion.div>
+      </AnimatePresence>
     </div>
   )
 }
