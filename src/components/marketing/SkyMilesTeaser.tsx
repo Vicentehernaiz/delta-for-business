@@ -1,12 +1,5 @@
 import Link from 'next/link'
 
-const SKYTEAM_BADGE = 'https://www.figma.com/api/mcp/asset/c1e8bcb5-a5e2-4f0b-b03e-86f1df409fb1'
-const LOGO_KLM       = 'https://www.figma.com/api/mcp/asset/aa0f37d1-e8ef-487c-9ed2-db0f3a805ed2'
-const LOGO_AIRFRANCE = 'https://www.figma.com/api/mcp/asset/8ee7781c-1de9-432c-a73d-1a4b312a82bb'
-const LOGO_VIRGIN    = 'https://www.figma.com/api/mcp/asset/29289766-334d-4f66-be0e-782b18a9a446'
-const LOGO_ALASKA    = 'https://www.figma.com/api/mcp/asset/baf3ce9d-a576-4f3d-b072-17f2f5a489a2'
-const LOGO_AEROMEXICO = 'https://www.figma.com/api/mcp/asset/ac5fcc96-fa5f-4fb3-b44e-60ea53dd37a4'
-
 const companyPerks = [
   'Company earns SkyMiles',
   'Exchange company SkyMiles for eCredits or flight tickets',
@@ -23,11 +16,11 @@ const employeePerks = [
 ]
 
 const partnerLogos = [
-  { src: LOGO_KLM,       alt: 'KLM',        w: 76,  h: 45 },
-  { src: LOGO_AIRFRANCE, alt: 'Air France',  w: 174, h: 15 },
-  { src: LOGO_VIRGIN,    alt: 'Virgin',      w: 66,  h: 57 },
-  { src: LOGO_ALASKA,    alt: 'Alaska',      w: 131, h: 40 },
-  { src: LOGO_AEROMEXICO,alt: 'AeroMexico',  w: 124, h: 59 },
+  { alt: 'KLM' },
+  { alt: 'Air France' },
+  { alt: 'Virgin Atlantic' },
+  { alt: 'Alaska Airlines' },
+  { alt: 'AeroMexico' },
 ]
 
 const cardStyle: React.CSSProperties = {
@@ -66,37 +59,22 @@ export function SkyMilesTeaser() {
         gap: '48px',
       }}
     >
-      {/* Heading with SkyTeam badge */}
-      <div className="relative flex items-center justify-center shrink-0">
-        <h2
-          className="text-center"
-          style={{
-            fontSize: 'clamp(2rem, 5vw, var(--type-scale-64))',
-            lineHeight: 'var(--line-height-heading-xxxl)',
-            letterSpacing: 'var(--letter-spacing-heading-xxxl)',
-            color: 'var(--color-delta-blue-700)',
-            fontFamily: 'var(--font-display)',
-            fontWeight: '700',
-          }}
-        >
-          SkyMiles for
-          <br />
-          Business
-        </h2>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={SKYTEAM_BADGE}
-          alt="SkyTeam alliance"
-          width={81}
-          height={69}
-          style={{
-            position: 'absolute',
-            right: '-91px',
-            top: '-35px',
-            objectFit: 'contain',
-          }}
-        />
-      </div>
+      {/* Heading */}
+      <h2
+        className="text-center"
+        style={{
+          fontSize: 'clamp(2rem, 5vw, var(--type-scale-64))',
+          lineHeight: 'var(--line-height-heading-xxxl)',
+          letterSpacing: 'var(--letter-spacing-heading-xxxl)',
+          color: 'var(--color-delta-blue-700)',
+          fontFamily: 'var(--font-display)',
+          fontWeight: '700',
+        }}
+      >
+        SkyMiles for
+        <br />
+        Business
+      </h2>
 
       {/* Content area */}
       <div
@@ -164,15 +142,20 @@ export function SkyMilesTeaser() {
           </div>
           <div className="flex flex-wrap items-center justify-between w-full" style={{ gap: '24px' }}>
             {partnerLogos.map((logo) => (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
+              <span
                 key={logo.alt}
-                src={logo.src}
-                alt={logo.alt}
-                width={logo.w}
-                height={logo.h}
-                style={{ objectFit: 'contain' }}
-              />
+                style={{
+                  fontSize: 'var(--type-scale-18)',
+                  lineHeight: 'var(--line-height-heading-xs)',
+                  color: 'var(--color-delta-blue-700)',
+                  fontFamily: 'var(--font-display)',
+                  fontWeight: '700',
+                  letterSpacing: 'var(--letter-spacing-marketing-x-large)',
+                  opacity: 0.75,
+                }}
+              >
+                {logo.alt}
+              </span>
             ))}
           </div>
         </div>

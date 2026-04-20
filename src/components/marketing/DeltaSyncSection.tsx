@@ -1,7 +1,5 @@
 import Link from 'next/link'
 
-const DASHBOARD_IMG = 'https://www.figma.com/api/mcp/asset/9a03a1f6-8035-4e69-a760-620af0f21ac7'
-
 export function DeltaSyncSection() {
   return (
     <section
@@ -40,32 +38,47 @@ export function DeltaSyncSection() {
         }}
       >
         {/* Dashboard preview */}
-        <div
-          className="relative w-full"
+        <Link
+          href="/account/dashboard"
+          className="relative w-full flex items-center justify-center"
           style={{
-            background: 'var(--color-neutral-0)',
+            background: 'linear-gradient(135deg, var(--color-delta-blue-700) 0%, var(--color-delta-blue-500) 100%)',
             border: '1px solid var(--color-neutral-5)',
             borderRadius: 'var(--radius-l)',
             boxShadow: 'var(--shadow-card)',
             height: '594px',
             overflow: 'hidden',
+            color: 'var(--color-neutral-0)',
+            textAlign: 'center',
+            padding: '32px',
           }}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            alt="Delta SYNC dashboard preview"
-            src={DASHBOARD_IMG}
-            style={{
-              position: 'absolute',
-              width: '100%',
-              height: '273.43%',
-              left: '-0.02%',
-              top: '-7.34%',
-              maxWidth: 'none',
-              pointerEvents: 'none',
-            }}
-          />
-        </div>
+          <div className="flex flex-col items-center" style={{ gap: '16px' }}>
+            <i className="ph-duotone ph-chart-line-up" style={{ fontSize: '96px' }}></i>
+            <p
+              style={{
+                fontSize: 'var(--type-scale-28)',
+                lineHeight: 'var(--line-height-heading-m)',
+                fontFamily: 'var(--font-display)',
+                fontWeight: '700',
+              }}
+            >
+              Open the Delta SYNC dashboard
+            </p>
+            <p
+              style={{
+                fontSize: 'var(--type-scale-16)',
+                lineHeight: 'var(--line-height-body-medium)',
+                fontFamily: 'var(--font-body)',
+                fontWeight: '500',
+                opacity: 0.9,
+                maxWidth: '480px',
+              }}
+            >
+              Live KPIs, miles balance, traveler roster, tier progress and credit wallet — all in one place.
+            </p>
+          </div>
+        </Link>
 
         {/* Description */}
         <p

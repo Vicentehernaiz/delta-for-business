@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-const HERO_IMG_PERSON = 'https://www.figma.com/api/mcp/asset/9575d895-db4c-431f-9373-1f37726f3bad'
-const HERO_IMG_PLANE  = 'https://www.figma.com/api/mcp/asset/49b4ad42-d608-44c3-84b8-baff0c0dfca7'
+const HERO_IMG_PERSON = '/assets/images/hero/hero-section-image-delta-for-business.png'
+const HERO_IMG_PLANE  = '/assets/images/hero/delta-plane-hero-section.png'
 
 export function Hero() {
   return (
@@ -18,7 +18,7 @@ export function Hero() {
     >
       {/* Sky background */}
       <Image
-        src="/images/hero/delta-hero-section-sky-background.jpg"
+        src="/assets/images/hero/delta-hero-section-sky-background.jpg"
         alt=""
         fill
         className="object-cover object-center pointer-events-none"

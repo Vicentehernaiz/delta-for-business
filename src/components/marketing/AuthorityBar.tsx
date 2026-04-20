@@ -1,8 +1,8 @@
-const LOGO_DELOITTE  = 'https://www.figma.com/api/mcp/asset/19ef3445-4883-4d28-831c-3a7497c2491d'
-const LOGO_COCACOLA  = 'https://www.figma.com/api/mcp/asset/e6349eeb-6779-486d-8889-7dbda0d9cce9'
-const LOGO_AMEX      = 'https://www.figma.com/api/mcp/asset/59940406-ae6b-433f-95e2-2ead74d426d8'
-const LOGO_MICROSOFT = 'https://www.figma.com/api/mcp/asset/1f8472cc-7dec-437a-b0a3-d61ad752931e'
-const LOGO_IBM       = 'https://www.figma.com/api/mcp/asset/26f22e3d-6105-4c86-a4ec-426757b5705d'
+const LOGO_DELOITTE  = '/assets/images/logos/https_/business.delta.com/logo-deloitte-svg.svg'
+const LOGO_COCACOLA  = '/assets/images/logos/coca-cola-logo.png'
+const LOGO_AMEX      = '/assets/images/logos/american-express-logo.svg'
+const LOGO_MICROSOFT = '/assets/images/logos/microsfot-logo.svg'
+const LOGO_IBM       = '/assets/images/logos/ibm-logo.svg'
 
 const stats = [
   { value: '1st',   desc: 'in business travel survey for 13 consecutive years.' },

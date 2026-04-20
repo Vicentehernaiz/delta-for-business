@@ -3,10 +3,10 @@
 import { useState } from 'react'
 import Link from 'next/link'
 
-const IMG_BLUE     = 'https://www.figma.com/api/mcp/asset/4860beb6-726c-41bc-a511-8a4682a98953'
-const IMG_GOLD     = 'https://www.figma.com/api/mcp/asset/fd32c592-bb3c-4b00-8d0a-c5478b781aa8'
-const IMG_PLATINUM = 'https://www.figma.com/api/mcp/asset/99b48110-44ed-4134-8d72-e5a107529010'
-const IMG_RESERVE  = 'https://www.figma.com/api/mcp/asset/c3de6f2a-3b1e-4e98-be20-0b7820fce5f0'
+const IMG_BLUE     = '/assets/images/cards/delta-amex-blue-card.png'
+const IMG_GOLD     = '/assets/images/cards/delta-amex-gold-card.png'
+const IMG_PLATINUM = '/assets/images/cards/delta-amex-platinum-card.png'
+const IMG_RESERVE  = '/assets/images/cards/delta-amex-reserve-card.png'
 
 type CardTab = 'business' | 'personal'
 
