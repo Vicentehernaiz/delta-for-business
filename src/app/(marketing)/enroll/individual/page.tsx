@@ -6,8 +6,10 @@ import { Footer } from '@/components/marketing/Footer'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const BENEFITS = [
-  { icon: 'ph-fill ph-car-profile', title: 'Hertz Five Star status', desc: 'Skip the counter, free upgrades' },
+type Benefit = { title: string; desc: string; icon?: string; img?: string }
+
+const BENEFITS: Benefit[] = [
+  { img: '/assets/images/logos/logo-hetz-png.png', title: 'Hertz Five Star status', desc: 'Skip the counter, free upgrades' },
   { icon: 'ph-fill ph-fingerprint', title: 'CLEAR Plus discount', desc: 'Expedited airport security — $119/yr' },
   { icon: 'ph-fill ph-buildings', title: 'Industrious coworking', desc: '$99/month (vs $149 retail)' },
   { icon: 'ph-fill ph-linkedin-logo', title: 'LinkedIn Premium', desc: 'Discounted access for business travelers' },
@@ -70,10 +72,19 @@ export default function EnrollIndividualPage() {
               {BENEFITS.map((b) => (
                 <div key={b.title} className="flex items-start gap-4">
                   <div
-                    className="flex items-center justify-center w-10 h-10 rounded-full flex-shrink-0"
-                    style={{ background: 'rgba(255,255,255,0.1)' }}
+                    className="flex items-center justify-center w-10 h-10 rounded-full flex-shrink-0 overflow-hidden"
+                    style={{ background: 'rgba(255,255,255,0.95)' }}
                   >
-                    <i className={`${b.icon} text-xl`} style={{ color: 'var(--color-neutral-0)' }}></i>
+                    {b.img ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={b.img}
+                        alt={b.title}
+                        style={{ width: '70%', height: '70%', objectFit: 'contain' }}
+                      />
+                    ) : (
+                      <i className={`${b.icon} text-xl`} style={{ color: 'var(--color-delta-blue-600)' }}></i>
+                    )}
                   </div>
                   <div>
                     <p style={{ fontWeight: '700', color: 'var(--color-neutral-0)', fontSize: 'var(--type-scale-16)' }}>
