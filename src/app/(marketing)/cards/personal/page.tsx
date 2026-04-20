@@ -1,19 +1,189 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { cards, cardOrder } from '@/config/cards'
 
 export const metadata: Metadata = {
-  title: 'Delta Personal Credit Cards',
+  title: 'Delta SkyMiles® Personal Credit Cards | Delta for Business',
   description:
-    'Explore Delta SkyMiles American Express personal credit cards: Blue, Gold, Platinum, and Reserve. Earn miles on personal travel.',
+    'Compare Delta SkyMiles American Express personal credit cards: Blue ($0), Gold ($150), Platinum ($350), Reserve ($650). Earn miles, unlock Medallion status.',
   alternates: { canonical: 'https://business.delta.com/cards/personal' },
 }
 
+const tierColors: Record<string, string> = {
+  blue: '#6b7280',
+  gold: '#d97706',
+  platinum: '#7c3aed',
+  reserve: '#1e3a5f',
+}
+
+const tierBg: Record<string, string> = {
+  blue: 'rgba(107,114,128,0.08)',
+  gold: 'rgba(217,119,6,0.08)',
+  platinum: 'rgba(124,58,237,0.08)',
+  reserve: 'rgba(30,58,95,0.08)',
+}
+
+const tierGradient: Record<string, string> = {
+  blue: 'linear-gradient(135deg, #374151, #9ca3af)',
+  gold: 'linear-gradient(135deg, #92400e, #d97706)',
+  platinum: 'linear-gradient(135deg, #4c1d95, #7c3aed)',
+  reserve: 'linear-gradient(135deg, #0B1940, #1e3a5f)',
+}
+
 export default function PersonalCardsPage() {
+  const personalCards = cardOrder.map((id) => cards[id])
+
   return (
-    <section className="container py-12">
-      <h1 className="text-4xl font-bold">Delta Personal Credit Cards</h1>
-      <p className="mt-4 text-lg text-gray-600">
-        Agent 2 will implement — see docs/02-sitemap-page-structure.md
-      </p>
-    </section>
+    <main>
+      {/* Hero */}
+      <section
+        className="py-16 px-6"
+        style={{ background: 'linear-gradient(135deg, var(--color-delta-blue-700) 0%, var(--color-delta-blue-600) 100%)' }}
+      >
+        <div className="max-w-5xl mx-auto text-center">
+          <p style={{ fontSize: 'var(--type-scale-13)', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'rgba(255,255,255,0.6)', marginBottom: '12px' }}>
+            Delta SkyMiles × American Express
+          </p>
+          <h1 style={{ fontSize: 'var(--type-scale-48)', fontFamily: 'var(--font-display)', fontWeight: '700', color: 'var(--color-neutral-0)', lineHeight: 1.1, marginBottom: '16px' }}>
+            Personal cards
+          </h1>
+          <p style={{ fontSize: 'var(--type-scale-18)', color: 'rgba(255,255,255,0.8)', maxWidth: '560px', margin: '0 auto 32px' }}>
+            Four cards from no annual fee to premium. Miles go to your personal SkyMiles account — and every card accelerates Medallion status.
+          </p>
+          <div className="flex items-center justify-center gap-4 flex-wrap">
+            <Link
+              href="/cards/compare"
+              className="inline-flex items-center gap-2 font-semibold"
+              style={{ height: '48px', padding: '0 24px', borderRadius: 'var(--radius-full)', background: 'var(--color-delta-red-400)', color: 'var(--color-neutral-0)', fontSize: 'var(--type-scale-16)', boxShadow: 'var(--shadow-button)' }}
+            >
+              Compare all 7 cards <i className="ph-bold ph-arrow-right text-sm"></i>
+            </Link>
+            <Link
+              href="/cards/business"
+              className="inline-flex items-center gap-2 font-semibold"
+              style={{ height: '48px', padding: '0 24px', borderRadius: 'var(--radius-full)', background: 'rgba(255,255,255,0.1)', color: 'var(--color-neutral-0)', fontSize: 'var(--type-scale-16)', border: '1px solid rgba(255,255,255,0.2)' }}
+            >
+              See business cards
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Summary bar */}
+      <section style={{ background: 'var(--color-neutral-5)', borderBottom: '1px solid var(--color-neutral-10)' }}>
+        <div className="max-w-5xl mx-auto px-6 py-6 grid grid-cols-2 md:grid-cols-4 gap-6">
+          {[
+            { label: 'No annual fee option', value: '$0', desc: 'Delta Blue card' },
+            { label: 'Top welcome bonus', value: '80K miles', desc: 'Reserve card' },
+            { label: 'Max earning rate', value: '3x miles', desc: 'On Delta purchases' },
+            { label: 'MQD head start', value: '$2,500', desc: 'Platinum & Reserve' },
+          ].map((f) => (
+            <div key={f.label} className="text-center">
+              <p style={{ fontSize: 'var(--type-scale-22)', fontFamily: 'var(--font-display)', fontWeight: '700', color: 'var(--color-delta-blue-700)' }}>{f.value}</p>
+              <p style={{ fontSize: 'var(--type-scale-12)', fontWeight: '700', color: 'var(--color-delta-blue-600)' }}>{f.label}</p>
+              <p style={{ fontSize: 'var(--type-scale-12)', color: 'var(--color-neutral-600)' }}>{f.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Cards grid */}
+      <section className="py-16 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {personalCards.map((card) => {
+              const color = tierColors[card.tier]
+              const bg = tierBg[card.tier]
+              const gradient = tierGradient[card.tier]
+              return (
+                <div
+                  key={card.id}
+                  className="rounded-[var(--radius-l)] overflow-hidden flex flex-col"
+                  style={{ background: 'var(--color-neutral-0)', border: `1px solid ${color}22`, boxShadow: 'var(--shadow-card)' }}
+                >
+                  {/* Card visual */}
+                  <div className="h-40 flex items-center justify-center" style={{ background: gradient }}>
+                    <i className="ph-fill ph-credit-card text-6xl" style={{ color: 'rgba(255,255,255,0.6)' }}></i>
+                  </div>
+                  <div className="p-5 flex flex-col flex-1">
+                    <div className="flex items-center justify-between mb-3">
+                      <span
+                        className="capitalize font-bold px-2 py-0.5 rounded-full"
+                        style={{ background: bg, color, fontSize: 'var(--type-scale-11)' }}
+                      >
+                        {card.tier}
+                      </span>
+                      <span style={{ fontSize: 'var(--type-scale-16)', fontWeight: '700', color: 'var(--color-delta-blue-700)' }}>
+                        {card.annualFee === 0 ? 'No fee' : `$${card.annualFee}/yr`}
+                      </span>
+                    </div>
+                    <h2 style={{ fontSize: 'var(--type-scale-14)', fontWeight: '700', color: 'var(--color-delta-blue-600)', marginBottom: '8px', lineHeight: 1.3 }}>
+                      {card.name}
+                    </h2>
+                    <div className="space-y-1.5 mb-4 flex-1">
+                      {card.earningRates.slice(0, 3).map((r) => (
+                        <div key={r.category} className="flex justify-between">
+                          <span style={{ fontSize: 'var(--type-scale-12)', color: 'var(--color-neutral-600)' }}>{r.category}</span>
+                          <span style={{ fontSize: 'var(--type-scale-12)', fontWeight: '700', color }}>{r.rate}</span>
+                        </div>
+                      ))}
+                    </div>
+                    {card.welcomeBonus && (
+                      <p style={{ fontSize: 'var(--type-scale-12)', color: 'var(--color-neutral-600)', marginBottom: '12px' }}>
+                        Earn <strong>{card.welcomeBonus.miles.toLocaleString()} miles</strong> after ${card.welcomeBonus.spendRequirement.toLocaleString()} spend
+                      </p>
+                    )}
+                    <div className="flex gap-2 mt-auto">
+                      <Link
+                        href={`/cards/personal/${card.slug}`}
+                        className="flex-1 text-center font-semibold"
+                        style={{ height: '36px', lineHeight: '36px', borderRadius: 'var(--radius-full)', background: 'var(--color-neutral-5)', color: 'var(--color-delta-blue-700)', fontSize: 'var(--type-scale-13)', border: '1px solid var(--color-neutral-10)' }}
+                      >
+                        Details
+                      </Link>
+                      <a
+                        href={card.applyUrl}
+                        className="flex-1 text-center font-semibold"
+                        style={{ height: '36px', lineHeight: '36px', borderRadius: 'var(--radius-full)', background: bg, color, fontSize: 'var(--type-scale-13)' }}
+                      >
+                        Apply
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-16 px-6" style={{ background: 'var(--color-neutral-5)' }}>
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 style={{ fontSize: 'var(--type-scale-28)', fontFamily: 'var(--font-display)', fontWeight: '700', color: 'var(--color-delta-blue-700)', marginBottom: '12px' }}>
+            Not sure which card fits?
+          </h2>
+          <p style={{ fontSize: 'var(--type-scale-16)', color: 'var(--color-neutral-600)', marginBottom: '24px' }}>
+            Use the side-by-side compare tool or take our 60-second program quiz.
+          </p>
+          <div className="flex justify-center gap-4 flex-wrap">
+            <Link
+              href="/cards/compare"
+              className="inline-flex items-center gap-2 font-semibold"
+              style={{ height: '48px', padding: '0 24px', borderRadius: 'var(--radius-full)', background: 'var(--color-delta-red-400)', color: 'var(--color-neutral-0)', fontSize: 'var(--type-scale-16)', boxShadow: 'var(--shadow-button)' }}
+            >
+              Side-by-side comparison
+            </Link>
+            <Link
+              href="/tools/program-selector"
+              className="inline-flex items-center gap-2 font-semibold"
+              style={{ height: '48px', padding: '0 24px', borderRadius: 'var(--radius-full)', background: 'var(--color-neutral-0)', color: 'var(--color-delta-blue-700)', fontSize: 'var(--type-scale-16)', border: '1px solid var(--color-neutral-10)' }}
+            >
+              Take the quiz
+            </Link>
+          </div>
+        </div>
+      </section>
+    </main>
   )
 }
