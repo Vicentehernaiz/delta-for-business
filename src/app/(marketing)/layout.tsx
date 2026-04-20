@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Nav } from '@/components/marketing/Nav'
 import { Footer } from '@/components/marketing/Footer'
+import { PageTransition } from '@/components/ui/PageTransition'
 
 export const metadata: Metadata = {
   title: {
@@ -15,7 +16,9 @@ export default function MarketingLayout({ children }: { children: React.ReactNod
   return (
     <>
       <Nav />
-      <main style={{ paddingTop: 'var(--nav-height)' }}>{children}</main>
+      <main style={{ paddingTop: 'var(--nav-height)' }}>
+        <PageTransition>{children}</PageTransition>
+      </main>
       <Footer />
     </>
   )

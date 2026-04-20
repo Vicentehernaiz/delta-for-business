@@ -37,3 +37,31 @@ h1, h2, h3, h4, h5, h6 {
   font-size: inherit;
   line-height: 1;
 }
+
+/* ── Global interaction transitions ─────── */
+a, button {
+  transition: opacity 0.2s ease, color 0.2s ease, background-color 0.2s ease,
+              border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+a:hover {
+  opacity: 0.85;
+}
+
+button:not(:disabled):hover {
+  opacity: 0.9;
+}
+
+button:not(:disabled):active,
+a:active {
+  transform: scale(0.98);
+}
+
+/* Card hover lift */
+.card-hover {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}

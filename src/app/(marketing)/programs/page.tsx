@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { segments, segmentOrder } from '@/config/segments'
+import { FadeIn, StaggerChildren, StaggerItem } from '@/components/ui/FadeIn'
 
 export const metadata: Metadata = {
   title: 'Delta Corporate Travel Programs | SMB Flex, Corporate Pro & Enterprise Elite',
@@ -96,13 +97,13 @@ export default function ProgramsPage() {
           >
             All programs at a glance
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <StaggerChildren className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {segmentOrder.map((key) => {
               const seg = segments[key]
               return (
+                <StaggerItem key={key}>
                 <div
-                  key={key}
-                  className="rounded-[var(--radius-l)] p-6 flex flex-col"
+                  className="rounded-[var(--radius-l)] p-6 flex flex-col card-hover"
                   style={{
                     background: 'var(--color-neutral-0)',
                     border: '1px solid var(--color-neutral-10)',
@@ -194,9 +195,10 @@ export default function ProgramsPage() {
                     </Link>
                   </div>
                 </div>
+                </StaggerItem>
               )
             })}
-          </div>
+          </StaggerChildren>
         </div>
       </section>
 

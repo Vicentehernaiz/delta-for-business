@@ -3,6 +3,7 @@ import { segments } from '@/config/segments'
 import { notFound } from 'next/navigation'
 import { ProgramFinder } from '@/components/marketing/ProgramFinder'
 import Link from 'next/link'
+import { FadeIn, StaggerChildren, StaggerItem } from '@/components/ui/FadeIn'
 
 const validSegments = ['business-traveler', 'enterprise', 'large-enterprise']
 
@@ -222,11 +223,11 @@ export default function SegmentPage({ params }: { params: { segment: string } })
               What you get
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {details.benefits.map((b) => (
+                <StaggerItem key={b.title}>
                 <div
-                  key={b.title}
-                  className="rounded-[var(--radius-l)] p-6"
+                  className="rounded-[var(--radius-l)] p-6 card-hover"
                   style={{
                     background: 'var(--color-neutral-0)',
                     border: '1px solid var(--color-neutral-10)',
@@ -250,8 +251,9 @@ export default function SegmentPage({ params }: { params: { segment: string } })
                     </div>
                   </div>
                 </div>
+                </StaggerItem>
               ))}
-            </div>
+            </StaggerChildren>
           </div>
         </section>
 
@@ -271,10 +273,10 @@ export default function SegmentPage({ params }: { params: { segment: string } })
               Common questions
             </h2>
 
-            <div className="space-y-3">
+            <StaggerChildren className="space-y-3">
               {details.faqs.map((faq, i) => (
+                <StaggerItem key={i}>
                 <div
-                  key={i}
                   className="rounded-[var(--radius-l)] p-6"
                   style={{ background: 'var(--color-neutral-0)', border: '1px solid var(--color-neutral-10)' }}
                 >
@@ -285,8 +287,9 @@ export default function SegmentPage({ params }: { params: { segment: string } })
                     {faq.a}
                   </p>
                 </div>
+                </StaggerItem>
               ))}
-            </div>
+            </StaggerChildren>
 
             <div className="text-center mt-12">
               <Link
