@@ -420,9 +420,22 @@ export function CardsTeaser() {
       <div className="flex flex-col items-center w-full" style={{ maxWidth: '1200px', gap: '32px' }}>
         {activeTab === 'business' ? (
           <>
-            <div className="flex items-stretch" style={{ gap: '16px', width: '100%' }}>
-              {businessCards.map((card) => (
-                <CardTile key={card.id} card={card} narrow />
+            <div
+              className="flex items-stretch w-full"
+              style={{
+                gap: '16px',
+                overflowX: 'auto',
+                WebkitOverflowScrolling: 'touch',
+                scrollSnapType: 'x mandatory',
+                paddingBottom: '8px',
+                paddingLeft: '4px',
+                paddingRight: '4px',
+              }}
+            >
+                {businessCards.map((card) => (
+                <div key={card.id} style={{ scrollSnapAlign: 'start', flexShrink: 0 }}>
+                  <CardTile card={card} narrow />
+                </div>
               ))}
             </div>
             <p
@@ -477,14 +490,21 @@ export function CardsTeaser() {
         ) : (
           <>
             <div
-              className="grid w-full"
+              className="flex items-stretch w-full"
               style={{
-                gridTemplateColumns: 'repeat(auto-fit, minmax(470px, 1fr))',
-                gap: '32px',
+                gap: '16px',
+                overflowX: 'auto',
+                WebkitOverflowScrolling: 'touch',
+                scrollSnapType: 'x mandatory',
+                paddingBottom: '8px',
+                paddingLeft: '4px',
+                paddingRight: '4px',
               }}
             >
               {personalCards.map((card) => (
-                <CardTile key={card.id} card={card} />
+                <div key={card.id} style={{ scrollSnapAlign: 'start', flexShrink: 0 }}>
+                  <CardTile card={card} narrow />
+                </div>
               ))}
             </div>
             <p

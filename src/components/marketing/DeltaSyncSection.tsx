@@ -100,19 +100,18 @@ export function DeltaSyncSection() {
         {/* CTAs */}
         <div
           className="flex items-center justify-center w-full"
-          style={{ padding: '32px 0' }}
+          style={{ padding: '32px 16px' }}
         >
           <div
-            className="flex items-center"
-            style={{ gap: '8px', width: '808px', maxWidth: '100%' }}
+            className="flex flex-col sm:flex-row items-stretch sm:items-center w-full"
+            style={{ gap: '12px', maxWidth: '808px' }}
           >
             <Link
               href="/delta-sync"
               className="flex items-center justify-center font-semibold"
               style={{
-                flex: '1 0 0',
-                maxWidth: '400px',
-                height: '44px',
+                flex: '1 1 0',
+                height: '48px',
                 borderRadius: 'var(--radius-full)',
                 background: 'var(--color-neutral-50)',
                 color: 'var(--color-delta-blue-700)',
@@ -127,9 +126,8 @@ export function DeltaSyncSection() {
               href="/enroll/enterprise"
               className="flex items-center justify-center font-semibold"
               style={{
-                flex: '1 0 0',
-                maxWidth: '400px',
-                height: '44px',
+                flex: '1 1 0',
+                height: '48px',
                 borderRadius: 'var(--radius-full)',
                 background: 'var(--color-delta-red-400)',
                 color: 'var(--color-neutral-0)',

@@ -9,11 +9,8 @@
 @tailwind utilities;
 
 /* ── Base styles ────────────────────────── */
-html, body {
-  overflow-x: hidden;
-}
-
 body {
+  overflow-x: clip; /* clip page overflow without blocking child scroll containers */
   font-family: var(--font-body);
   color: var(--color-delta-navy);
   -webkit-font-smoothing: antialiased;
