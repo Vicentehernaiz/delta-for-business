@@ -8,9 +8,9 @@ import type { NavItem } from '@/types'
 // ── Mega-menu content (descriptions per child link) ──────────────────────────
 
 const megaDescriptions: Record<string, string> = {
-  '/programs/business-traveler':   'Free self-serve · 1–49 travelers · Dual SkyMiles earning',
-  '/programs/enterprise':          'Negotiated fares · 50–499 travelers · Corporate Priority',
-  '/programs/large-enterprise':    'Full managed travel · 500+ travelers · Global coverage',
+  '/programs/business-traveler':   'Free self-serve · 1–49 travelers · Business rewards pool',
+  '/programs/enterprise':          'Dynamic fares · 50–499 travelers · Seat access pools',
+  '/programs/large-enterprise':    'Custom pricing · 500+ travelers · Full reporting & support',
   '/programs/compare':             'Side-by-side comparison of all three programs',
   '/benefits/corporate-priority':  'Preferred seating, priority boarding & upgrade queue',
   '/benefits/sky-club':            'Lounge access across 50+ domestic & international airports',
@@ -169,8 +169,10 @@ function NavLink({
   }
 
   return (
-    <Link
+    <a
       href={item.href}
+      target={item.isExternal ? '_blank' : undefined}
+      rel={item.isExternal ? 'noopener noreferrer' : undefined}
       className="px-3 py-2 font-semibold transition-colors whitespace-nowrap"
       style={{
         fontSize: 'var(--type-scale-14)',
@@ -180,7 +182,7 @@ function NavLink({
       onMouseEnter={onLeave}
     >
       {item.label}
-    </Link>
+    </a>
   )
 }
 
@@ -234,20 +236,16 @@ export function Nav() {
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2 shrink-0"
+            className="flex items-center shrink-0"
             onMouseEnter={scheduleClose}
           >
-            <svg width="28" height="24" viewBox="0 0 28 24" fill="none">
-              <path d="M14 0L28 24H0L14 0Z" fill="#C01933" />
-            </svg>
-            <div className="flex items-baseline gap-1">
-              <span style={{ fontSize: '16px', fontWeight: '700', fontFamily: 'var(--font-display)', color: 'var(--color-neutral-0)', letterSpacing: '-0.01em' }}>
-                Delta
-              </span>
-              <span style={{ fontSize: '14px', fontWeight: '400', fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.65)' }}>
-                for Business
-              </span>
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/assets/images/logos/https_/business.delta.com/Logo-delta-for-business.svg"
+              alt="Delta for Business"
+              height={32}
+              style={{ height: '32px', width: 'auto' }}
+            />
           </Link>
 
           {/* Desktop nav links */}
@@ -281,11 +279,11 @@ export function Nav() {
                 height: '38px',
                 padding: '0 18px',
                 borderRadius: 'var(--radius-full)',
-                background: 'rgba(255,255,255,0.12)',
-                border: '1px solid rgba(255,255,255,0.2)',
+                background: 'var(--color-neutral-800)',
                 color: 'var(--color-neutral-0)',
                 fontSize: 'var(--type-scale-14)',
                 fontFamily: 'var(--font-display)',
+                boxShadow: 'var(--shadow-button)',
               }}
             >
               {authNav.login.label}
@@ -354,13 +352,13 @@ export function Nav() {
           className="flex items-center justify-between p-5"
           style={{ borderBottom: '1px solid rgba(255,255,255,0.1)' }}
         >
-          <div className="flex items-center gap-2">
-            <svg width="22" height="19" viewBox="0 0 28 24" fill="none">
-              <path d="M14 0L28 24H0L14 0Z" fill="#C01933" />
-            </svg>
-            <span style={{ fontSize: '15px', fontWeight: '700', fontFamily: 'var(--font-display)', color: 'var(--color-neutral-0)' }}>
-              Delta for Business
-            </span>
+          <div className="flex items-center">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/assets/images/logos/https_/business.delta.com/Logo-delta-for-business.svg"
+              alt="Delta for Business"
+              style={{ height: '28px', width: 'auto' }}
+            />
           </div>
           <button
             onClick={() => setMobileOpen(false)}
@@ -437,10 +435,10 @@ export function Nav() {
               style={{
                 height: '48px',
                 borderRadius: 'var(--radius-full)',
-                background: 'rgba(255,255,255,0.12)',
-                border: '1px solid rgba(255,255,255,0.2)',
+                background: 'var(--color-neutral-800)',
                 color: 'var(--color-neutral-0)',
                 fontSize: 'var(--type-scale-15)',
+                boxShadow: 'var(--shadow-button)',
               }}
             >
               {authNav.login.label}

@@ -2,6 +2,9 @@ import type { Metadata } from 'next'
 import '@/styles/globals.css'
 import '@/styles/tokens.css'
 import '@phosphor-icons/web/regular'
+import '@phosphor-icons/web/bold'
+import '@phosphor-icons/web/fill'
+import '@phosphor-icons/web/duotone'
 
 export const metadata: Metadata = {
   title: {

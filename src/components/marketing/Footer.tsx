@@ -17,18 +17,13 @@ export function Footer() {
     >
       {/* Logo */}
       <div className="container pt-12 pb-0">
-        <div className="flex items-center gap-3 mb-10" style={{ borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '32px' }}>
-          <svg width="32" height="27" viewBox="0 0 28 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M14 0L28 24H0L14 0Z" fill="#C01933"/>
-          </svg>
-          <div className="flex items-baseline gap-1.5">
-            <span style={{ fontSize: '18px', fontWeight: '700', fontFamily: 'var(--font-display)', color: 'var(--color-neutral-0)', letterSpacing: '-0.01em' }}>
-              Delta
-            </span>
-            <span style={{ fontSize: '16px', fontWeight: '400', fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.55)' }}>
-              for Business
-            </span>
-          </div>
+        <div className="flex items-center mb-10" style={{ borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '32px' }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/assets/images/logos/https_/business.delta.com/Logo-delta-for-business.svg"
+            alt="Delta for Business"
+            style={{ height: '36px', width: 'auto' }}
+          />
         </div>
       </div>
 
@@ -49,7 +44,7 @@ export function Footer() {
                   <Link
                     href={link.href}
                     className="text-[length:var(--type-scale-14)] transition-colors hover:opacity-100 opacity-85"
-                    style={{ color: 'var(--color-neutral-50)' }}
+                    style={{ color: 'var(--color-neutral-0)' }}
                   >
                     {link.label}
                   </Link>
@@ -72,7 +67,7 @@ export function Footer() {
                   <Link
                     href={link.href}
                     className="text-[length:var(--type-scale-14)] transition-colors hover:opacity-100 opacity-85"
-                    style={{ color: 'var(--color-neutral-50)' }}
+                    style={{ color: 'var(--color-neutral-0)' }}
                   >
                     {link.label}
                   </Link>
@@ -95,7 +90,7 @@ export function Footer() {
                   <Link
                     href={link.href}
                     className="text-[length:var(--type-scale-14)] transition-colors hover:opacity-100 opacity-85"
-                    style={{ color: 'var(--color-neutral-50)' }}
+                    style={{ color: 'var(--color-neutral-0)' }}
                   >
                     {link.label}
                   </Link>
@@ -105,7 +100,7 @@ export function Footer() {
                 <Link
                   href="/skymiles"
                   className="text-[length:var(--type-scale-14)] transition-colors hover:opacity-100 opacity-85"
-                  style={{ color: 'var(--color-neutral-50)' }}
+                  style={{ color: 'var(--color-neutral-0)' }}
                 >
                   SkyMiles for Business
                 </Link>
@@ -114,7 +109,7 @@ export function Footer() {
                 <Link
                   href="/delta-sync"
                   className="text-[length:var(--type-scale-14)] transition-colors hover:opacity-100 opacity-85"
-                  style={{ color: 'var(--color-neutral-50)' }}
+                  style={{ color: 'var(--color-neutral-0)' }}
                 >
                   Delta SYNC
                 </Link>
@@ -123,7 +118,7 @@ export function Footer() {
                 <Link
                   href="/medallion"
                   className="text-[length:var(--type-scale-14)] transition-colors hover:opacity-100 opacity-85"
-                  style={{ color: 'var(--color-neutral-50)' }}
+                  style={{ color: 'var(--color-neutral-0)' }}
                 >
                   Medallion Status
                 </Link>
@@ -145,7 +140,7 @@ export function Footer() {
                   <Link
                     href={link.href}
                     className="text-[length:var(--type-scale-14)] transition-colors hover:opacity-100 opacity-85"
-                    style={{ color: 'var(--color-neutral-50)' }}
+                    style={{ color: 'var(--color-neutral-0)' }}
                   >
                     {link.label}
                   </Link>
@@ -159,7 +154,7 @@ export function Footer() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-1 text-[length:var(--type-scale-14)] transition-colors hover:opacity-100 opacity-85"
-                      style={{ color: 'var(--color-neutral-50)' }}
+                      style={{ color: 'var(--color-neutral-0)' }}
                     >
                       {link.label}
                       <i className="ph ph-arrow-square-out text-xs"></i>
@@ -168,7 +163,7 @@ export function Footer() {
                     <Link
                       href={link.href}
                       className="text-[length:var(--type-scale-14)] transition-colors hover:opacity-100 opacity-85"
-                      style={{ color: 'var(--color-neutral-50)' }}
+                      style={{ color: 'var(--color-neutral-0)' }}
                     >
                       {link.label}
                     </Link>
@@ -195,7 +190,7 @@ export function Footer() {
               className="text-[length:var(--type-scale-14)]"
               style={{ color: 'var(--color-neutral-400)' }}
             >
-              Free enrollment for Business Traveler. Contact sales for Enterprise &amp; Large-Enterprise.
+              Free enrollment for SMB Flex. Contact sales for Corporate Pro &amp; Enterprise Elite.
             </p>
           </div>
           <div className="flex items-center gap-3">
@@ -209,7 +204,7 @@ export function Footer() {
             <Link
               href="/enroll/enterprise"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[var(--radius-full)] border text-[length:var(--type-scale-14)] font-semibold transition-colors"
-              style={{ borderColor: 'var(--color-neutral-50)', color: 'var(--color-neutral-50)' }}
+              style={{ borderColor: 'var(--color-neutral-0)', color: 'var(--color-neutral-0)' }}
             >
               Contact sales
             </Link>

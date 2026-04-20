@@ -18,8 +18,8 @@ const programDetails: Record<string, {
   syncNote?: string
 }> = {
   'business-traveler': {
-    tagline: 'Personal travel perks and company-mile earning — zero employer friction.',
-    heroDesc: 'Business Traveler is free for individuals and small teams. Free self-serve enrollment, dual SkyMiles earning, and partner perks from day one. No minimum spend, no negotiation.',
+    tagline: 'Company rewards pool, personal perks, and dual SkyMiles earning — free to join.',
+    heroDesc: 'SMB Flex is free for individuals and small teams. Free self-serve enrollment, business rewards pool, dual SkyMiles earning, and partner perks from day one. No minimum spend, no negotiation.',
     benefits: [
       { icon: 'ph-fill ph-arrows-split', title: 'True dual earning', desc: 'Company miles and personal employee SkyMiles are credited simultaneously on every eligible Delta flight. Link traveler SkyMiles numbers once — then every flight earns in both accounts.' },
       { icon: 'ph-fill ph-trend-up', title: 'Up to 10 miles per dollar', desc: 'Non-hub, premium cabin routes earn 10 miles/$. Hub routes earn 5 miles/$. Earning scales automatically as your team grows.' },
@@ -29,15 +29,15 @@ const programDetails: Record<string, {
     faqs: [
       { q: 'Does my employer need to sign up too?', a: 'No. You enroll with your business email. If you have a team, you add them to your company account — no employer IT involvement required.' },
       { q: 'Do employees lose personal SkyMiles?', a: 'No. Employee personal miles (including MQDs toward Medallion status) are completely unaffected. Both earning streams are independent.' },
-      { q: 'Is there a fee?', a: 'No. Business Traveler is always free to enroll.' },
-      { q: 'Can I upgrade to Enterprise later?', a: 'Yes. If your company grows and you cross $50K annual Delta spend with 50+ travelers, you can contact sales to negotiate an Enterprise program (MSA).' },
+      { q: 'Is there a fee?', a: 'No. SMB Flex is always free to enroll.' },
+      { q: 'Can I upgrade to Corporate Pro later?', a: 'Yes. If your company grows and you cross $50K annual Delta spend with 50+ travelers, you can contact sales to upgrade to Corporate Pro.' },
     ],
     enrollHref: '/enroll/individual',
     enrollLabel: 'Get started free',
   },
   enterprise: {
-    tagline: 'Negotiated fares, Corporate Priority, and a dedicated account manager.',
-    heroDesc: 'The Enterprise program (Mid-Market Sales Agreement) is Delta\'s negotiated program for companies with 50–500 travelers spending $50K+/year. Volume earns access to discounts and priority services that self-serve programs can\'t match.',
+    tagline: 'Dynamic fares, seat pools, and full Corporate Priority — built for growing teams.',
+    heroDesc: 'Corporate Pro is Delta\'s negotiated program for companies with 50–500 travelers spending $50K+/year. Dynamic fare discounts, seat access pools, and advanced analytics that self-serve programs can\'t match.',
     benefits: [
       { icon: 'ph-fill ph-tag', title: 'Negotiated fares', desc: 'Custom discount percentages off published fares on your most-traveled routes. Typically 5–15% off depending on volume and market.' },
       { icon: 'ph-fill ph-crown', title: 'Full Corporate Priority suite', desc: 'All Corporate Priority benefits: preferred seating, Zone 1 boarding, complimentary upgrades, service recovery priority, waived change fees, and priority rebooking during IROPS.' },
@@ -47,7 +47,7 @@ const programDetails: Record<string, {
     faqs: [
       { q: 'What is the minimum spend to qualify?', a: 'Approximately $50,000/year in Delta airfare. Your account manager will confirm during the sales call based on your route mix.' },
       { q: 'How long does the negotiation take?', a: 'Typically 2–4 weeks from initial contact to signed agreement.' },
-      { q: 'Do company miles still apply?', a: 'Yes — the Enterprise program runs on top of SkyMiles for Business. You keep dual earning while also receiving negotiated fares.' },
+      { q: 'Do company miles still apply?', a: 'Yes — Corporate Pro runs on top of SkyMiles for Business. You keep dual earning while also receiving dynamic fare discounts.' },
       { q: 'Is Delta SYNC included?', a: 'Enterprise accounts get access to Delta SYNC for travel management — spend reporting, policy controls, and traveler visibility.' },
     ],
     enrollHref: '/enroll/enterprise',
@@ -55,8 +55,8 @@ const programDetails: Record<string, {
     syncNote: 'Enterprise accounts include Delta SYNC access for spend reporting, traveler management, and travel policy controls.',
   },
   'large-enterprise': {
-    tagline: 'Full managed travel with global Corporate Priority and Delta SYNC access.',
-    heroDesc: 'The Large-Enterprise program (Corporate Sales Agreement) is Delta\'s full managed travel program for 500+ traveler companies. Includes global priority on all partner airlines, Delta SYNC, unused ticket transfer, and 24/7 Corporate Solutions support.',
+    tagline: 'Custom pricing, full reporting, and dedicated support at global scale.',
+    heroDesc: 'Enterprise Elite is Delta\'s full managed travel program for 500+ traveler companies. Custom pricing, seat inventory control, full reporting and forecasting, Amex integration, and dedicated support at every level.',
     benefits: [
       { icon: 'ph-fill ph-globe-hemisphere-west', title: 'Global Corporate Priority', desc: 'Corporate Priority extends across Air France, KLM, LATAM, and Virgin Atlantic — covering your international routes at the same priority level as Delta domestic.' },
       { icon: 'ph-fill ph-lightning', title: 'Delta SYNC — full access', desc: 'Full access to Delta\'s travel management platform: spend dashboards, traveler tracking, policy automation, and real-time itinerary visibility.' },

@@ -60,7 +60,7 @@ export default function EnrollIndividualPage() {
                 marginBottom: '12px',
               }}
             >
-              Delta Business Traveler
+              Delta SMB Flex
             </h1>
             <p style={{ fontSize: 'var(--type-scale-16)', color: 'rgba(255,255,255,0.75)', marginBottom: '32px' }}>
               Personal perks for solo business travelers. Free to join, instant access.
@@ -110,7 +110,7 @@ export default function EnrollIndividualPage() {
                   You're in, {form.firstName}!
                 </h2>
                 <p style={{ fontSize: 'var(--type-scale-16)', color: 'var(--color-neutral-600)', marginBottom: '8px' }}>
-                  Welcome to Delta Business Traveler.
+                  Welcome to Delta SMB Flex.
                 </p>
                 <p style={{ fontSize: 'var(--type-scale-14)', color: 'var(--color-neutral-600)', marginBottom: '32px' }}>
                   Confirmation sent to <strong>{form.email}</strong>. Your benefits activate within 24 hours.

@@ -9,9 +9,23 @@ interface ProgramFinderProps {
 const plans = [
   {
     id: 'business-traveler',
-    name: 'Business Traveler',
+    name: 'SMB Flex',
     nameColor: 'var(--color-delta-blue-300)',
     subtitle: 'Any person traveling for work · No employer needed · Free enroll\nSelf-serve · Enroll in 60 seconds via SkyMiles login',
+    companyLabel: 'Company gets',
+    companyBenefits: [
+      'Business rewards pool',
+      'Threshold-based discounts',
+      'Basic analytics',
+      'Flexibility credits',
+    ],
+    employeeLabel: 'Employee gets',
+    employeeBenefits: [
+      'Link bonus miles',
+      'Faster early status progress',
+      'Better Comfort+ access',
+      'Occasional lounge/day passes',
+    ],
     included: [
       'Hertz Five Star status (free)',
       'CLEAR Plus discount (~30% off $189/yr)',
@@ -19,11 +33,8 @@ const plans = [
       'LinkedIn Premium discount',
       'Targeted bonus mile offers',
       'Personal SkyMiles earned normally',
-      'Promotions for Comfort+',
-      'Occasional lounge/day passes',
     ],
     excluded: [
-      'No company mile account',
       'No Corporate Priority benefits',
       'No Medallion acceleration',
     ],
@@ -33,16 +44,27 @@ const plans = [
   },
   {
     id: 'enterprise',
-    name: 'Enterprise program',
+    name: 'Corporate Pro',
     nameColor: 'var(--color-delta-red-400)',
-    subtitle: '50–500 travelers · Managed travel tool\nMSA negotiated agreement\nAccount manager + Corporate Priority',
+    subtitle: '50–500 travelers · Managed travel tool\nNegotiated agreement\nAccount manager + Corporate Priority',
+    companyLabel: 'Company gets',
+    companyBenefits: [
+      'Dynamic fare discounts',
+      'Seat access pools',
+      'Advanced analytics',
+      'Reduced change fees',
+    ],
+    employeeLabel: 'Employee gets',
+    employeeBenefits: [
+      'Stronger upgrade priority',
+      'Better seat outcomes',
+      'Faster Medallion progression',
+      'Premium perks unlock',
+    ],
     included: [
-      'Advance Analytics in Delta Sync',
-      'Negotiated fares (% off published fares)',
-      'Priority Medallion upgrade queue',
       'Corporate status matching (6 months)',
       'Account manager assigned',
-      'Up to 99 free SkyMiles Gold Cards',
+      'Up to 99 free SkyMiles Gold Business Cards',
       'Concur / TMC integration',
       'Employees still earn personal SkyMiles + MQDs',
       'Corporate Priority: preferred seating, priority boarding, re-booking & service recovery',
@@ -54,18 +76,29 @@ const plans = [
   },
   {
     id: 'large-enterprise',
-    name: 'Large-Enterprise program',
+    name: 'Enterprise Elite',
     nameColor: 'var(--color-delta-red-400)',
-    subtitle: '500+ travelers · Full managed travel tool\nCSA negotiated agreement\nFull Corporate Priority suite + TMC',
+    subtitle: '500+ travelers · Full managed travel\nNegotiated agreement\nFull Corporate Priority suite globally',
+    companyLabel: 'Company gets',
+    companyBenefits: [
+      'Custom pricing',
+      'Seat inventory control',
+      'Full reporting + forecasting',
+      'Dedicated support',
+      'Amex integration',
+    ],
+    employeeLabel: 'Employee gets',
+    employeeBenefits: [
+      'Highest upgrade priority boosts',
+      'Premium seat consistency',
+      'Lounge access pathways',
+      'Priority rebooking + support',
+    ],
     included: [
-      'All Enterprise benefits, plus:',
+      'All Corporate Pro benefits, plus:',
       'Full Corporate Priority suite globally',
-      'Global partner airlines (AF, KLM, etc)',
+      'Global partner airlines (AF, KLM, LATAM, Virgin Atlantic)',
       'Unused ticket transfer program',
-      '24/7 Corporate Solutions support',
-      'Delta One Lounge access (negotiable)',
-      'Custom SLA-level service agreements',
-      'Auto data reporting to travel manager inbox',
       'Employees still earn personal SkyMiles + MQDs',
     ],
     excluded: [],
@@ -156,27 +189,106 @@ export function ProgramFinder({ activeSegment }: ProgramFinderProps) {
               </div>
 
               {/* Benefits list */}
-              <div
-                className="flex flex-col flex-1"
-                style={{
-                  gap: '16px',
-                  fontSize: 'var(--type-scale-16)',
-                  lineHeight: 'var(--line-height-body-medium)',
-                  letterSpacing: 'var(--letter-spacing-marketing-small)',
-                  fontFamily: 'var(--font-body)',
-                  fontWeight: '500',
-                }}
-              >
-                {plan.included.map((item) => (
-                  <p key={item} style={{ color: 'var(--color-delta-blue-500)' }}>
-                    ✓&nbsp;&nbsp;{item}
+              <div className="flex flex-col flex-1" style={{ gap: '20px' }}>
+                {/* Company gets */}
+                <div className="flex flex-col" style={{ gap: '10px' }}>
+                  <p style={{
+                    fontSize: 'var(--type-scale-12)',
+                    fontWeight: '700',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.08em',
+                    color: 'var(--color-neutral-600)',
+                    fontFamily: 'var(--font-display)',
+                  }}>
+                    {plan.companyLabel}
                   </p>
-                ))}
-                {plan.excluded.map((item) => (
-                  <p key={item} style={{ color: 'var(--color-neutral-500)' }}>
-                    ✗&nbsp;&nbsp;{item}
+                  {plan.companyBenefits.map((item) => (
+                    <p key={item} style={{
+                      color: 'var(--color-delta-blue-500)',
+                      fontSize: 'var(--type-scale-15)',
+                      lineHeight: 'var(--line-height-body-medium)',
+                      fontFamily: 'var(--font-body)',
+                      fontWeight: '500',
+                      display: 'flex', alignItems: 'center', gap: '8px'
+                    }}>
+                      ✓&nbsp;&nbsp;{item}
+                    </p>
+                  ))}
+                </div>
+
+                {/* Employee gets */}
+                <div className="flex flex-col" style={{ gap: '10px' }}>
+                  <p style={{
+                    fontSize: 'var(--type-scale-12)',
+                    fontWeight: '700',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.08em',
+                    color: 'var(--color-neutral-600)',
+                    fontFamily: 'var(--font-display)',
+                  }}>
+                    {plan.employeeLabel}
                   </p>
-                ))}
+                  {plan.employeeBenefits.map((item) => (
+                    <p key={item} style={{
+                      color: 'var(--color-delta-blue-500)',
+                      fontSize: 'var(--type-scale-15)',
+                      lineHeight: 'var(--line-height-body-medium)',
+                      fontFamily: 'var(--font-body)',
+                      fontWeight: '500',
+                    }}>
+                      ✓&nbsp;&nbsp;{item}
+                    </p>
+                  ))}
+                </div>
+
+                {/* Additional perks */}
+                {plan.included.length > 0 && (
+                  <div className="flex flex-col" style={{ gap: '10px' }}>
+                    <p style={{
+                      fontSize: 'var(--type-scale-12)',
+                      fontWeight: '700',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.08em',
+                      color: 'var(--color-neutral-600)',
+                      fontFamily: 'var(--font-display)',
+                    }}>
+                      Also included
+                    </p>
+                    {plan.included.map((item) => (
+                      <p key={item} style={{
+                        color: 'var(--color-delta-blue-500)',
+                        fontSize: 'var(--type-scale-15)',
+                        lineHeight: 'var(--line-height-body-medium)',
+                        fontFamily: 'var(--font-body)',
+                        fontWeight: '500',
+                        display: 'flex', alignItems: 'center', gap: '8px'
+                      }}>
+                        <span>✓&nbsp;&nbsp;{item}</span>
+                        {item.startsWith('Hertz') && (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img src="/assets/images/logos/logo-hetz-png.png" alt="Hertz" style={{ height: '14px', width: 'auto', opacity: 0.8, flexShrink: 0 }} />
+                        )}
+                      </p>
+                    ))}
+                  </div>
+                )}
+
+                {/* Not included */}
+                {plan.excluded.length > 0 && (
+                  <div className="flex flex-col" style={{ gap: '10px' }}>
+                    {plan.excluded.map((item) => (
+                      <p key={item} style={{
+                        color: 'var(--color-neutral-500)',
+                        fontSize: 'var(--type-scale-15)',
+                        lineHeight: 'var(--line-height-body-medium)',
+                        fontFamily: 'var(--font-body)',
+                        fontWeight: '500',
+                      }}>
+                        ✗&nbsp;&nbsp;{item}
+                      </p>
+                    ))}
+                  </div>
+                )}
               </div>
 
               {/* CTAs */}
@@ -184,17 +296,14 @@ export function ProgramFinder({ activeSegment }: ProgramFinderProps) {
                 <Link
                   href={plan.ctaKnow}
                   style={{
-                    height: '44px',
-                    padding: '0 24px',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    borderRadius: 'var(--radius-full)',
                     fontSize: 'var(--type-scale-16)',
                     fontWeight: '700',
                     fontFamily: 'var(--font-display)',
                     letterSpacing: 'var(--letter-spacing-marketing-x-large)',
                     color: 'var(--color-delta-blue-700)',
-                    borderBottom: '1.5px solid var(--color-delta-blue-700)',
+                    textDecoration: 'underline',
+                    textDecorationColor: 'var(--color-delta-blue-700)',
+                    textUnderlineOffset: '3px',
                   }}
                 >
                   Know more
@@ -202,17 +311,14 @@ export function ProgramFinder({ activeSegment }: ProgramFinderProps) {
                 <Link
                   href={plan.ctaEnroll}
                   style={{
-                    height: '44px',
-                    padding: '0 24px',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    borderRadius: 'var(--radius-full)',
                     fontSize: 'var(--type-scale-16)',
                     fontWeight: '700',
                     fontFamily: 'var(--font-display)',
                     letterSpacing: 'var(--letter-spacing-marketing-x-large)',
                     color: 'var(--color-delta-red-400)',
-                    borderBottom: '1.5px solid var(--color-delta-red-400)',
+                    textDecoration: 'underline',
+                    textDecorationColor: 'var(--color-delta-red-400)',
+                    textUnderlineOffset: '3px',
                   }}
                 >
                   {plan.ctaEnrollLabel}

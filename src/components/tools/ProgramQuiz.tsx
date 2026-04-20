@@ -6,6 +6,74 @@ import { segments } from '@/config/segments'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 
+// ── Plan details per segment ──────────────────────────────────────────────────
+
+const PLAN_DETAILS: Record<string, { included: string[]; excluded: string[]; conditions: string }> = {
+  'business-traveler': {
+    included: [
+      'Business rewards pool',
+      'Threshold-based discounts',
+      'Basic analytics',
+      'Flexibility credits',
+      'Link bonus miles',
+      'Faster early status progress',
+      'Better Comfort+ access',
+      'Occasional lounge/day passes',
+      'Hertz Five Star status (free)',
+      'CLEAR Plus discount (~30% off $189/yr)',
+      'Industrious coworking at $99/month',
+      'LinkedIn Premium discount',
+      'Targeted bonus mile offers',
+      'Personal SkyMiles earned normally',
+    ],
+    excluded: [
+      'No Corporate Priority benefits',
+      'No Medallion acceleration',
+    ],
+    conditions: 'Any person traveling for work · No employer needed · Free enrollment · Self-serve via SkyMiles login · 1–50 travelers · US & Canada',
+  },
+  enterprise: {
+    included: [
+      'Dynamic fare discounts',
+      'Seat access pools',
+      'Advanced analytics',
+      'Reduced change fees',
+      'Stronger upgrade priority',
+      'Better seat outcomes',
+      'Faster Medallion progression',
+      'Premium perks unlock',
+      'Corporate status matching (6 months)',
+      'Account manager assigned',
+      'Up to 99 free SkyMiles Gold Business Cards',
+      'Concur / TMC integration',
+      'Employees still earn personal SkyMiles + MQDs',
+      'Corporate Priority: preferred seating, priority boarding, re-booking & service recovery',
+    ],
+    excluded: [],
+    conditions: '50–500 travelers · Annual spend $50K+ · Negotiated agreement · Managed travel tool required',
+  },
+  'large-enterprise': {
+    included: [
+      'Custom pricing',
+      'Seat inventory control',
+      'Full reporting + forecasting',
+      'Dedicated support',
+      'Amex integration',
+      'Highest upgrade priority boosts',
+      'Premium seat consistency',
+      'Lounge access pathways',
+      'Priority rebooking + support',
+      'All Corporate Pro benefits, plus:',
+      'Full Corporate Priority suite globally',
+      'Global partner airlines (AF, KLM, LATAM, Virgin Atlantic)',
+      'Unused ticket transfer program',
+      'Employees still earn personal SkyMiles + MQDs',
+    ],
+    excluded: [],
+    conditions: '500+ travelers · Annual spend $300K+ · Negotiated agreement · Full managed travel + Delta SYNC included',
+  },
+}
+
 // ── Step config ───────────────────────────────────────────────────────────────
 
 const CONTEXT_OPTIONS: { value: QuizContext; label: string; desc: string; icon: string }[] = [
@@ -15,9 +83,9 @@ const CONTEXT_OPTIONS: { value: QuizContext; label: string; desc: string; icon: 
 
 const SIZE_OPTIONS: { value: QuizCompanySize; label: string; sub: string }[] = [
   { value: 'just-me', label: 'Solo', sub: 'Just me traveling' },
-  { value: '2-50', label: '2–50 travelers', sub: 'Business Traveler program' },
-  { value: '50-500', label: '50–500 travelers', sub: 'Enterprise program' },
-  { value: '500+', label: '500+ travelers', sub: 'Large-Enterprise program' },
+  { value: '2-50', label: '2–50 travelers', sub: 'SMB Flex program' },
+  { value: '50-500', label: '50–500 travelers', sub: 'Corporate Pro program' },
+  { value: '500+', label: '500+ travelers', sub: 'Enterprise Elite program' },
 ]
 
 const SPEND_OPTIONS_INDIVIDUAL: { value: QuizSpend; label: string }[] = [
@@ -44,9 +112,9 @@ const GOAL_OPTIONS: { value: QuizGoal; label: string; icon: string }[] = [
 ]
 
 const PROGRAM_NAMES: Record<string, string> = {
-  'business-traveler': 'Business Traveler',
-  enterprise: 'Enterprise program',
-  'large-enterprise': 'Large-Enterprise program',
+  'business-traveler': 'SMB Flex',
+  enterprise: 'Corporate Pro',
+  'large-enterprise': 'Enterprise Elite',
 }
 
 const SYNC_ELIGIBLE = ['enterprise', 'large-enterprise']
@@ -512,6 +580,25 @@ function ResultScreen() {
             {segment.ctaPrimary.label}
           </Link>
         )}
+        <Link
+          href="/"
+          className="w-full text-center font-semibold transition-opacity hover:opacity-90"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '6px',
+            height: '48px',
+            borderRadius: 'var(--radius-full)',
+            background: 'var(--color-neutral-5)',
+            border: '1px solid var(--color-neutral-10)',
+            color: 'var(--color-delta-blue-700)',
+            fontSize: 'var(--type-scale-16)',
+          }}
+        >
+          <i className="ph ph-house text-base"></i>
+          Back to home
+        </Link>
         <button
           onClick={reset}
           className="font-semibold"
@@ -529,45 +616,194 @@ function ResultScreen() {
   )
 }
 
-// ── Main component ────────────────────────────────────────────────────────────
+// ── Plan details below result ─────────────────────────────────────────────────
 
-export function ProgramQuiz() {
-  const { currentStep, totalSteps, isComplete } = useQuizStore()
+function PlanDetails({ programId }: { programId: string }) {
+  const details = PLAN_DETAILS[programId]
+  const segment = segments[programId]
+  if (!details || !segment) return null
 
   return (
     <div
-      className="mx-auto rounded-[var(--radius-l)]"
+      className="rounded-[var(--radius-l)] flex flex-col"
       style={{
-        maxWidth: '560px',
         background: 'var(--color-neutral-0)',
         border: '1px solid var(--color-neutral-10)',
         boxShadow: 'var(--shadow-card)',
         padding: '32px',
+        gap: '24px',
+        maxWidth: '560px',
+        margin: '0 auto',
+        width: '100%',
       }}
     >
-      {!isComplete && <ProgressBar current={currentStep} total={totalSteps} />}
-
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={isComplete ? 'result' : currentStep}
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -20 }}
-          transition={{ duration: 0.3, ease: 'easeOut' }}
+      {/* Header */}
+      <div className="flex flex-col" style={{ gap: '8px' }}>
+        <p
+          style={{
+            fontSize: 'var(--type-scale-12)',
+            textTransform: 'uppercase',
+            letterSpacing: '0.08em',
+            color: 'var(--color-neutral-600)',
+            fontWeight: '600',
+          }}
         >
-          {isComplete ? (
-            <ResultScreen />
-          ) : currentStep === 1 ? (
-            <Step1 />
-          ) : currentStep === 2 ? (
-            <Step2 />
-          ) : currentStep === 3 ? (
-            <Step3 />
-          ) : (
-            <Step4 />
-          )}
+          Full plan details
+        </p>
+        <p
+          style={{
+            fontSize: 'var(--type-scale-22)',
+            fontFamily: 'var(--font-display)',
+            fontWeight: '700',
+            color: 'var(--color-delta-blue-700)',
+          }}
+        >
+          {segment.name}
+        </p>
+        <p
+          style={{
+            fontSize: 'var(--type-scale-14)',
+            color: 'var(--color-neutral-600)',
+            lineHeight: '1.5',
+            padding: '8px 12px',
+            background: 'var(--color-neutral-5)',
+            borderRadius: 'var(--radius-m)',
+          }}
+        >
+          <i className="ph ph-info" style={{ marginRight: '6px' }}></i>
+          {details.conditions}
+        </p>
+      </div>
+
+      <hr style={{ border: 'none', borderTop: '1px solid var(--color-neutral-10)', margin: 0 }} />
+
+      {/* Included */}
+      <div className="flex flex-col" style={{ gap: '10px' }}>
+        <p
+          style={{
+            fontSize: 'var(--type-scale-14)',
+            fontWeight: '700',
+            color: 'var(--color-delta-blue-700)',
+            textTransform: 'uppercase',
+            letterSpacing: '0.06em',
+          }}
+        >
+          What&apos;s included
+        </p>
+        {details.included.map((item) => (
+          <div key={item} className="flex items-start" style={{ gap: '10px' }}>
+            <i
+              className="ph-fill ph-check-circle flex-shrink-0 mt-0.5"
+              style={{ color: 'var(--color-delta-red-400)', fontSize: '18px' }}
+            ></i>
+            <span style={{ fontSize: 'var(--type-scale-14)', color: 'var(--color-delta-blue-500)', lineHeight: '1.5' }}>
+              {item}
+            </span>
+          </div>
+        ))}
+      </div>
+
+      {/* Excluded */}
+      {details.excluded.length > 0 && (
+        <div className="flex flex-col" style={{ gap: '10px' }}>
+          <p
+            style={{
+              fontSize: 'var(--type-scale-14)',
+              fontWeight: '700',
+              color: 'var(--color-neutral-600)',
+              textTransform: 'uppercase',
+              letterSpacing: '0.06em',
+            }}
+          >
+            Not included
+          </p>
+          {details.excluded.map((item) => (
+            <div key={item} className="flex items-start" style={{ gap: '10px' }}>
+              <i
+                className="ph-fill ph-x-circle flex-shrink-0 mt-0.5"
+                style={{ color: 'var(--color-neutral-400)', fontSize: '18px' }}
+              ></i>
+              <span style={{ fontSize: 'var(--type-scale-14)', color: 'var(--color-neutral-600)', lineHeight: '1.5' }}>
+                {item}
+              </span>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* Learn more CTA */}
+      <Link
+        href={segment.ctaSecondary.href}
+        className="flex items-center justify-center gap-2 font-semibold"
+        style={{
+          height: '44px',
+          borderRadius: 'var(--radius-full)',
+          background: 'var(--color-neutral-5)',
+          border: '1px solid var(--color-neutral-10)',
+          color: 'var(--color-delta-blue-700)',
+          fontSize: 'var(--type-scale-15)',
+        }}
+      >
+        <i className="ph ph-arrow-right text-sm"></i>
+        Full {segment.shortName} program details
+      </Link>
+    </div>
+  )
+}
+
+// ── Main component ────────────────────────────────────────────────────────────
+
+export function ProgramQuiz() {
+  const { currentStep, totalSteps, isComplete, result } = useQuizStore()
+
+  return (
+    <div className="flex flex-col" style={{ gap: '24px' }}>
+      {/* Quiz card */}
+      <div
+        className="mx-auto rounded-[var(--radius-l)] w-full"
+        style={{
+          maxWidth: '560px',
+          background: 'var(--color-neutral-0)',
+          border: '1px solid var(--color-neutral-10)',
+          boxShadow: 'var(--shadow-card)',
+          padding: '32px',
+        }}
+      >
+        {!isComplete && <ProgressBar current={currentStep} total={totalSteps} />}
+
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={isComplete ? 'result' : currentStep}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+          >
+            {isComplete ? (
+              <ResultScreen />
+            ) : currentStep === 1 ? (
+              <Step1 />
+            ) : currentStep === 2 ? (
+              <Step2 />
+            ) : currentStep === 3 ? (
+              <Step3 />
+            ) : (
+              <Step4 />
+            )}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* Plan details — shown below the card once complete */}
+      {isComplete && result && (
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, ease: 'easeOut', delay: 0.2 }}
+        >
+          <PlanDetails programId={result.program} />
         </motion.div>
-      </AnimatePresence>
+      )}
     </div>
   )
 }

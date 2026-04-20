@@ -6,9 +6,9 @@ export const mainNav: NavItem[] = [
     label: 'Programs',
     href: '/programs',
     children: [
-      { label: 'Business Traveler', href: '/programs/business-traveler' },
-      { label: 'Enterprise program', href: '/programs/enterprise' },
-      { label: 'Large-Enterprise program', href: '/programs/large-enterprise' },
+      { label: 'SMB Flex', href: '/programs/business-traveler' },
+      { label: 'Corporate Pro', href: '/programs/enterprise' },
+      { label: 'Enterprise Elite', href: '/programs/large-enterprise' },
       { label: 'Compare all programs', href: '/programs/compare' },
     ],
   },
@@ -33,7 +33,7 @@ export const mainNav: NavItem[] = [
   { label: 'SkyMiles', href: '/skymiles' },
   { label: 'Medallion', href: '/medallion' },
   { label: 'Delta Sync', href: '/delta-sync' },
-  { label: 'Tools', href: '/tools/program-selector' },
+  { label: 'Business Calculator', href: 'https://smudge-anchor-96596806.figma.site/', isExternal: true },
 ]
 
 // ── Utility navigation (external delta.com links) ──────────
@@ -46,16 +46,16 @@ export const utilityNav: NavItem[] = [
 
 // ── Auth navigation ────────────────────────────────────────
 export const authNav = {
-  login: { label: 'Launch Tool', href: '/tools/program-selector' },
+  login: { label: 'Log In', href: '/account/dashboard' },
   cta: { label: 'Get Started', href: '/enroll/individual' },
 }
 
 // ── Footer navigation ──────────────────────────────────────
 export const footerNav = {
   programs: [
-    { label: 'Business Traveler', href: '/programs/business-traveler' },
-    { label: 'Enterprise program', href: '/programs/enterprise' },
-    { label: 'Large-Enterprise program', href: '/programs/large-enterprise' },
+    { label: 'SMB Flex', href: '/programs/business-traveler' },
+    { label: 'Corporate Pro', href: '/programs/enterprise' },
+    { label: 'Enterprise Elite', href: '/programs/large-enterprise' },
     { label: 'Compare programs', href: '/programs/compare' },
     { label: 'Delta SYNC', href: '/delta-sync' },
   ],

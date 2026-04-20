@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-const SKYTEAM_BADGE   = 'https://upload.wikimedia.org/wikipedia/commons/9/90/Skyteam_Logo_Alliance.svg'
+const SKYTEAM_BADGE   = '/assets/images/logos/logo-skyteam.webp'
 const LOGO_KLM        = 'https://upload.wikimedia.org/wikipedia/commons/c/c7/KLM_logo.svg'
 const LOGO_AIRFRANCE  = 'https://upload.wikimedia.org/wikipedia/commons/4/44/Air_France_Logo.svg'
 const LOGO_VIRGIN     = 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Virgin_Atlantic_logo_2018.svg'
@@ -23,11 +23,11 @@ const employeePerks = [
 ]
 
 const partnerLogos = [
-  { src: LOGO_KLM,        alt: 'KLM',             h: 45 },
-  { src: LOGO_AIRFRANCE,  alt: 'Air France',      h: 32 },
-  { src: LOGO_VIRGIN,     alt: 'Virgin Atlantic', h: 48 },
-  { src: LOGO_ALASKA,     alt: 'Alaska Airlines', h: 40 },
-  { src: LOGO_AEROMEXICO, alt: 'AeroMexico',      h: 32 },
+  { src: LOGO_KLM,        alt: 'KLM',             h: 24 },
+  { src: LOGO_AIRFRANCE,  alt: 'Air France',      h: 18 },
+  { src: LOGO_VIRGIN,     alt: 'Virgin Atlantic', h: 26 },
+  { src: LOGO_ALASKA,     alt: 'Alaska Airlines', h: 22 },
+  { src: LOGO_AEROMEXICO, alt: 'AeroMexico',      h: 18 },
 ]
 
 const cardStyle: React.CSSProperties = {

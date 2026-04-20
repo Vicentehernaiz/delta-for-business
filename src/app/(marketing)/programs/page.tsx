@@ -3,9 +3,9 @@ import Link from 'next/link'
 import { segments, segmentOrder } from '@/config/segments'
 
 export const metadata: Metadata = {
-  title: 'Delta Corporate Travel Programs | Business Traveler, Enterprise & Large-Enterprise',
+  title: 'Delta Corporate Travel Programs | SMB Flex, Corporate Pro & Enterprise Elite',
   description:
-    'Compare Delta for Business programs: Business Traveler (free), Enterprise program (MSA), and Large-Enterprise program (CSA). Find the right program in 60 seconds.',
+    'Compare Delta for Business programs: SMB Flex (free), Corporate Pro, and Enterprise Elite. Find the right program in 60 seconds.',
   openGraph: {
     title: 'Delta Corporate Travel Programs',
     description: 'Three programs. Every company size. Free to join.',

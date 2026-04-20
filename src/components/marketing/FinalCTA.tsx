@@ -3,13 +3,17 @@ import Link from 'next/link'
 const paths = [
   {
     icon: 'ph-duotone ph-rocket-launch',
+    iconColor: 'var(--color-delta-red-400)',
+    iconBg: 'var(--color-delta-red-50)',
     title: 'Quick start',
-    desc: 'Business Traveler or small team? Get set up in minutes — free.',
+    desc: 'SMB Flex — free for any team. Get set up in minutes, no employer needed.',
     cta: 'Enroll now',
     href: '/enroll/individual',
   },
   {
     icon: 'ph-duotone ph-handshake',
+    iconColor: 'var(--color-delta-blue-600)',
+    iconBg: 'var(--color-delta-blue-50)',
     title: 'Talk to sales',
     desc: 'Enterprise or Large-Enterprise? Connect with our corporate team.',
     cta: 'Contact sales',
@@ -17,6 +21,8 @@ const paths = [
   },
   {
     icon: 'ph-duotone ph-chart-bar',
+    iconColor: 'var(--color-delta-blue-600)',
+    iconBg: 'var(--color-delta-blue-50)',
     title: 'See the value',
     desc: 'Get a custom ROI estimate for your travel spend.',
     cta: 'Calculate ROI',
@@ -28,9 +34,7 @@ export function FinalCTA() {
   return (
     <section
       className="py-20"
-      style={{
-        background: `linear-gradient(135deg, var(--color-delta-blue-700) 0%, var(--color-delta-blue-600) 100%)`,
-      }}
+      style={{ background: 'var(--color-neutral-5)' }}
     >
       <div className="mx-auto px-6 lg:px-8" style={{ maxWidth: 'var(--container-wide)' }}>
         <div className="text-center mb-12">
@@ -39,7 +43,7 @@ export function FinalCTA() {
               fontSize: 'clamp(1.75rem, 3vw, var(--type-scale-40))',
               fontFamily: 'var(--font-display)',
               fontWeight: '700',
-              color: 'var(--color-neutral-0)',
+              color: 'var(--color-delta-blue-700)',
               lineHeight: 'var(--line-height-heading-xl)',
               letterSpacing: 'var(--letter-spacing-heading-xl)',
               marginBottom: '12px',
@@ -47,7 +51,7 @@ export function FinalCTA() {
           >
             Ready to get started?
           </h2>
-          <p style={{ fontSize: 'var(--type-scale-18)', color: 'rgba(255,255,255,0.75)' }}>
+          <p style={{ fontSize: 'var(--type-scale-18)', color: 'var(--color-delta-blue-500)' }}>
             Choose your path to Delta for Business.
           </p>
         </div>
@@ -58,18 +62,18 @@ export function FinalCTA() {
               key={path.href}
               className="flex flex-col rounded-[var(--radius-l)] p-8 text-center"
               style={{
-                background: 'rgba(255,255,255,0.08)',
-                border: '1px solid rgba(255,255,255,0.15)',
-                backdropFilter: 'blur(8px)',
+                background: 'var(--color-neutral-0)',
+                border: '1px solid var(--color-neutral-10)',
+                boxShadow: 'var(--shadow-card)',
               }}
             >
               <div
                 className="w-14 h-14 rounded-full mx-auto mb-5 flex items-center justify-center"
-                style={{ background: 'rgba(255,255,255,0.12)' }}
+                style={{ background: path.iconBg }}
               >
                 <i
                   className={`${path.icon} text-3xl`}
-                  style={{ color: 'var(--color-neutral-0)' }}
+                  style={{ color: path.iconColor }}
                 ></i>
               </div>
               <h3
@@ -77,7 +81,7 @@ export function FinalCTA() {
                   fontSize: 'var(--type-scale-20)',
                   fontFamily: 'var(--font-display)',
                   fontWeight: '700',
-                  color: 'var(--color-neutral-0)',
+                  color: 'var(--color-delta-blue-700)',
                   marginBottom: '8px',
                 }}
               >
@@ -86,7 +90,7 @@ export function FinalCTA() {
               <p
                 style={{
                   fontSize: 'var(--type-scale-14)',
-                  color: 'rgba(255,255,255,0.72)',
+                  color: 'var(--color-delta-blue-500)',
                   lineHeight: 'var(--line-height-body-small)',
                   marginBottom: '24px',
                   flexGrow: 1,

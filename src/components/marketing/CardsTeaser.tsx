@@ -189,8 +189,8 @@ function CardTile({ card, narrow = false }: { card: CardData; narrow?: boolean }
       }}
     >
       {/* Image + name */}
-      <div className="flex items-start" style={{ gap: '24px' }}>
-        <div style={{ position: 'relative', width: '200px', height: narrow ? '126px' : '128px', flexShrink: 0 }}>
+      <div className="flex items-start" style={{ gap: narrow ? '16px' : '24px' }}>
+        <div style={{ position: 'relative', width: narrow ? '140px' : '200px', height: narrow ? '88px' : '128px', flexShrink: 0 }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={card.image}
@@ -198,11 +198,11 @@ function CardTile({ card, narrow = false }: { card: CardData; narrow?: boolean }
             style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', pointerEvents: 'none' }}
           />
         </div>
-        <div className="flex flex-col justify-between" style={{ flex: 1, minWidth: 0, padding: '8px 0', height: narrow ? '126px' : '128px' }}>
+        <div className="flex flex-col justify-between" style={{ flex: 1, minWidth: 0, padding: '4px 0', height: narrow ? '88px' : '128px' }}>
           <div
             style={{
-              fontSize: 'var(--type-scale-28)',
-              lineHeight: 'var(--line-height-heading-m)',
+              fontSize: narrow ? 'var(--type-scale-15)' : 'var(--type-scale-28)',
+              lineHeight: narrow ? '1.3' : 'var(--line-height-heading-m)',
               letterSpacing: 'var(--letter-spacing-heading-xxs)',
               color: card.nameColor,
               fontFamily: 'var(--font-body)',
@@ -215,8 +215,8 @@ function CardTile({ card, narrow = false }: { card: CardData; narrow?: boolean }
           <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px' }}>
             <p
               style={{
-                fontSize: 'var(--type-scale-28)',
-                lineHeight: 'var(--line-height-heading-m)',
+                fontSize: narrow ? 'var(--type-scale-15)' : 'var(--type-scale-28)',
+                lineHeight: narrow ? '1.3' : 'var(--line-height-heading-m)',
                 letterSpacing: 'var(--letter-spacing-heading-xxs)',
                 color: 'var(--color-delta-blue-500)',
                 fontFamily: 'var(--font-body)',
@@ -226,7 +226,7 @@ function CardTile({ card, narrow = false }: { card: CardData; narrow?: boolean }
               {card.fee}
             </p>
             {card.feeNote && (
-              <p style={{ ...bodyText, fontSize: 'var(--type-scale-16)' }}>{card.feeNote}</p>
+              <p style={{ ...bodyText, fontSize: narrow ? 'var(--type-scale-13)' : 'var(--type-scale-16)' }}>{card.feeNote}</p>
             )}
           </div>
         </div>
@@ -316,16 +316,14 @@ function CardTile({ card, narrow = false }: { card: CardData; narrow?: boolean }
         <Link
           href={card.knowMoreHref}
           style={{
-            height: '44px',
-            padding: '0 24px',
-            display: 'inline-flex',
-            alignItems: 'center',
             fontSize: 'var(--type-scale-16)',
             fontWeight: '700',
             fontFamily: 'var(--font-display)',
             letterSpacing: 'var(--letter-spacing-marketing-x-large)',
             color: 'var(--color-delta-blue-700)',
-            borderBottom: '1.5px solid var(--color-delta-blue-700)',
+            textDecoration: 'underline',
+            textDecorationColor: 'var(--color-delta-blue-700)',
+            textUnderlineOffset: '3px',
           }}
         >
           Know more
@@ -335,16 +333,14 @@ function CardTile({ card, narrow = false }: { card: CardData; narrow?: boolean }
           target="_blank"
           rel="noopener noreferrer"
           style={{
-            height: '44px',
-            padding: '0 24px',
-            display: 'inline-flex',
-            alignItems: 'center',
             fontSize: 'var(--type-scale-16)',
             fontWeight: '700',
             fontFamily: 'var(--font-display)',
             letterSpacing: 'var(--letter-spacing-marketing-x-large)',
             color: 'var(--color-delta-red-400)',
-            borderBottom: '1.5px solid var(--color-delta-red-400)',
+            textDecoration: 'underline',
+            textDecorationColor: 'var(--color-delta-red-400)',
+            textUnderlineOffset: '3px',
           }}
         >
           Get in
