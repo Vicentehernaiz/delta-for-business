@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import '@/styles/globals.css'
 import '@/styles/tokens.css'
 import '@phosphor-icons/web/regular'
@@ -16,9 +17,24 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  // Microsoft Clarity loader. Opt-in via env var — no hardcoded fallback so
+  // unconfigured environments (CI, preview without secrets) never ship beacons.
+  const clarityId = process.env.NEXT_PUBLIC_CLARITY_ID
+
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        {clarityId && (
+          <Script id="ms-clarity" strategy="afterInteractive" dangerouslySetInnerHTML={{
+            __html: `(function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "${clarityId}");`,
+          }} />
+        )}
+      </body>
     </html>
   )
 }

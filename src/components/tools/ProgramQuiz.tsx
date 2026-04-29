@@ -31,7 +31,7 @@ const PLAN_DETAILS: Record<string, { included: string[]; excluded: string[]; con
       'No Corporate Priority benefits',
       'No Medallion acceleration',
     ],
-    conditions: 'Any person traveling for work · No employer needed · Free enrollment · Self-serve via SkyMiles login · 1–50 travelers · US & Canada',
+    conditions: '1–49 travelers OR up to $50K annual Delta spend · Free enrollment · Self-serve via SkyMiles login · US & Canada',
   },
   enterprise: {
     included: [
@@ -51,7 +51,7 @@ const PLAN_DETAILS: Record<string, { included: string[]; excluded: string[]; con
       'Corporate Priority: preferred seating, priority boarding, re-booking & service recovery',
     ],
     excluded: [],
-    conditions: '50–500 travelers · Annual spend $50K+ · Negotiated agreement · Managed travel tool required',
+    conditions: '50–499 travelers OR $50K–$300K annual Delta spend · Negotiated agreement · Managed travel tool required',
   },
   'large-enterprise': {
     included: [
@@ -71,7 +71,7 @@ const PLAN_DETAILS: Record<string, { included: string[]; excluded: string[]; con
       'Employees still earn personal SkyMiles + MQDs',
     ],
     excluded: [],
-    conditions: '500+ travelers · Annual spend $300K+ · Negotiated agreement · Full managed travel + Delta Business Tool included',
+    conditions: '500+ travelers OR $300K+ annual Delta spend · Negotiated agreement · Full managed travel + Delta Business Tool included',
   },
 }
 
@@ -84,9 +84,9 @@ const CONTEXT_OPTIONS: { value: QuizContext; label: string; desc: string; icon: 
 
 const SIZE_OPTIONS: { value: QuizCompanySize; label: string; sub: string }[] = [
   { value: 'just-me', label: 'Solo', sub: 'Just me traveling' },
-  { value: '2-50', label: '2–50 travelers', sub: 'SMB Flex program' },
-  { value: '50-500', label: '50–500 travelers', sub: 'Corporate Pro program' },
-  { value: '500+', label: '500+ travelers', sub: 'Enterprise Elite program' },
+  { value: '2-50', label: '2–49 travelers', sub: 'SMB Flex · up to $50K spend' },
+  { value: '50-500', label: '50–499 travelers', sub: 'Corporate Pro · $50K–$300K spend' },
+  { value: '500+', label: '500+ travelers', sub: 'Enterprise Elite · $300K+ spend' },
 ]
 
 const SPEND_OPTIONS_INDIVIDUAL: { value: QuizSpend; label: string }[] = [

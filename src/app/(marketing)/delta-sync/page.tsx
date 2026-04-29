@@ -89,12 +89,14 @@ export default function DeltaSyncPage() {
         <div className="mx-auto max-w-[var(--container-wide)]">
           <div
             className="overflow-hidden rounded-[var(--radius-l)] border border-[var(--color-neutral-5)] bg-[var(--color-neutral-0)] shadow-[var(--shadow-card)]"
+            style={{ aspectRatio: '1200 / 594', maxHeight: '100vh' }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/assets/images/delta-sync/dashboard-preview.png"
               alt="Delta Business Tool dashboard — overview, quick actions, miles, requests, traveler activity and credit summary"
-              className="block w-full h-auto"
+              className="block w-full h-full"
+              style={{ objectFit: 'cover', objectPosition: 'top center' }}
             />
           </div>
         </div>

@@ -11,7 +11,7 @@ const plans = [
     id: 'business-traveler',
     name: 'SMB Flex',
     nameColor: 'var(--color-delta-blue-300)',
-    subtitle: 'Any person traveling for work · No employer needed · Free enroll\nSelf-serve · Enroll in 60 seconds via SkyMiles login',
+    subtitle: '1–49 travelers OR up to $50K spend · Free enroll\nSelf-serve · Enroll in 60 seconds via SkyMiles login',
     companyLabel: 'Company gets',
     companyBenefits: [
       'Business rewards pool',
@@ -46,7 +46,7 @@ const plans = [
     id: 'enterprise',
     name: 'Corporate Pro',
     nameColor: 'var(--color-delta-red-400)',
-    subtitle: '50–500 travelers · Managed travel tool\nNegotiated agreement\nAccount manager + Corporate Priority',
+    subtitle: '50–499 travelers OR $50K–$300K spend\nNegotiated agreement · Managed travel tool\nAccount manager + Corporate Priority',
     companyLabel: 'Company gets',
     companyBenefits: [
       'Dynamic fare discounts',
@@ -78,7 +78,7 @@ const plans = [
     id: 'large-enterprise',
     name: 'Enterprise Elite',
     nameColor: 'var(--color-delta-red-400)',
-    subtitle: '500+ travelers · Full managed travel\nNegotiated agreement\nFull Corporate Priority suite globally',
+    subtitle: '500+ travelers OR $300K+ spend\nFull managed travel · Negotiated agreement\nFull Corporate Priority suite globally',
     companyLabel: 'Company gets',
     companyBenefits: [
       'Custom pricing',

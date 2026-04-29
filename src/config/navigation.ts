@@ -6,10 +6,11 @@ export const mainNav: NavItem[] = [
     label: 'Programs',
     href: '/programs',
     children: [
+      { label: 'Individual traveler', href: '/programs/individual' },
       { label: 'SMB Flex', href: '/programs/business-traveler' },
       { label: 'Corporate Pro', href: '/programs/enterprise' },
       { label: 'Enterprise Elite', href: '/programs/large-enterprise' },
-      { label: 'Compare all programs', href: '/programs/compare' },
+      { label: 'Compare business plans', href: '/programs/compare' },
     ],
   },
   {
@@ -47,18 +48,14 @@ export const mainNav: NavItem[] = [
       },
       {
         label: 'Plan Calculator',
-        href: 'https://smudge-anchor-96596806.figma.site/',
-        isExternal: true,
+        href: '/tools/plan-calculator',
         description: 'Estimate miles earned and projected ROI for your team',
         clarityEvent: 'nav_calculate_plan_calculator_clicked',
       },
       {
-        // TODO: replace this href with a real /tools/plan-comparison route (or a
-        // #comparison anchor on the calculator page) once that page exists.
         label: 'Plan Comparison Tool',
-        href: 'https://smudge-anchor-96596806.figma.site/',
-        isExternal: true,
-        description: 'See SMB Flex, Corporate Pro and Enterprise Elite side by side',
+        href: '/tools/plan-comparison',
+        description: 'See Individual, SMB Flex, Corporate Pro and Enterprise Elite side by side',
         clarityEvent: 'nav_calculate_plan_comparison_clicked',
       },
     ],
@@ -82,10 +79,11 @@ export const authNav = {
 // ── Footer navigation ──────────────────────────────────────
 export const footerNav = {
   programs: [
+    { label: 'Individual traveler', href: '/programs/individual' },
     { label: 'SMB Flex', href: '/programs/business-traveler' },
     { label: 'Corporate Pro', href: '/programs/enterprise' },
     { label: 'Enterprise Elite', href: '/programs/large-enterprise' },
-    { label: 'Compare programs', href: '/programs/compare' },
+    { label: 'Compare business plans', href: '/programs/compare' },
     { label: 'Delta Business Tool', href: '/delta-sync' },
   ],
   benefits: [

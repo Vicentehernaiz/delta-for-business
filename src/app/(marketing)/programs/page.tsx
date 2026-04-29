@@ -4,12 +4,12 @@ import { segments, segmentOrder } from '@/config/segments'
 import { FadeIn, StaggerChildren, StaggerItem } from '@/components/ui/FadeIn'
 
 export const metadata: Metadata = {
-  title: 'Delta Corporate Travel Programs | SMB Flex, Corporate Pro & Enterprise Elite',
+  title: 'Delta Business Programs | Individual, SMB Flex, Corporate Pro & Enterprise Elite',
   description:
-    'Compare Delta for Business programs: SMB Flex (free), Corporate Pro, and Enterprise Elite. Find the right program in 60 seconds.',
+    'Compare Delta for Business paths: Individual (solo, free), SMB Flex (free), Corporate Pro, and Enterprise Elite. Find the right plan in 60 seconds.',
   openGraph: {
-    title: 'Delta Corporate Travel Programs',
-    description: 'Three programs. Every company size. Free to join.',
+    title: 'Delta Business Programs',
+    description: 'Four paths covering every traveler — solo, small team, mid-market, enterprise.',
     images: ['/og/programs.png'],
   },
   alternates: { canonical: 'https://business.delta.com/programs' },
@@ -22,7 +22,7 @@ const programIcons: Record<string, string> = {
 }
 
 const programSpend: Record<string, string> = {
-  'business-traveler': 'No minimum',
+  'business-traveler': 'Up to $50K / year',
   enterprise: '$50K – $300K / year',
   'large-enterprise': '$300K+ / year',
 }
@@ -62,7 +62,7 @@ export default function ProgramsPage() {
               lineHeight: 'var(--line-height-body-medium)',
             }}
           >
-            Three programs covering every company size — from the solo road warrior to the global enterprise.
+            Four paths covering every traveler — start solo with the Individual plan, or scale up to a managed corporate program.
           </p>
           <Link
             href="/tools/program-selector"
@@ -87,7 +87,7 @@ export default function ProgramsPage() {
       <section className="py-20" style={{ background: 'var(--color-neutral-5)' }}>
         <div className="mx-auto px-6 lg:px-8" style={{ maxWidth: 'var(--container-wide)' }}>
           <h2
-            className="text-center mb-12"
+            className="text-center mb-6"
             style={{
               fontSize: 'clamp(1.5rem, 2.5vw, var(--type-scale-32))',
               fontFamily: 'var(--font-display)',
@@ -97,6 +97,43 @@ export default function ProgramsPage() {
           >
             All programs at a glance
           </h2>
+
+          {/* Solo / Individual lead-in card */}
+          <Link
+            href="/programs/individual"
+            className="block mb-8 group"
+            style={{
+              borderRadius: 'var(--radius-l)',
+              padding: '20px 24px',
+              background: 'linear-gradient(135deg, var(--color-delta-blue-700) 0%, var(--color-delta-blue-600) 100%)',
+              border: '1px solid var(--color-delta-blue-300)',
+              boxShadow: 'var(--shadow-card)',
+              textDecoration: 'none',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '20px',
+              flexWrap: 'wrap',
+            }}
+          >
+            <div className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(255,255,255,0.12)' }}>
+              <i className="ph-fill ph-user text-xl" style={{ color: 'var(--color-nav-section-title)' }}></i>
+            </div>
+            <div style={{ flex: 1, minWidth: '240px' }}>
+              <p style={{ fontSize: 'var(--type-scale-11)', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.07em', color: 'var(--color-nav-section-title)', marginBottom: '4px' }}>
+                Solo · Free · No employer needed
+              </p>
+              <p style={{ fontSize: 'var(--type-scale-16)', fontWeight: '700', color: 'var(--color-neutral-0)', marginBottom: '2px' }}>
+                Individual traveler
+              </p>
+              <p style={{ fontSize: 'var(--type-scale-13)', color: 'rgba(255,255,255,0.82)' }}>
+                For freelancers, consultants, and employees without a corporate program — earn personal SkyMiles + business partner perks.
+              </p>
+            </div>
+            <span className="inline-flex items-center gap-1.5 font-semibold group-hover:translate-x-1 transition-transform" style={{ fontSize: 'var(--type-scale-14)', color: 'var(--color-neutral-0)' }}>
+              See plan
+              <i className="ph-bold ph-arrow-right text-sm"></i>
+            </span>
+          </Link>
           <StaggerChildren className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {segmentOrder.map((key) => {
               const seg = segments[key]
@@ -147,11 +184,13 @@ export default function ProgramsPage() {
                   <div className="mb-4 space-y-1">
                     <div className="flex items-center gap-2">
                       <i className="ph ph-users text-sm" style={{ color: 'var(--color-neutral-500)' }}></i>
-                      <span style={{ fontSize: 'var(--type-scale-13)', color: 'var(--color-neutral-600)' }}>{programTravelers[key]}</span>
+                      <span style={{ fontSize: 'var(--type-scale-13)', color: 'var(--color-neutral-600)' }}>
+                        {programTravelers[key]} <span style={{ color: 'var(--color-neutral-500)' }}>OR</span>
+                      </span>
                     </div>
                     <div className="flex items-center gap-2">
                       <i className="ph ph-currency-dollar text-sm" style={{ color: 'var(--color-neutral-500)' }}></i>
-                      <span style={{ fontSize: 'var(--type-scale-13)', color: 'var(--color-neutral-600)' }}>{programSpend[key]}</span>
+                      <span style={{ fontSize: 'var(--type-scale-13)', color: 'var(--color-neutral-600)' }}>{programSpend[key]} Delta spend</span>
                     </div>
                   </div>
 

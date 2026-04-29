@@ -48,6 +48,8 @@ export function DeltaSyncSection() {
             boxShadow: 'var(--shadow-card)',
             overflow: 'hidden',
             color: 'var(--color-neutral-0)',
+            aspectRatio: '1200 / 594',
+            maxHeight: '100vh',
           }}
           aria-label="Open the Delta Business Tool dashboard"
         >
@@ -55,7 +57,7 @@ export function DeltaSyncSection() {
           <img
             src="/assets/images/delta-sync/dashboard-preview.png"
             alt="Delta Business Tool dashboard preview — KPIs, miles balance, traveler roster and more"
-            style={{ width: '100%', height: 'auto', display: 'block' }}
+            style={{ width: '100%', height: '100%', display: 'block', objectFit: 'cover', objectPosition: 'top center' }}
             loading="lazy"
           />
           <div

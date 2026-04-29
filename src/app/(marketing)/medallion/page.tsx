@@ -173,6 +173,12 @@ export default function MedallionPage() {
         </div>
       </section>
 
+      {/* ═══════════════════════════════════════════════════════════
+          NEW · MEDALLION TIERS FOR BUSINESS
+          Pooled MQDs · Provisional Initiation · 3 tiers · Why this works
+          ═══════════════════════════════════════════════════════════ */}
+      <BusinessMedallionTiersSection />
+
       <section style={{ background: 'var(--color-neutral-0)', padding: '64px 24px' }}>
         <div style={{ maxWidth: 'var(--container-narrow)', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '40px' }}>
@@ -783,5 +789,618 @@ export default function MedallionPage() {
         </div>
       </section>
     </main>
+  )
+}
+
+// ═════════════════════════════════════════════════════════════════════════════
+// Business Medallion Tiers — pooled MQDs, provisional initiation, why it works
+// ═════════════════════════════════════════════════════════════════════════════
+
+const BUSINESS_TIERS = [
+  {
+    id: 'gold',
+    name: 'Business Gold',
+    img: '/assets/images/medallion/gold.svg',
+    mqd: 10000,
+    initiationFee: 5000,
+    yearOneGoal: 5000,
+    pairedCard: 'Delta SkyMiles® Gold Business Card',
+    accent: 'var(--color-medallion-gold)',
+  },
+  {
+    id: 'platinum',
+    name: 'Business Platinum',
+    img: '/assets/images/medallion/platinum.svg',
+    mqd: 30000,
+    initiationFee: 15000,
+    yearOneGoal: 15000,
+    pairedCard: 'Delta SkyMiles® Platinum Business Card',
+    accent: 'var(--color-medallion-platinum)',
+  },
+  {
+    id: 'diamond',
+    name: 'Business Diamond',
+    img: '/assets/images/medallion/diamond.svg',
+    mqd: 50000,
+    initiationFee: 25000,
+    yearOneGoal: 25000,
+    pairedCard: 'Delta SkyMiles® Reserve Business Card',
+    accent: 'var(--color-medallion-diamond)',
+  },
+] as const
+
+function BusinessMedallionTiersSection() {
+  return (
+    <section
+      style={{
+        background:
+          'linear-gradient(180deg, var(--color-neutral-5) 0%, var(--color-neutral-0) 60%, var(--color-neutral-5) 100%)',
+        borderTop: '1px solid var(--color-neutral-10)',
+        borderBottom: '1px solid var(--color-neutral-10)',
+        padding: '80px 24px',
+      }}
+    >
+      <div style={{ maxWidth: 'var(--container-narrow)', margin: '0 auto' }}>
+        {/* Section header */}
+        <div className="text-center" style={{ marginBottom: '48px' }}>
+          <span
+            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full mb-4 font-semibold"
+            style={{
+              background: 'var(--color-delta-red-50)',
+              color: 'var(--color-delta-red-400)',
+              fontSize: 'var(--type-scale-12)',
+              textTransform: 'uppercase',
+              letterSpacing: '0.07em',
+            }}
+          >
+            <i className="ph-fill ph-sparkle text-xs"></i>
+            New · For companies
+          </span>
+          <h2
+            style={{
+              fontSize: 'clamp(1.75rem, 3vw, var(--type-scale-40))',
+              fontFamily: 'var(--font-display)',
+              fontWeight: '700',
+              color: 'var(--color-delta-blue-700)',
+              marginBottom: '12px',
+            }}
+          >
+            Introducing <span style={{ color: 'var(--color-delta-red-400)', fontStyle: 'italic' }}>Medallion Tiers for Business</span>
+          </h2>
+          <p style={{ fontSize: 'var(--type-scale-16)', color: 'var(--color-neutral-600)', maxWidth: '620px', margin: '0 auto', lineHeight: 1.6 }}>
+            A new <strong>company-side</strong> Medallion program. Pool MQDs across employees, pair
+            with a Delta SkyMiles Business Amex, and earn a tier the entire organization unlocks.
+            Independent of personal Medallion — both stack.
+          </p>
+        </div>
+
+        {/* Three tier cards */}
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+            gap: '20px',
+            marginBottom: '80px',
+          }}
+        >
+          {BUSINESS_TIERS.map((t) => (
+            <div
+              key={t.id}
+              className="text-center flex flex-col items-center"
+              style={{
+                padding: '32px 24px',
+                borderRadius: 'var(--radius-l)',
+                background: 'var(--color-neutral-0)',
+                border: '1px solid var(--color-neutral-10)',
+                boxShadow: 'var(--shadow-card)',
+              }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={t.img}
+                alt={`${t.name} icon`}
+                style={{ width: '88px', height: '78px', filter: 'drop-shadow(0 6px 16px rgba(0,0,0,0.12))', marginBottom: '20px' }}
+              />
+              <p
+                style={{
+                  fontSize: 'var(--type-scale-22)',
+                  fontFamily: 'var(--font-display)',
+                  fontWeight: '700',
+                  color: 'var(--color-delta-blue-700)',
+                  marginBottom: '4px',
+                }}
+              >
+                {t.name}
+              </p>
+              <p
+                style={{
+                  fontSize: 'var(--type-scale-15)',
+                  color: t.accent,
+                  fontWeight: '700',
+                  marginBottom: '20px',
+                }}
+              >
+                ${t.mqd.toLocaleString()} MQDs
+              </p>
+              <p
+                style={{
+                  fontSize: 'var(--type-scale-11)',
+                  fontWeight: '700',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.08em',
+                  color: 'var(--color-delta-red-400)',
+                  marginBottom: '4px',
+                }}
+              >
+                Best paired with
+              </p>
+              <p style={{ fontSize: 'var(--type-scale-13)', color: 'var(--color-neutral-700)', lineHeight: 1.5 }}>
+                {t.pairedCard}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* ── How It Works header ─────────────────────────────────── */}
+        <div className="text-center" style={{ marginBottom: '40px' }}>
+          <p
+            style={{
+              fontSize: 'var(--type-scale-12)',
+              fontWeight: '700',
+              textTransform: 'uppercase',
+              letterSpacing: '0.1em',
+              color: 'var(--color-delta-red-400)',
+              marginBottom: '8px',
+            }}
+          >
+            How it works
+          </p>
+          <h3
+            style={{
+              fontSize: 'clamp(1.5rem, 2.4vw, var(--type-scale-32))',
+              fontFamily: 'var(--font-display)',
+              fontWeight: '700',
+              color: 'var(--color-delta-blue-700)',
+            }}
+          >
+            Two mechanics power the program
+          </h3>
+        </div>
+
+        {/* ── Pooled MQDs + Provisional Initiation (two-column) ──── */}
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '24px',
+            marginBottom: '56px',
+          }}
+        >
+          {/* Pooled MQDs card */}
+          <div
+            style={{
+              padding: '32px',
+              borderRadius: 'var(--radius-l)',
+              background: 'var(--color-neutral-0)',
+              border: '1px solid var(--color-neutral-10)',
+              boxShadow: 'var(--shadow-card)',
+            }}
+          >
+            <p
+              style={{
+                fontSize: 'var(--type-scale-12)',
+                fontWeight: '700',
+                textTransform: 'uppercase',
+                letterSpacing: '0.08em',
+                color: 'var(--color-delta-red-400)',
+                marginBottom: '6px',
+              }}
+            >
+              Pooled MQDs
+            </p>
+            <p
+              style={{
+                fontSize: 'var(--type-scale-15)',
+                color: 'var(--color-neutral-700)',
+                lineHeight: 1.6,
+                marginBottom: '24px',
+              }}
+            >
+              MQDs earned by employees on business travel flights aggregate under one company
+              account and contribute to the tier threshold — no individual employee needs to hit
+              Diamond on their own.
+            </p>
+            <PooledMqdsDiagram />
+          </div>
+
+          {/* Provisional Initiation card */}
+          <div
+            style={{
+              padding: '32px',
+              borderRadius: 'var(--radius-l)',
+              background: 'var(--color-neutral-0)',
+              border: '1px solid var(--color-neutral-10)',
+              boxShadow: 'var(--shadow-card)',
+            }}
+          >
+            <p
+              style={{
+                fontSize: 'var(--type-scale-12)',
+                fontWeight: '700',
+                textTransform: 'uppercase',
+                letterSpacing: '0.08em',
+                color: 'var(--color-delta-red-400)',
+                marginBottom: '6px',
+              }}
+            >
+              Provisional Initiation
+            </p>
+            <p
+              style={{
+                fontSize: 'var(--type-scale-15)',
+                color: 'var(--color-neutral-700)',
+                lineHeight: 1.6,
+                marginBottom: '20px',
+              }}
+            >
+              Companies pay a 50% initiation fee to join the program. The fee counts toward the
+              selected tier&apos;s MQD threshold <em>and</em> waives the Amex SkyMiles Business
+              annual fees for the year.
+            </p>
+            <ul style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              {[
+                { label: 'Fee counts as 50% of MQD threshold', icon: 'ph-fill ph-check-circle' },
+                { label: 'Amex SkyMiles annual fees waived', icon: 'ph-fill ph-check-circle' },
+                { label: 'Earn the remaining 50% in MQDs over Year 1', icon: 'ph-fill ph-check-circle' },
+              ].map((it) => (
+                <li key={it.label} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                  <i className={`${it.icon} text-base`} style={{ color: 'var(--color-success)', marginTop: '2px', flexShrink: 0 }} />
+                  <span style={{ fontSize: 'var(--type-scale-14)', color: 'var(--color-delta-blue-700)', lineHeight: 1.55 }}>{it.label}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* ── Initiation flow diagram ──────────────────────────────── */}
+        <InitiationFlow />
+
+        {/* ── Why this works ───────────────────────────────────────── */}
+        <WhyThisWorks />
+      </div>
+    </section>
+  )
+}
+
+// ── Pooled MQDs visual: company building with 5 employees feeding it ────────
+
+function PooledMqdsDiagram() {
+  return (
+    <div
+      style={{
+        background: 'var(--color-neutral-5)',
+        borderRadius: 'var(--radius-l)',
+        padding: '24px 16px',
+        position: 'relative',
+      }}
+    >
+      {/* Company building */}
+      <div className="flex justify-center" style={{ marginBottom: '16px' }}>
+        <div
+          className="flex items-center gap-2"
+          style={{
+            background: 'var(--color-delta-blue-700)',
+            color: 'var(--color-neutral-0)',
+            padding: '10px 16px',
+            borderRadius: 'var(--radius-l)',
+            fontSize: 'var(--type-scale-13)',
+            fontWeight: '700',
+          }}
+        >
+          <i className="ph-fill ph-buildings text-base" />
+          Company MQD pool
+          <i className="ph-fill ph-arrow-fat-up text-base" style={{ color: 'var(--color-delta-red-400)' }} />
+        </div>
+      </div>
+
+      {/* Connector lines (simple visual) */}
+      <div
+        aria-hidden="true"
+        style={{
+          height: '24px',
+          margin: '0 auto',
+          width: '80%',
+          borderLeft: '1px solid var(--color-neutral-50)',
+          borderRight: '1px solid var(--color-neutral-50)',
+          borderBottom: '1px solid var(--color-neutral-50)',
+          borderTop: '0',
+          borderTopLeftRadius: '0',
+          borderBottomLeftRadius: '8px',
+          borderBottomRightRadius: '8px',
+          borderTopRightRadius: '0',
+        }}
+      />
+
+      {/* Employees row */}
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(5, 1fr)',
+          gap: '6px',
+          marginTop: '8px',
+        }}
+      >
+        {[0, 1, 2, 3, 4].map((i) => (
+          <div key={i} className="flex flex-col items-center" style={{ gap: '4px' }}>
+            <i className="ph-fill ph-user text-xl" style={{ color: 'var(--color-delta-red-400)' }} />
+            <i className="ph-fill ph-coins text-sm" style={{ color: 'var(--color-delta-blue-600)' }} />
+          </div>
+        ))}
+      </div>
+      <p style={{ fontSize: 'var(--type-scale-11)', color: 'var(--color-neutral-600)', textAlign: 'center', marginTop: '12px', lineHeight: 1.5 }}>
+        Each employee&apos;s business-flight MQDs flow up to the company pool.
+      </p>
+    </div>
+  )
+}
+
+// ── Initiation flow diagram: 3 horizontal flows (Gold / Platinum / Diamond) ──
+
+function InitiationFlow() {
+  return (
+    <div style={{ marginBottom: '64px' }}>
+      <div className="text-center" style={{ marginBottom: '24px' }}>
+        <p
+          style={{
+            fontSize: 'var(--type-scale-12)',
+            fontWeight: '700',
+            textTransform: 'uppercase',
+            letterSpacing: '0.1em',
+            color: 'var(--color-delta-red-400)',
+            marginBottom: '6px',
+          }}
+        >
+          Year-one path
+        </p>
+        <h3
+          style={{
+            fontSize: 'clamp(1.4rem, 2.2vw, var(--type-scale-28))',
+            fontFamily: 'var(--font-display)',
+            fontWeight: '700',
+            color: 'var(--color-delta-blue-700)',
+          }}
+        >
+          Initiation fee → Provisional tier → Confirmed
+        </h3>
+      </div>
+
+      <div
+        style={{
+          background: 'var(--color-neutral-0)',
+          borderRadius: 'var(--radius-l)',
+          border: '1px solid var(--color-neutral-10)',
+          padding: '24px',
+          boxShadow: 'var(--shadow-card)',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '16px',
+        }}
+      >
+        {BUSINESS_TIERS.map((t) => (
+          <div
+            key={t.id}
+            className="flex flex-wrap items-center"
+            style={{
+              gap: '8px',
+              padding: '14px',
+              borderRadius: 'var(--radius-l)',
+              background: 'var(--color-neutral-5)',
+              border: '1px solid var(--color-neutral-10)',
+            }}
+          >
+            {/* Step 1: Initiation Fee */}
+            <FlowChip
+              label={`$${t.initiationFee.toLocaleString()} fee`}
+              sub="Initiation"
+              accent="var(--color-delta-red-400)"
+            />
+            <FlowArrow />
+            {/* Step 2: Provisional tier */}
+            <FlowChip
+              label={`Provisional ${t.name.replace('Business ', '')}`}
+              sub="Year 1 status active"
+              accent={t.accent}
+              img={t.img}
+            />
+            <FlowArrow />
+            {/* Step 3: MQD goal */}
+            <FlowChip
+              label={`$${t.yearOneGoal.toLocaleString()} MQD goal`}
+              sub="Earned during Y1"
+              accent="var(--color-delta-blue-600)"
+            />
+            <FlowArrow />
+            {/* Step 4: Outcome */}
+            <div className="flex flex-col" style={{ gap: '6px', minWidth: '160px' }}>
+              <span
+                style={{
+                  fontSize: 'var(--type-scale-12)',
+                  fontWeight: '700',
+                  color: 'var(--color-success)',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                }}
+              >
+                <i className="ph-bold ph-check-circle" />
+                Met → Confirmed {t.name.replace('Business ', '')}
+              </span>
+              <span
+                style={{
+                  fontSize: 'var(--type-scale-12)',
+                  fontWeight: '700',
+                  color: 'var(--color-delta-red-400)',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                }}
+              >
+                <i className="ph-bold ph-x-circle" />
+                Unmet → Halted benefits
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+function FlowChip({
+  label,
+  sub,
+  accent,
+  img,
+}: {
+  label: string
+  sub: string
+  accent: string
+  img?: string
+}) {
+  return (
+    <div
+      className="flex items-center gap-3"
+      style={{
+        background: 'var(--color-neutral-0)',
+        border: `1px solid var(--color-neutral-10)`,
+        borderLeft: `4px solid ${accent}`,
+        borderRadius: 'var(--radius-l)',
+        padding: '10px 14px',
+        minWidth: '160px',
+        flex: '1 1 160px',
+      }}
+    >
+      {img && (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={img} alt="" style={{ width: '22px', height: '20px', flexShrink: 0 }} />
+      )}
+      <div className="min-w-0">
+        <p style={{ fontSize: 'var(--type-scale-13)', fontWeight: '700', color: 'var(--color-delta-blue-700)', lineHeight: 1.2 }}>{label}</p>
+        <p style={{ fontSize: 'var(--type-scale-11)', color: 'var(--color-neutral-600)', marginTop: '2px' }}>{sub}</p>
+      </div>
+    </div>
+  )
+}
+
+function FlowArrow() {
+  return (
+    <i
+      className="ph-bold ph-arrow-right text-lg"
+      style={{ color: 'var(--color-neutral-500)', flexShrink: 0 }}
+      aria-hidden="true"
+    />
+  )
+}
+
+// ── Why this works ──────────────────────────────────────────────────────────
+
+function WhyThisWorks() {
+  return (
+    <div>
+      <div className="text-center" style={{ marginBottom: '24px' }}>
+        <p
+          style={{
+            fontSize: 'var(--type-scale-12)',
+            fontWeight: '700',
+            textTransform: 'uppercase',
+            letterSpacing: '0.1em',
+            color: 'var(--color-delta-red-400)',
+            marginBottom: '6px',
+          }}
+        >
+          Why this works
+        </p>
+        <h3
+          style={{
+            fontSize: 'clamp(1.4rem, 2.2vw, var(--type-scale-28))',
+            fontFamily: 'var(--font-display)',
+            fontWeight: '700',
+            color: 'var(--color-delta-blue-700)',
+          }}
+        >
+          Aligned incentives across Delta and Amex
+        </h3>
+      </div>
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gap: '20px',
+        }}
+      >
+        {[
+          {
+            heading: 'Delta',
+            badgeIcon: 'ph-fill ph-airplane',
+            points: [
+              'Captures enterprise loyalty for airline travel',
+              'Comfort baseline locks in cabin revenue',
+            ],
+          },
+          {
+            heading: 'Amex',
+            badgeIcon: 'ph-fill ph-credit-card',
+            points: [
+              'Pooled-miles wallet incentivizes the card as primary payment',
+              'Corporate statement credits drive consolidated billing',
+            ],
+          },
+        ].map((col) => (
+          <div
+            key={col.heading}
+            style={{
+              padding: '28px',
+              borderRadius: 'var(--radius-l)',
+              background: 'var(--color-neutral-0)',
+              border: '1px solid var(--color-neutral-10)',
+              boxShadow: 'var(--shadow-card)',
+            }}
+          >
+            <div className="flex items-center gap-3" style={{ marginBottom: '16px' }}>
+              <div
+                className="flex items-center justify-center"
+                style={{
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: 'var(--radius-full)',
+                  background: 'var(--color-delta-red-50)',
+                }}
+              >
+                <i className={`${col.badgeIcon} text-lg`} style={{ color: 'var(--color-delta-red-400)' }} />
+              </div>
+              <p
+                style={{
+                  fontSize: 'var(--type-scale-22)',
+                  fontFamily: 'var(--font-display)',
+                  fontWeight: '700',
+                  color: 'var(--color-delta-red-400)',
+                  letterSpacing: '0.04em',
+                }}
+              >
+                {col.heading}
+              </p>
+            </div>
+            <ul style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              {col.points.map((p) => (
+                <li key={p} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                  <i className="ph-fill ph-check-circle text-base" style={{ color: 'var(--color-success)', marginTop: '2px', flexShrink: 0 }} />
+                  <span style={{ fontSize: 'var(--type-scale-14)', color: 'var(--color-delta-blue-700)', lineHeight: 1.55 }}>{p}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
   )
 }

@@ -9,10 +9,11 @@ import { clarityEvent } from '@/lib/clarity'
 // ── Mega-menu content (descriptions per child link) ──────────────────────────
 
 const megaDescriptions: Record<string, string> = {
-  '/programs/business-traveler':   'Free self-serve · 1–49 travelers · Business rewards pool',
-  '/programs/enterprise':          'Dynamic fares · 50–499 travelers · Seat access pools',
-  '/programs/large-enterprise':    'Custom pricing · 500+ travelers · Full reporting & support',
-  '/programs/compare':             'Side-by-side comparison of all three programs',
+  '/programs/individual':          'Solo traveler · Free · No employer needed · Personal SkyMiles + perks',
+  '/programs/business-traveler':   '1–49 travelers OR up to $50K spend · Free self-serve · Rewards pool',
+  '/programs/enterprise':          '50–499 travelers OR $50K–$300K spend · Dynamic fares · Seat pools',
+  '/programs/large-enterprise':    '500+ travelers OR $300K+ spend · Custom pricing · Global support',
+  '/programs/compare':             'Side-by-side: Individual · SMB Flex · Corporate Pro · Enterprise Elite',
   '/benefits/corporate-priority':  'Preferred seating, priority boarding & upgrade queue',
   '/benefits/sky-club':            'Lounge access across 50+ domestic & international airports',
   '/benefits/meetings-groups':     'Discounted fares for group travel and events',
@@ -25,8 +26,8 @@ const megaDescriptions: Record<string, string> = {
 
 function MegaPanel({ item }: { item: NavItem }) {
   const children = item.children ?? []
-  // 4-item menus (Programs) get a 2-col layout; everything else stays single-row.
-  const isTwoCol = children.length === 4
+  // 4–5 item menus (Programs) get a 2-col layout; everything else stays single-row.
+  const isTwoCol = children.length >= 4
 
   return (
     <div
