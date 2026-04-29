@@ -36,10 +36,14 @@ const PLANS: Record<PlanId, Plan> = {
     ctaLabel: 'Create my SkyMiles account',
     learnHref: '/programs/individual',
     perks: [
-      { icon: 'ph-fill ph-airplane-tilt', text: 'Personal SkyMiles earning' },
-      { icon: 'ph-fill ph-car', text: 'Hertz Business Rewards' },
-      { icon: 'ph-fill ph-fingerprint', text: 'CLEAR Plus discount' },
-      { icon: 'ph-fill ph-linkedin-logo', text: 'LinkedIn Premium offer' },
+      { icon: 'ph-fill ph-car', text: 'Hertz Five Star (free)' },
+      { icon: 'ph-fill ph-fingerprint', text: 'CLEAR Plus ~30% off' },
+      { icon: 'ph-fill ph-buildings', text: 'Industrious $99/mo' },
+      { icon: 'ph-fill ph-linkedin-logo', text: 'LinkedIn Premium' },
+      { icon: 'ph-fill ph-sparkle', text: 'Bonus mile offers' },
+      { icon: 'ph-fill ph-trend-up', text: 'Comfort+ promos' },
+      { icon: 'ph-fill ph-armchair', text: 'Lounge day passes' },
+      { icon: 'ph-fill ph-airplane-tilt', text: 'Personal SkyMiles' },
     ],
     programNote: {
       title: 'You\'re joining SkyMiles.',

@@ -10,34 +10,62 @@ export const metadata: Metadata = {
 
 const benefits = [
   {
-    icon: 'ph-fill ph-airplane-tilt',
-    title: 'Personal SkyMiles on every Delta flight',
-    desc: 'Standard SkyMiles earning + MQDs toward Medallion status. No company account needed — your miles stay yours, even if you change jobs.',
-  },
-  {
     icon: 'ph-fill ph-car',
-    title: 'Hertz Business Rewards',
-    desc: 'Discounted business rates, complimentary upgrades when available, and 50 SkyMiles per qualifying rental — automatic when you link your Hertz Gold Plus Rewards account.',
+    title: 'Hertz Five Star status (free)',
+    desc: 'Complimentary Hertz Five Star — guaranteed car-class upgrades when available, expedited returns, and accelerated Gold Plus Rewards earning. No spend threshold required.',
   },
   {
     icon: 'ph-fill ph-fingerprint',
-    title: 'CLEAR Plus discount',
-    desc: 'Skip security lines at 50+ U.S. airports. Delta SkyMiles members save up to $40/year on a CLEAR Plus membership; Diamond/Platinum get it free.',
+    title: 'CLEAR Plus discount (~30% off $189/yr)',
+    desc: 'Skip the line with CLEAR Plus at 50+ U.S. airports — Delta-for-Business members save approximately 30% off the $189/year retail price.',
+  },
+  {
+    icon: 'ph-fill ph-buildings',
+    title: 'Industrious coworking at $99/month',
+    desc: 'Access Industrious coworking spaces nationwide at a flat $99/month — useful for solo travelers, consultants, and remote workdays between flights.',
   },
   {
     icon: 'ph-fill ph-linkedin-logo',
-    title: 'LinkedIn Premium offer',
-    desc: 'Targeted Premium Career or Business offers for SkyMiles members — the kind of perk solo travelers and freelancers actually use to land contracts.',
+    title: 'LinkedIn Premium discount',
+    desc: 'Targeted Premium Career or Business offer for SkyMiles for Business members — built for the way solo travelers actually win business.',
   },
   {
-    icon: 'ph-fill ph-credit-card',
-    title: 'Delta Amex card synergy',
-    desc: 'Pair your account with a Delta Amex card to unlock MQD Headstart (up to $3,000), MQD Boost on every dollar spent, and free checked bags.',
+    icon: 'ph-fill ph-sparkle',
+    title: 'Targeted bonus mile offers',
+    desc: 'Personalized bonus-mile promotions on routes and dates that match your travel pattern — pushed only to enrolled members.',
   },
   {
-    icon: 'ph-fill ph-medal',
-    title: 'Independent path to Medallion',
-    desc: 'Diamond, Platinum, Gold and Silver are individual elite tiers — earned by your personal Delta spend, not your employer\'s. Solo travelers compete on equal footing.',
+    icon: 'ph-fill ph-airplane-tilt',
+    title: 'Personal SkyMiles earned normally',
+    desc: 'Standard SkyMiles + MQDs on every Delta flight, fully credited to your personal account — independent of the program.',
+  },
+  {
+    icon: 'ph-fill ph-trend-up',
+    title: 'Promotions for Comfort+',
+    desc: 'Member-only fares and upgrade promotions on Comfort+ — the cabin where business travelers typically get the best value-to-comfort ratio.',
+  },
+  {
+    icon: 'ph-fill ph-armchair',
+    title: 'Occasional lounge / day passes',
+    desc: 'Periodic Sky Club day-pass offers and lounge access promotions — surfaced through your member account when available.',
+  },
+]
+
+const exclusions: { icon: string; title: string; desc: string }[] = [
+  {
+    icon: 'ph-bold ph-x-circle',
+    title: 'No company mile account',
+    desc: 'Individual is personal-only — there is no company-side SkyMiles pool. If you want pooled company miles, upgrade to SMB Flex (still free) or a corporate program.',
+  },
+  {
+    icon: 'ph-bold ph-x-circle',
+    title: 'No Corporate Priority benefits',
+    desc: 'Preferred seating, priority boarding, upgrade certificates and service-recovery priority require Corporate Pro or Enterprise Elite — not part of Individual.',
+  },
+  {
+    icon: 'ph-bold ph-x-circle',
+    title: 'No Medallion acceleration',
+    desc: 'You earn MQDs at the standard rate. Negotiated MQD bonuses and corporate-status matching are reserved for Corporate Pro and Enterprise Elite agreements.',
   },
 ]
 
@@ -168,7 +196,7 @@ export default function IndividualProgramPage() {
           {[
             { v: '$0', l: 'Cost to enroll' },
             { v: '90s', l: 'Time to sign up' },
-            { v: '4+', l: 'Partner perks included' },
+            { v: '8', l: 'Member benefits included' },
             { v: 'Solo', l: 'No team or employer' },
           ].map((m) => (
             <div key={m.l} style={{ textAlign: 'center' }}>
@@ -213,6 +241,43 @@ export default function IndividualProgramPage() {
                   </p>
                   <p style={{ fontSize: 'var(--type-scale-13)', color: 'var(--color-neutral-600)', lineHeight: 1.6 }}>
                     {b.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── What's not included (transparency) ───────────────────── */}
+      <section style={{ background: 'var(--color-neutral-0)', padding: '56px 24px', borderTop: '1px solid var(--color-neutral-10)' }}>
+        <div style={{ maxWidth: 'var(--container-narrow)', margin: '0 auto' }}>
+          <h2 style={{ fontSize: 'var(--type-scale-22)', fontFamily: 'var(--font-display)', fontWeight: '700', color: 'var(--color-delta-blue-700)', marginBottom: '8px' }}>
+            What&apos;s not included
+          </h2>
+          <p style={{ fontSize: 'var(--type-scale-14)', color: 'var(--color-neutral-600)', marginBottom: '20px' }}>
+            Individual is purpose-built for solo travelers. If you need any of the below, jump to SMB Flex (still free) or a corporate plan.
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '12px' }}>
+            {exclusions.map((e) => (
+              <div
+                key={e.title}
+                style={{
+                  display: 'flex',
+                  gap: '12px',
+                  padding: '16px 18px',
+                  borderRadius: 'var(--radius-l)',
+                  background: 'var(--color-neutral-5)',
+                  border: '1px solid var(--color-neutral-10)',
+                }}
+              >
+                <i className={e.icon} style={{ color: 'var(--color-neutral-500)', fontSize: '1.125rem', flexShrink: 0, marginTop: '2px' }}></i>
+                <div>
+                  <p style={{ fontSize: 'var(--type-scale-14)', fontWeight: '700', color: 'var(--color-delta-blue-700)', marginBottom: '4px' }}>
+                    {e.title}
+                  </p>
+                  <p style={{ fontSize: 'var(--type-scale-13)', color: 'var(--color-neutral-600)', lineHeight: 1.55 }}>
+                    {e.desc}
                   </p>
                 </div>
               </div>
