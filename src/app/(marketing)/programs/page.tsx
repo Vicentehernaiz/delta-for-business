@@ -246,7 +246,7 @@ export default function ProgramsPage() {
                   { label: 'Negotiated fares', values: ['—', '✅', '✅'] },
                   { label: 'Corporate Priority', values: ['—', '✅ Full suite', '✅ Global'] },
                   { label: 'Account manager', values: ['—', '✅', '✅ Dedicated'] },
-                  { label: 'Delta SYNC', values: ['—', '✅ Basic', '✅ Full access'] },
+                  { label: 'Delta Business Tool', values: ['—', '✅ Basic', '✅ Full access'] },
                   { label: 'Min. travelers', values: ['1', '50', '500'] },
                 ].map((row, i) => (
                   <tr key={row.label} style={{ background: i % 2 === 0 ? 'var(--color-neutral-0)' : 'var(--color-neutral-5)' }}>

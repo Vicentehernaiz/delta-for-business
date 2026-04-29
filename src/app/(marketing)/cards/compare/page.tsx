@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { cards, cardOrder, businessCardOrder } from '@/config/cards'
 
 export const metadata: Metadata = {
@@ -84,10 +85,10 @@ export default function CompareCardsPage() {
                       style={{ minWidth: '120px', verticalAlign: 'bottom' }}
                     >
                       <div
-                        className="rounded-[var(--radius-l)] p-3 mb-2 flex items-center justify-center"
+                        className="rounded-[var(--radius-l)] mb-2 flex items-center justify-center overflow-hidden"
                         style={{ background: `${color}10`, height: '60px' }}
                       >
-                        <i className="ph-fill ph-credit-card text-3xl" style={{ color }}></i>
+                        <Image src={card.image} alt={card.name} width={96} height={60} className="object-contain" />
                       </div>
                       <div style={{ fontSize: 'var(--type-scale-12)', fontWeight: '700', color: 'var(--color-delta-blue-600)', lineHeight: 1.3 }}>
                         {card.family === 'business' ? 'Business ' : ''}{card.tier.replace('-business', '').charAt(0).toUpperCase() + card.tier.replace('-business', '').slice(1)}

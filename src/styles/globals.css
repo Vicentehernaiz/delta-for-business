@@ -62,3 +62,12 @@ a:active {
   transform: translateY(-3px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
+
+/* Nav mega-panel mount transition */
+@keyframes navMegaPanelIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.nav-mega-panel-in {
+  animation: navMegaPanelIn 150ms ease both;
+}

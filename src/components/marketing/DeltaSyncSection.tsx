@@ -23,7 +23,7 @@ export function DeltaSyncSection() {
           paddingTop: '48px',
         }}
       >
-        Delta SYNC
+        Delta Business Tool
       </h2>
 
       {/* Card container */}
@@ -40,43 +40,48 @@ export function DeltaSyncSection() {
         {/* Dashboard preview */}
         <Link
           href="/account/dashboard"
-          className="relative w-full flex items-center justify-center"
+          className="group relative w-full block"
           style={{
-            background: 'linear-gradient(135deg, var(--color-delta-blue-700) 0%, var(--color-delta-blue-500) 100%)',
+            background: 'var(--color-neutral-0)',
             border: '1px solid var(--color-neutral-5)',
             borderRadius: 'var(--radius-l)',
             boxShadow: 'var(--shadow-card)',
-            height: '594px',
             overflow: 'hidden',
             color: 'var(--color-neutral-0)',
-            textAlign: 'center',
-            padding: '32px',
           }}
+          aria-label="Open the Delta Business Tool dashboard"
         >
-          <div className="flex flex-col items-center" style={{ gap: '16px' }}>
-            <i className="ph-duotone ph-chart-line-up" style={{ fontSize: '96px' }}></i>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/assets/images/delta-sync/dashboard-preview.png"
+            alt="Delta Business Tool dashboard preview — KPIs, miles balance, traveler roster and more"
+            style={{ width: '100%', height: 'auto', display: 'block' }}
+            loading="lazy"
+          />
+          <div
+            className="absolute inset-x-0 bottom-0 flex items-end justify-between p-6"
+            style={{
+              background: 'linear-gradient(180deg, transparent 0%, rgba(0,45,89,0.85) 100%)',
+              color: 'var(--color-neutral-0)',
+            }}
+          >
             <p
               style={{
-                fontSize: 'var(--type-scale-28)',
-                lineHeight: 'var(--line-height-heading-m)',
+                fontSize: 'var(--type-scale-22)',
                 fontFamily: 'var(--font-display)',
                 fontWeight: '700',
+                lineHeight: 1.2,
               }}
             >
-              Open the Delta SYNC dashboard
+              Open the Delta Business Tool dashboard
             </p>
-            <p
-              style={{
-                fontSize: 'var(--type-scale-16)',
-                lineHeight: 'var(--line-height-body-medium)',
-                fontFamily: 'var(--font-body)',
-                fontWeight: '500',
-                opacity: 0.9,
-                maxWidth: '480px',
-              }}
+            <span
+              className="hidden sm:inline-flex items-center gap-2 font-semibold transition-transform group-hover:translate-x-1"
+              style={{ fontSize: 'var(--type-scale-14)' }}
             >
-              Live KPIs, miles balance, traveler roster, tier progress and credit wallet — all in one place.
-            </p>
+              View live KPIs
+              <i className="ph-bold ph-arrow-right" />
+            </span>
           </div>
         </Link>
 

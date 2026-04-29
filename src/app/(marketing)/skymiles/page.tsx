@@ -121,10 +121,10 @@ export default function SkyMilesPage() {
                     <span style={{ fontSize: 'var(--type-scale-14)', fontWeight: '700', color: 'var(--color-neutral-0)' }}>Your company</span>
                   </div>
                   <p style={{ fontSize: 'var(--type-scale-24)', fontFamily: 'var(--font-display)', fontWeight: '700', color: 'var(--color-neutral-0)' }}>5–10 miles/$</p>
-                  <p style={{ fontSize: 'var(--type-scale-13)', color: 'rgba(255,255,255,0.6)' }}>Redeemable for eCredits, transfers, upgrades</p>
+                  <p style={{ fontSize: 'var(--type-scale-13)', color: 'rgba(255,255,255,0.82)' }}>Redeemable for eCredits, transfers, upgrades</p>
                 </div>
                 <div className="flex items-center justify-center">
-                  <span style={{ fontSize: 'var(--type-scale-12)', color: 'rgba(255,255,255,0.5)', fontWeight: '600' }}>PLUS</span>
+                  <span style={{ fontSize: 'var(--type-scale-12)', color: 'rgba(255,255,255,0.78)', fontWeight: '600' }}>PLUS</span>
                 </div>
                 <div className="rounded-[var(--radius-m)] p-4" style={{ background: 'rgba(255,255,255,0.08)' }}>
                   <div className="flex items-center gap-3 mb-2">

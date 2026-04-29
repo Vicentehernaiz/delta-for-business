@@ -15,10 +15,11 @@ export default function DiamondPage() {
     <main>
       <section style={{ background: 'linear-gradient(135deg, #001120 0%, var(--color-medallion-diamond) 100%)', padding: '72px 24px' }}>
         <div style={{ maxWidth: 'var(--container-narrow)', margin: '0 auto' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
-            <i className="ph-fill ph-medal" style={{ fontSize: '2.5rem', color: 'rgba(255,255,255,0.85)' }}></i>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '20px' }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/assets/images/medallion/diamond.svg" alt="Diamond Medallion" style={{ width: '52px', height: '46px', filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.25))' }} />
             <div>
-              <p style={{ fontSize: 'var(--type-scale-12)', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'rgba(255,255,255,0.5)' }}>
+              <p style={{ fontSize: 'var(--type-scale-12)', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'rgba(255,255,255,0.82)' }}>
                 Medallion for Business
               </p>
               <h1 style={{ fontSize: 'var(--type-scale-40)', fontFamily: 'var(--font-display)', fontWeight: '700', color: 'var(--color-neutral-0)', lineHeight: 1 }}>
@@ -32,19 +33,19 @@ export default function DiamondPage() {
           <div style={{ display: 'flex', gap: '32px', flexWrap: 'wrap' }}>
             <div>
               <p style={{ fontSize: 'var(--type-scale-28)', fontWeight: '700', color: 'var(--color-neutral-0)' }}>${tier.mqdThreshold.toLocaleString()}</p>
-              <p style={{ fontSize: 'var(--type-scale-12)', color: 'rgba(255,255,255,0.55)' }}>MQD required</p>
+              <p style={{ fontSize: 'var(--type-scale-12)', color: 'rgba(255,255,255,0.82)' }}>MQD required</p>
             </div>
             <div>
               <p style={{ fontSize: 'var(--type-scale-28)', fontWeight: '700', color: 'var(--color-neutral-0)' }}>{tier.skymilesMult}×</p>
-              <p style={{ fontSize: 'var(--type-scale-12)', color: 'rgba(255,255,255,0.55)' }}>miles per $</p>
+              <p style={{ fontSize: 'var(--type-scale-12)', color: 'rgba(255,255,255,0.82)' }}>miles per $</p>
             </div>
             <div>
               <p style={{ fontSize: 'var(--type-scale-28)', fontWeight: '700', color: 'var(--color-neutral-0)' }}>{tier.upgradeWindow}hr</p>
-              <p style={{ fontSize: 'var(--type-scale-12)', color: 'rgba(255,255,255,0.55)' }}>upgrade window</p>
+              <p style={{ fontSize: 'var(--type-scale-12)', color: 'rgba(255,255,255,0.82)' }}>upgrade window</p>
             </div>
             <div>
               <p style={{ fontSize: 'var(--type-scale-28)', fontWeight: '700', color: 'var(--color-neutral-0)' }}>{tier.freeBags}</p>
-              <p style={{ fontSize: 'var(--type-scale-12)', color: 'rgba(255,255,255,0.55)' }}>free bags</p>
+              <p style={{ fontSize: 'var(--type-scale-12)', color: 'rgba(255,255,255,0.82)' }}>free bags</p>
             </div>
           </div>
         </div>

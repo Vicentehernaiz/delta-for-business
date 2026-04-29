@@ -94,7 +94,7 @@ export default function EnrollIndividualPage() {
               {
                 badge: '$300K+ spend · Enterprise',
                 name: 'Enterprise Elite',
-                desc: 'For 500+ travelers. Custom pricing, global priority, Delta SYNC.',
+                desc: 'For 500+ travelers. Custom pricing, global priority, Delta Business Tool.',
                 href: '/programs/large-enterprise',
                 highlight: false,
               },
@@ -117,7 +117,7 @@ export default function EnrollIndividualPage() {
                         fontWeight: '700',
                         textTransform: 'uppercase',
                         letterSpacing: '0.06em',
-                        color: p.highlight ? 'var(--color-delta-red-400)' : 'rgba(255,255,255,0.5)',
+                        color: p.highlight ? 'var(--color-nav-section-title)' : 'rgba(255,255,255,0.78)',
                       }}
                     >
                       {p.badge}
@@ -126,11 +126,11 @@ export default function EnrollIndividualPage() {
                   <p style={{ fontSize: 'var(--type-scale-16)', fontWeight: '700', color: 'var(--color-neutral-0)', marginBottom: '2px' }}>
                     {p.name}
                   </p>
-                  <p style={{ fontSize: 'var(--type-scale-13)', color: 'rgba(255,255,255,0.62)', lineHeight: 1.5 }}>
+                  <p style={{ fontSize: 'var(--type-scale-13)', color: 'rgba(255,255,255,0.82)', lineHeight: 1.5 }}>
                     {p.desc}
                   </p>
                 </div>
-                <i className="ph-bold ph-arrow-right text-sm flex-shrink-0 mt-1 group-hover:translate-x-1 transition-transform" style={{ color: 'rgba(255,255,255,0.4)' }}></i>
+                <i className="ph-bold ph-arrow-right text-sm flex-shrink-0 mt-1 group-hover:translate-x-1 transition-transform" style={{ color: 'rgba(255,255,255,0.7)' }}></i>
               </Link>
             ))}
           </div>

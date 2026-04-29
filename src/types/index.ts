@@ -200,6 +200,10 @@ export interface NavItem {
   icon?: string
   isExternal?: boolean
   children?: NavItem[]
+  /** Optional secondary copy shown under the label inside mega menus. */
+  description?: string
+  /** Optional Microsoft Clarity event name fired when the link is clicked. */
+  clarityEvent?: string
 }
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

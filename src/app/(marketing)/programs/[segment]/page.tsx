@@ -47,18 +47,18 @@ const programDetails: Record<string, {
       { q: 'What is the minimum spend to qualify?', a: 'Approximately $50,000/year in Delta airfare. Your account manager will confirm during the sales call based on your route mix.' },
       { q: 'How long does the negotiation take?', a: 'Typically 2–4 weeks from initial contact to signed agreement.' },
       { q: 'Do company miles still apply?', a: 'Yes — Corporate Pro runs on top of SkyMiles for Business. You keep dual earning while also receiving dynamic fare discounts.' },
-      { q: 'Is Delta SYNC included?', a: 'Enterprise accounts get access to Delta SYNC for travel management — spend reporting, policy controls, and traveler visibility.' },
+      { q: 'Is Delta Business Tool included?', a: 'Enterprise accounts get access to Delta Business Tool for travel management — spend reporting, policy controls, and traveler visibility.' },
     ],
     enrollHref: '/enroll/enterprise',
     enrollLabel: 'Contact sales',
-    syncNote: 'Enterprise accounts include Delta SYNC access for spend reporting, traveler management, and travel policy controls.',
+    syncNote: 'Enterprise accounts include Delta Business Tool access for spend reporting, traveler management, and travel policy controls.',
   },
   'large-enterprise': {
     tagline: 'Custom pricing, full reporting, and dedicated support at global scale.',
     heroDesc: 'Enterprise Elite is Delta\'s full managed travel program for 500+ traveler companies. Custom pricing, seat inventory control, full reporting and forecasting, Amex integration, and dedicated support at every level.',
     benefits: [
       { icon: 'ph-fill ph-globe-hemisphere-west', title: 'Global Corporate Priority', desc: 'Corporate Priority extends across Air France, KLM, LATAM, and Virgin Atlantic — covering your international routes at the same priority level as Delta domestic.' },
-      { icon: 'ph-fill ph-lightning', title: 'Delta SYNC — full access', desc: 'Full access to Delta\'s travel management platform: spend dashboards, traveler tracking, policy automation, and real-time itinerary visibility.' },
+      { icon: 'ph-fill ph-lightning', title: 'Delta Business Tool — full access', desc: 'Full access to Delta\'s travel management platform: spend dashboards, traveler tracking, policy automation, and real-time itinerary visibility.' },
       { icon: 'ph-fill ph-arrows-left-right', title: 'Unused ticket transfer', desc: 'Transfer unused tickets between employees without forfeiting value. One of Delta\'s most requested enterprise-only features.' },
       { icon: 'ph-fill ph-headset', title: '24/7 Corporate Solutions', desc: 'Dedicated support line for any traveler emergency — rebooking, medical disruptions, last-minute changes — available around the clock.' },
     ],
@@ -66,11 +66,11 @@ const programDetails: Record<string, {
       { q: 'What is the minimum traveler count?', a: 'Typically 500 active travelers per year, though exceptions apply for high-spend companies with fewer travelers.' },
       { q: 'Which partner airlines are included?', a: 'Air France, KLM, LATAM, and Virgin Atlantic. Benefits on partner airlines are subject to each carrier\'s operational policies.' },
       { q: 'How does unused ticket transfer work?', a: 'Through the corporate portal, an admin can reassign an unused ticket to any enrolled traveler. The new traveler pays only the fare difference, if any.' },
-      { q: 'What does Delta SYNC include?', a: 'Full Delta SYNC access covers spend reporting, real-time traveler location, policy controls, GDS integration, and dedicated onboarding support.' },
+      { q: 'What does Delta Business Tool include?', a: 'Full Delta Business Tool access covers spend reporting, real-time traveler location, policy controls, GDS integration, and dedicated onboarding support.' },
     ],
     enrollHref: '/enroll/enterprise',
     enrollLabel: 'Contact sales',
-    syncNote: 'Large-Enterprise accounts include full Delta SYNC access — the complete travel management platform for global teams.',
+    syncNote: 'Large-Enterprise accounts include full Delta Business Tool access — the complete travel management platform for global teams.',
   },
 }
 
@@ -192,15 +192,15 @@ export default function SegmentPage({ params }: { params: { segment: string } })
           </div>
         </section>
 
-        {/* Delta SYNC note (enterprise / large-enterprise only) */}
+        {/* Delta Business Tool note (enterprise / large-enterprise only) */}
         {details.syncNote && (
           <section className="py-5" style={{ background: 'var(--color-delta-blue-50)', borderBottom: '1px solid var(--color-delta-blue-300)' }}>
             <div className="mx-auto px-6 lg:px-8 flex items-center gap-3" style={{ maxWidth: 'var(--container-wide)' }}>
               <i className="ph-fill ph-lightning text-xl flex-shrink-0" style={{ color: 'var(--color-delta-blue-600)' }}></i>
               <p style={{ fontSize: 'var(--type-scale-14)', color: 'var(--color-delta-blue-700)' }}>
-                <strong>Delta SYNC included:</strong> {details.syncNote}{' '}
+                <strong>Delta Business Tool included:</strong> {details.syncNote}{' '}
                 <Link href="/delta-sync" style={{ color: 'var(--color-delta-blue-600)', textDecoration: 'underline', fontWeight: '600' }}>
-                  Learn about Delta SYNC →
+                  Learn about Delta Business Tool →
                 </Link>
               </p>
             </div>

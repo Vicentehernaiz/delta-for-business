@@ -71,7 +71,7 @@ const PLAN_DETAILS: Record<string, { included: string[]; excluded: string[]; con
       'Employees still earn personal SkyMiles + MQDs',
     ],
     excluded: [],
-    conditions: '500+ travelers · Annual spend $300K+ · Negotiated agreement · Full managed travel + Delta SYNC included',
+    conditions: '500+ travelers · Annual spend $300K+ · Negotiated agreement · Full managed travel + Delta Business Tool included',
   },
 }
 
@@ -539,7 +539,7 @@ function ResultScreen({ onScrollToBenefits }: { onScrollToBenefits?: () => void 
         )}
       </div>
 
-      {/* Delta SYNC reminder for Enterprise / Large-Enterprise */}
+      {/* Delta Business Tool reminder for Enterprise / Large-Enterprise */}
       {result && SYNC_ELIGIBLE.includes(result.program) && (
         <div
           className="rounded-[var(--radius-l)] p-4 mb-4 flex gap-3"
@@ -548,13 +548,13 @@ function ResultScreen({ onScrollToBenefits }: { onScrollToBenefits?: () => void 
           <i className="ph-fill ph-lightning flex-shrink-0 mt-0.5 text-xl" style={{ color: 'var(--color-delta-blue-600)' }}></i>
           <div>
             <p style={{ fontSize: 'var(--type-scale-14)', fontWeight: '700', color: 'var(--color-delta-blue-700)', marginBottom: '2px' }}>
-              Delta SYNC included
+              Delta Business Tool included
             </p>
             <p style={{ fontSize: 'var(--type-scale-13)', color: 'var(--color-delta-blue-600)', lineHeight: 1.5 }}>
               {result.program === 'large-enterprise'
-                ? 'Large-Enterprise accounts get full access to Delta SYNC — the travel management platform for spend reporting, traveler management, and policy controls.'
-                : 'Enterprise accounts unlock Delta SYNC, Delta\'s travel management platform to track spend, manage travelers, and apply company travel policies.'}
-              {' '}<Link href="/delta-sync" style={{ color: 'var(--color-delta-blue-600)', textDecoration: 'underline', textUnderlineOffset: '2px', fontWeight: '600' }}>Learn about Delta SYNC →</Link>
+                ? 'Large-Enterprise accounts get full access to Delta Business Tool — the travel management platform for spend reporting, traveler management, and policy controls.'
+                : 'Enterprise accounts unlock Delta Business Tool, Delta\'s travel management platform to track spend, manage travelers, and apply company travel policies.'}
+              {' '}<Link href="/delta-sync" style={{ color: 'var(--color-delta-blue-600)', textDecoration: 'underline', textUnderlineOffset: '2px', fontWeight: '600' }}>Learn about Delta Business Tool →</Link>
             </p>
           </div>
         </div>

@@ -1,9 +1,9 @@
 /**
- * Delta SYNC — Centralized Business Management Platform
+ * Delta Business Tool — Centralized Business Management Platform
  * URL: /delta-sync
  *
  * FIGMA REFERENCES:
- * - "Delta SYNC" heading:       node 275:8698
+ * - "Delta Business Tool" heading:       node 275:8698
  * - Dashboard preview:          node 275:8701
  * - "Delta Business Manager":   node 275:8787
  * - Platform description:       node 275:8754
@@ -11,7 +11,7 @@
  * DESIGN SYSTEM: docs/03-design-system.md
  * CONTENT: docs/08-delta-sync.md
  *
- * PURPOSE: Marketing page for the Delta Sync centralized management platform.
+ * PURPOSE: Marketing page for the Delta Business Tool centralized management platform.
  * This page explains the platform's features and shows UI previews.
  * Actual platform access is behind auth at /account/dashboard.
  *
@@ -23,11 +23,11 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Delta SYNC | Centralized Business Travel Management Platform',
+  title: 'Delta Business Tool | Centralized Business Travel Management Platform',
   description:
-    'Manage employees, SkyMiles, credit cards, eCredits, and rewards — all in one place. Delta SYNC is the centralized platform for Delta for Business companies.',
+    'Manage employees, SkyMiles, credit cards, eCredits, and rewards — all in one place. Delta Business Tool is the centralized platform for Delta for Business companies.',
   openGraph: {
-    title: 'Delta SYNC — One Platform for All Your Business Travel',
+    title: 'Delta Business Tool — One Platform for All Your Business Travel',
     description:
       'Link employee profiles, request business cards, manage company credit, transfer SkyMiles, and track rewards from a single dashboard.',
   },
@@ -37,7 +37,7 @@ export default function DeltaSyncPage() {
   return (
     <>
       {/* ═══════════════════════════════════════════════════
-          SECTION 1: Hero — "Delta SYNC"
+          SECTION 1: Hero — "Delta Business Tool"
           Figma node: 275:8698 (Display 64, delta-blue-700)
           ═══════════════════════════════════════════════════ */}
       <section className="py-24 text-center">
@@ -46,7 +46,7 @@ export default function DeltaSyncPage() {
           <h1
             className="text-[length:var(--type-scale-64)] font-[family-name:var(--font-display)] leading-[var(--line-height-heading-xxxl)] tracking-[var(--letter-spacing-heading-xxxl)] text-[color:var(--color-delta-blue-700)]"
           >
-            Delta SYNC
+            Delta Business Tool
           </h1>
 
           {/* Subtitle — Body Standard 16, delta-blue-500, max-w-480 centered */}
@@ -90,29 +90,19 @@ export default function DeltaSyncPage() {
           <div
             className="overflow-hidden rounded-[var(--radius-l)] border border-[var(--color-neutral-5)] bg-[var(--color-neutral-0)] shadow-[var(--shadow-card)]"
           >
-            {/* TODO: Replace with actual Delta SYNC dashboard UI screenshot
-                Image path: /assets/images/delta-sync/dashboard-preview.png
-                Figma node 275:8700 contains the dashboard preview image
-                For usability testing: this will show a static mockup of the platform
-            */}
-            <div className="flex aspect-[1200/594] items-center justify-center bg-[var(--color-neutral-5)]">
-              <div className="text-center">
-                <i className="ph ph-monitor text-5xl text-[color:var(--color-neutral-400)]" />
-                <p className="mt-4 text-[length:var(--type-scale-18)] font-[family-name:var(--font-display)] text-[color:var(--color-neutral-600)]">
-                  Delta SYNC Dashboard Preview
-                </p>
-                <p className="mt-2 text-[length:var(--type-scale-14)] text-[color:var(--color-neutral-500)]">
-                  UI screenshot placeholder — replace with /assets/images/delta-sync/dashboard-preview.png
-                </p>
-              </div>
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/assets/images/delta-sync/dashboard-preview.png"
+              alt="Delta Business Tool dashboard — overview, quick actions, miles, requests, traveler activity and credit summary"
+              className="block w-full h-auto"
+            />
           </div>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════
           SECTION 3: Platform Features Grid
-          8 key features of Delta SYNC
+          8 key features of Delta Business Tool
           ═══════════════════════════════════════════════════ */}
       <section id="features" className="bg-[var(--color-neutral-2)] py-24">
         <div className="mx-auto max-w-[var(--container-wide)]">
@@ -244,7 +234,7 @@ export default function DeltaSyncPage() {
           <h2
             className="text-center text-[length:var(--type-scale-40)] font-[family-name:var(--font-body)] leading-[var(--line-height-heading-xl)] tracking-[var(--letter-spacing-heading-xl)] text-[color:var(--color-delta-blue-600)]"
           >
-            See Delta SYNC in action
+            See Delta Business Tool in action
           </h2>
 
           {/* UI Screenshot 1: Dashboard Overview */}
@@ -259,12 +249,14 @@ export default function DeltaSyncPage() {
                 </p>
               </div>
               <div className="flex-1">
-                {/* TODO: Replace with UI screenshot
-                    Image: /assets/images/delta-sync/ui-dashboard.png */}
-                <div className="flex aspect-video items-center justify-center rounded-[var(--radius-l)] border border-[var(--color-neutral-5)] bg-[var(--color-neutral-5)]">
-                  <p className="text-[color:var(--color-neutral-500)]">
-                    Dashboard UI — placeholder
-                  </p>
+                <div className="overflow-hidden aspect-video rounded-[var(--radius-l)] border border-[var(--color-neutral-5)] bg-[var(--color-neutral-0)] shadow-[var(--shadow-card)]">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/assets/images/delta-sync/dashboard-preview.png"
+                    alt="Partnership Value Dashboard — KPIs and quick actions"
+                    className="block w-full h-full"
+                    style={{ objectFit: 'cover', objectPosition: 'top center' }}
+                  />
                 </div>
               </div>
             </div>
@@ -280,12 +272,14 @@ export default function DeltaSyncPage() {
                 </p>
               </div>
               <div className="flex-1">
-                {/* TODO: Replace with UI screenshot
-                    Image: /assets/images/delta-sync/ui-loyalty.png */}
-                <div className="flex aspect-video items-center justify-center rounded-[var(--radius-l)] border border-[var(--color-neutral-5)] bg-[var(--color-neutral-5)]">
-                  <p className="text-[color:var(--color-neutral-500)]">
-                    Loyalty &amp; Rewards UI — placeholder
-                  </p>
+                <div className="overflow-hidden aspect-video rounded-[var(--radius-l)] border border-[var(--color-neutral-5)] bg-[var(--color-neutral-0)] shadow-[var(--shadow-card)]">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/assets/images/delta-sync/dashboard-preview.png"
+                    alt="Loyalty & Rewards Management — miles, eCredits and tier progress"
+                    className="block w-full h-full"
+                    style={{ objectFit: 'cover', objectPosition: 'center' }}
+                  />
                 </div>
               </div>
             </div>
@@ -301,12 +295,14 @@ export default function DeltaSyncPage() {
                 </p>
               </div>
               <div className="flex-1">
-                {/* TODO: Replace with UI screenshot
-                    Image: /assets/images/delta-sync/ui-smart-search.png */}
-                <div className="flex aspect-video items-center justify-center rounded-[var(--radius-l)] border border-[var(--color-neutral-5)] bg-[var(--color-neutral-5)]">
-                  <p className="text-[color:var(--color-neutral-500)]">
-                    Smart Search UI — placeholder
-                  </p>
+                <div className="overflow-hidden aspect-video rounded-[var(--radius-l)] border border-[var(--color-neutral-5)] bg-[var(--color-neutral-0)] shadow-[var(--shadow-card)]">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/assets/images/delta-sync/dashboard-preview.png"
+                    alt="Smart Search & Quick Actions — find travelers, tickets and run common tasks"
+                    className="block w-full h-full"
+                    style={{ objectFit: 'cover', objectPosition: 'top right' }}
+                  />
                 </div>
               </div>
             </div>
@@ -328,7 +324,7 @@ export default function DeltaSyncPage() {
             7 modules, one platform
           </h2>
           <p className="mx-auto mt-4 max-w-[600px] text-center text-[length:var(--type-scale-16)] font-[family-name:var(--font-body)] leading-[var(--line-height-body-medium)] tracking-[var(--letter-spacing-marketing-small)] text-[color:var(--color-delta-blue-500)]">
-            Delta SYNC brings together everything your travel program needs.
+            Delta Business Tool brings together everything your travel program needs.
           </p>
 
           {/* Module list — matches the Figma dashboard tabs */}
@@ -372,7 +368,7 @@ export default function DeltaSyncPage() {
             Ready to centralize your business travel?
           </h2>
           <p className="mx-auto mt-4 max-w-[500px] text-[length:var(--type-scale-16)] font-[family-name:var(--font-body)] leading-[var(--line-height-body-medium)] tracking-[var(--letter-spacing-marketing-small)] text-[color:var(--color-delta-blue-500)]">
-            Delta SYNC is included free with every SkyMiles for Business account.
+            Delta Business Tool is included free with every SkyMiles for Business account.
             Enroll today and start managing your program from day one.
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-[var(--spacing-12)]">

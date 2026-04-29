@@ -242,12 +242,11 @@ export default function OverviewPage() {
                           gap: '4px',
                         }}
                       >
-                        <i
-                          className="ph-fill ph-medal"
-                          style={{
-                            color: tierColorVar[tier],
-                            fontSize: '1.25rem',
-                          }}
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={`/assets/images/medallion/${tier}.svg`}
+                          alt={`${tier.charAt(0).toUpperCase() + tier.slice(1)} Medallion`}
+                          style={{ width: '24px', height: '21px' }}
                         />
                         <span
                           style={{
@@ -429,9 +428,11 @@ export default function OverviewPage() {
                           gap: '8px',
                         }}
                       >
-                        <i
-                          className="ph-fill ph-medal"
-                          style={{ color, fontSize: '1rem' }}
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={`/assets/images/medallion/${tierKey}.svg`}
+                          alt={`${row.tier} Medallion`}
+                          style={{ width: '18px', height: '16px' }}
                         />
                         {row.tier}
                       </td>
@@ -555,9 +556,11 @@ export default function OverviewPage() {
                         }}
                       >
                         {isStatus && (
-                          <i
-                            className="ph-fill ph-medal"
-                            style={{ color, fontSize: '1rem' }}
+                          /* eslint-disable-next-line @next/next/no-img-element */
+                          <img
+                            src={`/assets/images/medallion/${tierKey}.svg`}
+                            alt={`${row.status} Medallion`}
+                            style={{ width: '18px', height: '16px' }}
                           />
                         )}
                         {row.status}
@@ -619,10 +622,12 @@ export default function OverviewPage() {
                     gap: '12px',
                   }}
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <i
-                      className="ph-fill ph-medal"
-                      style={{ color, fontSize: '1.5rem' }}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={`/assets/images/medallion/${tier.id}.svg`}
+                      alt={`${tier.name} Medallion`}
+                      style={{ width: '28px', height: '24px' }}
                     />
                     <span
                       style={{

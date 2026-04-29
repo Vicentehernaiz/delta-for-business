@@ -39,11 +39,13 @@ export function MedallionTeaser() {
                   border: '1px solid var(--color-neutral-10)',
                 }}
               >
-                <div
-                  className="w-10 h-10 rounded-full mx-auto mb-4 flex items-center justify-center"
-                  style={{ background: `${tier.color.includes('var') ? '#6f7f8d' : tier.color}20` }}
-                >
-                  <i className="ph-fill ph-medal text-xl" style={{ color: tier.color }}></i>
+                <div className="mx-auto mb-4 flex items-center justify-center" style={{ width: '56px', height: '50px' }}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={`/assets/images/medallion/${tierId}.svg`}
+                    alt={`${tier.name} Medallion`}
+                    style={{ width: '100%', height: '100%', filter: 'drop-shadow(0 2px 6px rgba(0,0,0,0.12))' }}
+                  />
                 </div>
                 <p
                   style={{

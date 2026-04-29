@@ -4,6 +4,7 @@ import { useState, useRef, useCallback, useEffect } from 'react'
 import Link from 'next/link'
 import { mainNav, authNav } from '@/config/navigation'
 import type { NavItem } from '@/types'
+import { clarityEvent } from '@/lib/clarity'
 
 // ── Mega-menu content (descriptions per child link) ──────────────────────────
 
@@ -24,7 +25,8 @@ const megaDescriptions: Record<string, string> = {
 
 function MegaPanel({ item }: { item: NavItem }) {
   const children = item.children ?? []
-  const isPrograms = item.label === 'Programs'
+  // 4-item menus (Programs) get a 2-col layout; everything else stays single-row.
+  const isTwoCol = children.length === 4
 
   return (
     <div
@@ -46,7 +48,7 @@ function MegaPanel({ item }: { item: NavItem }) {
             fontWeight: '700',
             letterSpacing: '0.1em',
             textTransform: 'uppercase',
-            color: 'var(--color-delta-red-400)',
+            color: 'var(--color-nav-section-title)',
             marginBottom: '20px',
             fontFamily: 'var(--font-display)',
           }}
@@ -54,57 +56,67 @@ function MegaPanel({ item }: { item: NavItem }) {
           {item.label}
         </p>
 
-        {/* Link grid — 2 cols for Programs (4 items), else single row */}
+        {/* Link grid — 2 cols for 4-item menus, else single row */}
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: isPrograms ? 'repeat(2, 1fr)' : `repeat(${children.length}, 1fr)`,
+            gridTemplateColumns: isTwoCol ? 'repeat(2, 1fr)' : `repeat(${children.length}, 1fr)`,
             gap: '8px',
-            maxWidth: isPrograms ? '760px' : '900px',
+            maxWidth: isTwoCol ? '760px' : '900px',
           }}
         >
-          {children.map((child) => (
-            <Link
-              key={child.href}
-              href={child.href}
-              className="group flex flex-col rounded-[var(--radius-l)] transition-colors"
-              style={{
-                padding: '16px 20px',
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(255,255,255,0.07)'
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.background = 'transparent'
-              }}
-            >
-              <span
+          {children.map((child) => {
+            const description = child.description ?? megaDescriptions[child.href]
+            const onClick = child.clarityEvent
+              ? () => clarityEvent(child.clarityEvent as string)
+              : undefined
+
+            return (
+              <Link
+                key={`${child.label}-${child.href}`}
+                href={child.href}
+                target={child.isExternal ? '_blank' : undefined}
+                rel={child.isExternal ? 'noopener noreferrer' : undefined}
+                onClick={onClick}
+                className="group flex flex-col rounded-[var(--radius-l)] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
                 style={{
-                  fontSize: 'var(--type-scale-15)',
-                  fontWeight: '700',
-                  color: 'var(--color-neutral-0)',
-                  fontFamily: 'var(--font-display)',
-                  marginBottom: '4px',
-                  display: 'block',
+                  padding: '16px 20px',
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(255,255,255,0.07)'
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLAnchorElement).style.background = 'transparent'
                 }}
               >
-                {child.label}
-              </span>
-              {megaDescriptions[child.href] && (
                 <span
                   style={{
-                    fontSize: 'var(--type-scale-13)',
-                    color: 'rgba(255,255,255,0.55)',
-                    fontFamily: 'var(--font-body)',
-                    fontWeight: '400',
-                    lineHeight: '1.4',
+                    fontSize: 'var(--type-scale-15)',
+                    fontWeight: '700',
+                    color: 'var(--color-neutral-0)',
+                    fontFamily: 'var(--font-display)',
+                    marginBottom: '4px',
+                    display: 'block',
                   }}
                 >
-                  {megaDescriptions[child.href]}
+                  {child.label}
                 </span>
-              )}
-            </Link>
-          ))}
+                {description && (
+                  <span
+                    style={{
+                      fontSize: 'var(--type-scale-13)',
+                      color: 'var(--color-nav-mega-description)',
+                      fontFamily: 'var(--font-body)',
+                      fontWeight: '400',
+                      lineHeight: '1.4',
+                    }}
+                  >
+                    {description}
+                  </span>
+                )}
+              </Link>
+            )
+          })}
         </div>
       </div>
     </div>
@@ -132,6 +144,10 @@ function NavLink({
         className="relative h-full flex items-center"
         onMouseEnter={onEnter}
         onMouseLeave={onLeave}
+        onFocus={onEnter}
+        onBlur={(e) => {
+          if (!e.currentTarget.contains(e.relatedTarget as Node)) onLeave()
+        }}
       >
         <button
           className="flex items-center gap-1 px-3 py-2 font-semibold transition-colors whitespace-nowrap relative"
@@ -144,6 +160,7 @@ function NavLink({
             cursor: 'pointer',
           }}
           aria-expanded={isActive}
+          aria-haspopup="menu"
         >
           {item.label}
           <i
@@ -322,8 +339,13 @@ export function Nav() {
         {/* ── Mega panel (full-width, anchored to bottom of header) ── */}
         {activeItem && (
           <div
+            className="nav-mega-panel-in"
             onMouseEnter={cancelClose}
             onMouseLeave={scheduleClose}
+            onFocus={cancelClose}
+            onBlur={(e) => {
+              if (!e.currentTarget.contains(e.relatedTarget as Node)) scheduleClose()
+            }}
           >
             <MegaPanel item={activeItem} />
           </div>
@@ -397,11 +419,16 @@ export function Nav() {
                     <div style={{ background: 'rgba(0,0,0,0.2)' }}>
                       {item.children.map((child) => (
                         <Link
-                          key={child.href}
+                          key={`${child.label}-${child.href}`}
                           href={child.href}
-                          onClick={() => setMobileOpen(false)}
+                          target={child.isExternal ? '_blank' : undefined}
+                          rel={child.isExternal ? 'noopener noreferrer' : undefined}
+                          onClick={() => {
+                            if (child.clarityEvent) clarityEvent(child.clarityEvent)
+                            setMobileOpen(false)
+                          }}
                           className="block px-10 py-3"
-                          style={{ fontSize: 'var(--type-scale-14)', color: 'rgba(255,255,255,0.75)', fontFamily: 'var(--font-body)' }}
+                          style={{ fontSize: 'var(--type-scale-14)', color: 'var(--color-nav-mega-link)', fontFamily: 'var(--font-body)' }}
                         >
                           {child.label}
                         </Link>

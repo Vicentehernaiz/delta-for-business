@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { cards, cardOrder } from '@/config/cards'
 
 export const metadata: Metadata = {
@@ -103,7 +104,7 @@ export default function PersonalCardsPage() {
                 >
                   {/* Card visual */}
                   <div className="h-40 flex items-center justify-center" style={{ background: gradient }}>
-                    <i className="ph-fill ph-credit-card text-6xl" style={{ color: 'rgba(255,255,255,0.6)' }}></i>
+                    <Image src={card.image} alt={card.name} width={220} height={139} className="object-contain drop-shadow-lg" />
                   </div>
                   <div className="p-5 flex flex-col flex-1">
                     <div className="flex items-center justify-between mb-3">

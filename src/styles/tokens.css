@@ -62,6 +62,11 @@
   --color-aura-secondary:  #0b1f66;   /* Dark navy accent */
   --color-stroke-chips:    #f2f3f5;   /* Chip/tab border */
 
+  /* ── Nav / Mega-Menu (on dark navy bg) ────────────── */
+  --color-nav-section-title:    #EE8F9A;             /* High-contrast pink for dropdown category labels */
+  --color-nav-mega-description: rgba(255,255,255,0.82); /* Readable subtitle on navy */
+  --color-nav-mega-link:        rgba(255,255,255,0.92); /* Drawer/secondary nav links */
+
   /* ── UI Semantic Colors ───────────────────────────── */
   --color-success:  #059669;
   --color-warning:  #D97706;

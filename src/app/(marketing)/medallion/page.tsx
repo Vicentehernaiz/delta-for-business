@@ -91,7 +91,7 @@ export default function MedallionPage() {
               fontSize: 'var(--type-scale-12)',
               textTransform: 'uppercase',
               letterSpacing: '0.1em',
-              color: 'rgba(255,255,255,0.6)',
+              color: 'rgba(255,255,255,0.82)',
               marginBottom: '12px',
             }}
           >
@@ -223,12 +223,11 @@ export default function MedallionPage() {
                           gap: '4px',
                         }}
                       >
-                        <i
-                          className="ph-fill ph-medal"
-                          style={{
-                            color: tierColorVar[tier],
-                            fontSize: '1.25rem',
-                          }}
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={`/assets/images/medallion/${tier}.svg`}
+                          alt={`${tierLabel[tier]} Medallion`}
+                          style={{ width: '26px', height: '23px' }}
                         />
                         <span
                           style={{
@@ -388,9 +387,11 @@ export default function MedallionPage() {
                           gap: '8px',
                         }}
                       >
-                        <i
-                          className="ph-fill ph-medal"
-                          style={{ color, fontSize: '1rem' }}
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={`/assets/images/medallion/${tierKey}.svg`}
+                          alt={`${row.tier} Medallion`}
+                          style={{ width: '18px', height: '16px' }}
                         />
                         {row.tier}
                       </td>
@@ -513,9 +514,11 @@ export default function MedallionPage() {
                         }}
                       >
                         {isStatus && (
-                          <i
-                            className="ph-fill ph-medal"
-                            style={{ color, fontSize: '1rem' }}
+                          /* eslint-disable-next-line @next/next/no-img-element */
+                          <img
+                            src={`/assets/images/medallion/${tierKey}.svg`}
+                            alt={`${row.status} Medallion`}
+                            style={{ width: '18px', height: '16px' }}
                           />
                         )}
                         {row.status}

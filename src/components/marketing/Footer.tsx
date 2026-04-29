@@ -111,7 +111,7 @@ export function Footer() {
                   className="text-[length:var(--type-scale-14)] transition-colors hover:opacity-100 opacity-85"
                   style={{ color: 'var(--color-neutral-0)' }}
                 >
-                  Delta SYNC
+                  Delta Business Tool
                 </Link>
               </li>
               <li>

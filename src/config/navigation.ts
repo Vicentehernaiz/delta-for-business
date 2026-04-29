@@ -32,8 +32,37 @@ export const mainNav: NavItem[] = [
   },
   { label: 'SkyMiles', href: '/skymiles' },
   { label: 'Medallion', href: '/medallion' },
-  { label: 'Delta Sync', href: '/delta-sync' },
-  { label: 'Business Calculator', href: 'https://smudge-anchor-96596806.figma.site/', isExternal: true },
+  { label: 'Delta Business Tool', href: '/delta-sync' },
+  {
+    label: 'Calculate Plan',
+    // Parent href points at the quiz so keyboard/middle-click on the trigger
+    // still goes somewhere useful. The dropdown is the primary interaction.
+    href: '/quiz',
+    children: [
+      {
+        label: 'Take a quiz to customize your plan',
+        href: '/quiz',
+        description: 'Answer a few questions and we’ll recommend the right plan',
+        clarityEvent: 'nav_calculate_plan_quiz_clicked',
+      },
+      {
+        label: 'Plan Calculator',
+        href: 'https://smudge-anchor-96596806.figma.site/',
+        isExternal: true,
+        description: 'Estimate miles earned and projected ROI for your team',
+        clarityEvent: 'nav_calculate_plan_calculator_clicked',
+      },
+      {
+        // TODO: replace this href with a real /tools/plan-comparison route (or a
+        // #comparison anchor on the calculator page) once that page exists.
+        label: 'Plan Comparison Tool',
+        href: 'https://smudge-anchor-96596806.figma.site/',
+        isExternal: true,
+        description: 'See SMB Flex, Corporate Pro and Enterprise Elite side by side',
+        clarityEvent: 'nav_calculate_plan_comparison_clicked',
+      },
+    ],
+  },
 ]
 
 // ── Utility navigation (external delta.com links) ──────────
@@ -57,7 +86,7 @@ export const footerNav = {
     { label: 'Corporate Pro', href: '/programs/enterprise' },
     { label: 'Enterprise Elite', href: '/programs/large-enterprise' },
     { label: 'Compare programs', href: '/programs/compare' },
-    { label: 'Delta SYNC', href: '/delta-sync' },
+    { label: 'Delta Business Tool', href: '/delta-sync' },
   ],
   benefits: [
     { label: 'Corporate Priority', href: '/benefits/corporate-priority' },
@@ -81,7 +110,7 @@ export const footerNav = {
     { label: 'ROI Calculator', href: '/tools/roi-calculator' },
     { label: 'MQD Calculator', href: '/medallion/mqd-calculator' },
     { label: 'Card Comparison', href: '/cards/compare' },
-    { label: 'Delta Sync Platform', href: '/delta-sync' },
+    { label: 'Delta Business Tool', href: '/delta-sync' },
   ],
   external: [
     { label: 'Delta.com', href: 'https://www.delta.com/', isExternal: true },
