@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
+import { CookieBanner } from '@/components/marketing/CookieBanner'
 import '@/styles/globals.css'
 import '@/styles/tokens.css'
 import '@phosphor-icons/web/regular'
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body>
         {children}
+        <CookieBanner />
         {clarityId && (
           <Script id="ms-clarity" strategy="afterInteractive" dangerouslySetInnerHTML={{
             __html: `(function(c,l,a,r,i,t,y){

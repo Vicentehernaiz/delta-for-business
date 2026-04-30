@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { mainNav, authNav } from '@/config/navigation'
 import type { NavItem } from '@/types'
 import { clarityEvent } from '@/lib/clarity'
+import { NavSearch } from './NavSearch'
 
 // ── Mega-menu content (descriptions per child link) ──────────────────────────
 
@@ -293,6 +294,7 @@ export function Nav() {
             className="hidden lg:flex items-center gap-2 shrink-0"
             onMouseEnter={scheduleClose}
           >
+            <NavSearch variant="desktop" />
             <Link
               href={authNav.login.href}
               className="inline-flex items-center gap-2 font-semibold transition-colors whitespace-nowrap"
@@ -459,6 +461,7 @@ export function Nav() {
           ))}
 
           <div className="px-6 pt-6 space-y-3">
+            <NavSearch variant="mobile" />
             <Link
               href={authNav.login.href}
               onClick={() => setMobileOpen(false)}
