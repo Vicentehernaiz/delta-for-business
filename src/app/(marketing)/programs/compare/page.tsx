@@ -304,7 +304,7 @@ export default function CompareBusinessPlansPage() {
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <Link
-              href="/quiz"
+              href="/tools/program-selector"
               className="inline-flex items-center gap-2 font-semibold"
               style={{
                 height: '48px',
@@ -527,7 +527,7 @@ export default function CompareBusinessPlansPage() {
         <div className="mx-auto px-6" style={{ maxWidth: 'var(--container-narrow)' }}>
           <p style={{ fontSize: 'var(--type-scale-15)', color: 'rgba(255,255,255,0.85)', lineHeight: 1.6 }}>
             Switch plans whenever — your earnings, traveler list, and Delta Amex perks travel with you.{' '}
-            <Link href="/quiz" style={{ color: 'var(--color-nav-section-title)', textDecoration: 'underline', textUnderlineOffset: '2px', fontWeight: '600' }}>
+            <Link href="/tools/program-selector" style={{ color: 'var(--color-nav-section-title)', textDecoration: 'underline', textUnderlineOffset: '2px', fontWeight: '600' }}>
               Take the quiz to get a recommendation →
             </Link>
           </p>

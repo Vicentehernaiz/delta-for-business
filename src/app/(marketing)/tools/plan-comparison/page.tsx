@@ -32,7 +32,7 @@ const PLANS: Plan[] = [
     enrollHref: '/enroll/individual',
     enrollLabel: 'Get started free',
     learnHref: '/programs/individual',
-    highlights: ['Hertz Five Star (free)', 'CLEAR Plus ~30% off', 'Industrious $99/mo', 'Personal SkyMiles + Comfort+ promos'],
+    highlights: ['Hertz Five Star (free)', 'CLEAR Plus ~30% off', 'Industrious $99/mo', 'Personal SkyMiles + Comfort+ promos', 'Delta Business Tool · limited'],
     accent: 'var(--color-segment-individual)',
   },
   {

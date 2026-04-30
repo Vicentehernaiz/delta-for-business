@@ -36,13 +36,14 @@ export const mainNav: NavItem[] = [
   { label: 'Delta Business Tool', href: '/delta-sync' },
   {
     label: 'Calculate Plan',
-    // Parent href points at the quiz so keyboard/middle-click on the trigger
-    // still goes somewhere useful. The dropdown is the primary interaction.
-    href: '/quiz',
+    // Parent href points at the program-selector quiz so keyboard/middle-click
+    // on the trigger still goes somewhere useful. The dropdown is the primary
+    // interaction.
+    href: '/tools/program-selector',
     children: [
       {
         label: 'Take a quiz to customize your plan',
-        href: '/quiz',
+        href: '/tools/program-selector',
         description: 'Answer a few questions and we’ll recommend the right plan',
         clarityEvent: 'nav_calculate_plan_quiz_clicked',
       },

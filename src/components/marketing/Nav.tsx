@@ -24,7 +24,7 @@ const megaDescriptions: Record<string, string> = {
 
 // ── Mega panel ────────────────────────────────────────────────────────────────
 
-function MegaPanel({ item }: { item: NavItem }) {
+function MegaPanel({ item, onSelect }: { item: NavItem; onSelect: () => void }) {
   const children = item.children ?? []
   // 4–5 item menus (Programs) get a 2-col layout; everything else stays single-row.
   const isTwoCol = children.length >= 4
@@ -68,9 +68,12 @@ function MegaPanel({ item }: { item: NavItem }) {
         >
           {children.map((child) => {
             const description = child.description ?? megaDescriptions[child.href]
-            const onClick = child.clarityEvent
-              ? () => clarityEvent(child.clarityEvent as string)
-              : undefined
+            const handleClick = () => {
+              if (child.clarityEvent) clarityEvent(child.clarityEvent as string)
+              // Close the mega-menu so the click feels like a confirmed selection
+              // (page is loading) — user can re-open by hovering the trigger again.
+              onSelect()
+            }
 
             return (
               <Link
@@ -78,7 +81,7 @@ function MegaPanel({ item }: { item: NavItem }) {
                 href={child.href}
                 target={child.isExternal ? '_blank' : undefined}
                 rel={child.isExternal ? 'noopener noreferrer' : undefined}
-                onClick={onClick}
+                onClick={handleClick}
                 className="group flex flex-col rounded-[var(--radius-l)] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
                 style={{
                   padding: '16px 20px',
@@ -348,7 +351,7 @@ export function Nav() {
               if (!e.currentTarget.contains(e.relatedTarget as Node)) scheduleClose()
             }}
           >
-            <MegaPanel item={activeItem} />
+            <MegaPanel item={activeItem} onSelect={() => setActiveLabel(null)} />
           </div>
         )}
       </header>

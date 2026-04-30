@@ -1,5 +1,6 @@
 'use client'
 
+import type { ReactNode } from 'react'
 import { useCalculatorStore } from '@/stores/calculator'
 import type { RouteType, ProgramTier } from '@/stores/calculator'
 import Link from 'next/link'
@@ -107,7 +108,20 @@ function MetricCard({
   )
 }
 
-export function ROICalculator() {
+interface ROICalculatorProps {
+  /** Extra content rendered in the right output column, between the savings card and the CTA. */
+  outputExtras?: ReactNode
+  /** Override the default "Get started" CTA destination. */
+  ctaHref?: string
+  /** Override the default CTA label. */
+  ctaLabel?: string
+}
+
+export function ROICalculator({
+  outputExtras,
+  ctaHref = '/enroll/small-business',
+  ctaLabel = 'Get started free',
+}: ROICalculatorProps = {}) {
   const { inputs, outputs, setTravelers, setTripsPerYear, setAvgFare, setRouteType, setProgramTier } =
     useCalculatorStore()
 
@@ -278,9 +292,12 @@ export function ROICalculator() {
           </p>
         </div>
 
+        {/* Optional consumer-supplied extras (plan match, MQD note, etc.) */}
+        {outputExtras}
+
         {/* CTA */}
         <Link
-          href="/enroll/small-business"
+          href={ctaHref}
           className="w-full inline-flex items-center justify-center gap-2 font-semibold transition-opacity hover:opacity-90"
           style={{
             height: '52px',
@@ -291,7 +308,7 @@ export function ROICalculator() {
             boxShadow: 'var(--shadow-button)',
           }}
         >
-          Get started free
+          {ctaLabel}
           <i className="ph-bold ph-arrow-right text-sm"></i>
         </Link>
 

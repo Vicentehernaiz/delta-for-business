@@ -292,11 +292,22 @@ export default function ProgramsPage() {
                     <td className="p-4" style={{ fontSize: 'var(--type-scale-14)', fontWeight: '600', color: 'var(--color-delta-blue-600)', borderBottom: '1px solid var(--color-neutral-10)' }}>
                       {row.label}
                     </td>
-                    {row.values.map((v, j) => (
-                      <td key={j} className="p-4 text-center" style={{ fontSize: 'var(--type-scale-13)', color: v.startsWith('✅') ? 'var(--color-success)' : v === '—' ? 'var(--color-neutral-400)' : 'var(--color-delta-blue-600)', borderBottom: '1px solid var(--color-neutral-10)' }}>
-                        {v}
-                      </td>
-                    ))}
+                    {row.values.map((v, j) => {
+                      const isCheck = v.startsWith('✅')
+                      const rest = isCheck ? v.slice(1).trim() : v
+                      return (
+                        <td key={j} className="p-4 text-center" style={{ fontSize: 'var(--type-scale-13)', color: v === '—' ? 'var(--color-neutral-400)' : 'var(--color-delta-blue-600)', borderBottom: '1px solid var(--color-neutral-10)' }}>
+                          {isCheck ? (
+                            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'var(--color-delta-blue-700)', fontWeight: '600' }}>
+                              <i className="ph-bold ph-check" style={{ color: 'var(--color-success)', fontSize: '0.95em' }} />
+                              {rest && <span>{rest}</span>}
+                            </span>
+                          ) : (
+                            v
+                          )}
+                        </td>
+                      )
+                    })}
                   </tr>
                 ))}
               </tbody>

@@ -49,6 +49,11 @@ const benefits = [
     title: 'Occasional lounge / day passes',
     desc: 'Periodic Sky Club day-pass offers and lounge access promotions — surfaced through your member account when available.',
   },
+  {
+    icon: 'ph-fill ph-lightning',
+    title: 'Delta Business Tool — limited access',
+    desc: 'View your personal SkyMiles balance, MQDs, eCredits and member offers from the Delta Business Tool. Roster, traveler management, spend reporting and corporate dashboards stay locked to corporate plans.',
+  },
 ]
 
 const exclusions: { icon: string; title: string; desc: string }[] = [
@@ -91,6 +96,23 @@ const faqs: { q: string; a: string }[] = [
     a: 'Yes. From your account dashboard you can open a company pool (the "SkyMiles for Business only" plan) or upgrade to SMB Flex / Corporate Pro / Enterprise Elite at any time.',
   },
 ]
+
+function CompareCell({ value }: { value: string }) {
+  if (value === '—') return <span style={{ color: 'var(--color-neutral-400)' }}>—</span>
+  if (value === '✅') {
+    return <i className="ph-bold ph-check" style={{ color: 'var(--color-success)' }} />
+  }
+  if (value.startsWith('✅')) {
+    const rest = value.slice(1).trim()
+    return (
+      <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+        <i className="ph-bold ph-check" style={{ color: 'var(--color-success)' }} />
+        {rest && <span>{rest}</span>}
+      </span>
+    )
+  }
+  return <span>{value}</span>
+}
 
 export default function IndividualProgramPage() {
   return (
@@ -163,7 +185,7 @@ export default function IndividualProgramPage() {
               <i className="ph-bold ph-arrow-right text-sm"></i>
             </Link>
             <Link
-              href="/quiz"
+              href="/tools/program-selector"
               className="inline-flex items-center gap-2 font-semibold"
               style={{
                 height: '48px',
@@ -316,8 +338,8 @@ export default function IndividualProgramPage() {
                 ].map((row, i) => (
                   <tr key={row[0]} style={{ background: i % 2 === 0 ? 'var(--color-neutral-0)' : 'var(--color-neutral-5)', borderBottom: '1px solid var(--color-neutral-10)' }}>
                     <td style={{ padding: '12px 16px', color: 'var(--color-neutral-600)', fontWeight: '500' }}>{row[0]}</td>
-                    <td style={{ padding: '12px 16px', textAlign: 'center', color: 'var(--color-delta-blue-700)' }}>{row[1]}</td>
-                    <td style={{ padding: '12px 16px', textAlign: 'center', color: 'var(--color-delta-blue-700)' }}>{row[2]}</td>
+                    <td style={{ padding: '12px 16px', textAlign: 'center', color: 'var(--color-delta-blue-700)' }}><CompareCell value={row[1]} /></td>
+                    <td style={{ padding: '12px 16px', textAlign: 'center', color: 'var(--color-delta-blue-700)' }}><CompareCell value={row[2]} /></td>
                   </tr>
                 ))}
               </tbody>

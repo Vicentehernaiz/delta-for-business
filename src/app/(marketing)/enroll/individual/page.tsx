@@ -44,6 +44,7 @@ const PLANS: Record<PlanId, Plan> = {
       { icon: 'ph-fill ph-trend-up', text: 'Comfort+ promos' },
       { icon: 'ph-fill ph-armchair', text: 'Lounge day passes' },
       { icon: 'ph-fill ph-airplane-tilt', text: 'Personal SkyMiles' },
+      { icon: 'ph-fill ph-lightning', text: 'Delta Business Tool · limited' },
     ],
     programNote: {
       title: 'You\'re joining SkyMiles.',
@@ -259,7 +260,7 @@ export default function EnrollIndividualPage() {
           <p style={{ fontSize: 'var(--type-scale-13)', color: 'rgba(255,255,255,0.78)', lineHeight: 1.6 }}>
             Not sure which fits?{' '}
             <Link
-              href="/quiz"
+              href="/tools/program-selector"
               style={{ color: 'var(--color-nav-section-title)', textDecoration: 'underline', fontWeight: '600' }}
             >
               Take the 60-second quiz →

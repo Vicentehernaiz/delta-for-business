@@ -8,6 +8,36 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://business.delta.com/skymiles/double-earn' },
 }
 
+function StatusCell({ value }: { value: string }) {
+  const [token, ...rest] = value.split(' ')
+  const label = rest.join(' ')
+  if (token === 'check') {
+    return (
+      <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'var(--color-delta-blue-700)', fontWeight: '600' }}>
+        <i className="ph-bold ph-check" style={{ color: 'var(--color-success)' }} />
+        {label}
+      </span>
+    )
+  }
+  if (token === 'x') {
+    return (
+      <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'var(--color-neutral-600)' }}>
+        <i className="ph-bold ph-x" style={{ color: 'var(--color-error)' }} />
+        {label}
+      </span>
+    )
+  }
+  if (token === 'warn') {
+    return (
+      <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'var(--color-neutral-600)' }}>
+        <i className="ph-fill ph-warning" style={{ color: 'var(--color-warning)' }} />
+        {label}
+      </span>
+    )
+  }
+  return <span>{value}</span>
+}
+
 export default function DoubleEarnPage() {
   return (
     <main>
@@ -79,17 +109,17 @@ export default function DoubleEarnPage() {
               </thead>
               <tbody>
                 {[
-                  ['Company earns miles', '✅ Full rate', '✅ Full rate', '✅ Full rate'],
-                  ['Employee earns personal miles simultaneously', '✅ Full rate', '⚠️ Reduced', '⚠️ Reduced'],
-                  ['Employee MQDs unaffected', '✅ Yes', '❌ Reduced', '❌ Reduced'],
-                  ['Free self-serve enrollment', '✅ Yes', '❌ Sales call required', '❌ Sales call required'],
-                  ['No minimum spend to start', '✅ Yes', '❌ Threshold required', '❌ Threshold required'],
+                  ['Company earns miles', 'check Full rate', 'check Full rate', 'check Full rate'],
+                  ['Employee earns personal miles simultaneously', 'check Full rate', 'warn Reduced', 'warn Reduced'],
+                  ['Employee MQDs unaffected', 'check Yes', 'x Reduced', 'x Reduced'],
+                  ['Free self-serve enrollment', 'check Yes', 'x Sales call required', 'x Sales call required'],
+                  ['No minimum spend to start', 'check Yes', 'x Threshold required', 'x Threshold required'],
                 ].map(([label, delta, united, american], i) => (
                   <tr key={i} style={{ background: i % 2 === 0 ? 'var(--color-neutral-0)' : 'var(--color-neutral-5)', borderBottom: '1px solid var(--color-neutral-10)' }}>
                     <td className="p-4" style={{ fontSize: 'var(--type-scale-14)', color: 'var(--color-delta-blue-600)', fontWeight: '600' }}>{label}</td>
-                    <td className="p-4 text-center" style={{ fontSize: 'var(--type-scale-14)', color: 'var(--color-success)' }}>{delta}</td>
-                    <td className="p-4 text-center" style={{ fontSize: 'var(--type-scale-13)', color: 'var(--color-neutral-600)' }}>{united}</td>
-                    <td className="p-4 text-center" style={{ fontSize: 'var(--type-scale-13)', color: 'var(--color-neutral-600)' }}>{american}</td>
+                    <td className="p-4 text-center" style={{ fontSize: 'var(--type-scale-14)' }}><StatusCell value={delta} /></td>
+                    <td className="p-4 text-center" style={{ fontSize: 'var(--type-scale-13)' }}><StatusCell value={united} /></td>
+                    <td className="p-4 text-center" style={{ fontSize: 'var(--type-scale-13)' }}><StatusCell value={american} /></td>
                   </tr>
                 ))}
               </tbody>
