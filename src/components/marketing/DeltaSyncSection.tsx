@@ -26,24 +26,24 @@ export function DeltaSyncSection() {
         Delta Business Tool
       </h2>
 
-      {/* Card container */}
+      {/* Card container — desktop: hugs the preview image (no extra side gutter) */}
       <div
         className="flex flex-col items-center w-full"
         style={{
-          maxWidth: '1200px',
+          maxWidth: '720px',
           gap: '24px',
           borderRadius: 'var(--radius-l)',
           overflow: 'clip',
           boxShadow: '0px -6px 30px 0px rgba(0,0,0,0.2)',
         }}
       >
-        {/* Dashboard preview — narrower + centered, original aspect locked */}
+        {/* Dashboard preview — narrower + 20% taller box reveals more UI */}
         <Link
           href="/account/dashboard"
           className="group relative block"
           style={{
             width: '100%',
-            maxWidth: '880px',
+            maxWidth: '720px',
             margin: '0 auto',
             background: 'var(--color-neutral-0)',
             border: '1px solid var(--color-neutral-5)',
@@ -51,7 +51,9 @@ export function DeltaSyncSection() {
             boxShadow: 'var(--shadow-card)',
             overflow: 'hidden',
             color: 'var(--color-neutral-0)',
-            aspectRatio: '1200 / 594',
+            // 20% more vertical room than the prior 1200/594 wide aspect:
+            // 594 × 1.2 ≈ 713 → 1200/713
+            aspectRatio: '1200 / 713',
           }}
           aria-label="Open the Delta Business Tool dashboard"
         >
