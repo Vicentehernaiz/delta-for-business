@@ -216,7 +216,7 @@ export default function EnrollIndividualPage() {
           </p>
         </div>
 
-        {/* Solo / SkyMiles-only group */}
+        {/* Corporate group */}
         <p
           style={{
             fontSize: 'var(--type-scale-11)',
@@ -228,15 +228,15 @@ export default function EnrollIndividualPage() {
             marginTop: '4px',
           }}
         >
-          For individuals
+          For companies
         </p>
         <div className="space-y-2 mb-5">
-          {(['individual', 'skymiles-only'] as PlanId[]).map((id) => (
+          {(['smb-flex', 'corporate-pro', 'enterprise-elite'] as PlanId[]).map((id) => (
             <PlanOption key={id} plan={PLANS[id]} active={planId === id} onSelect={() => switchPlan(id)} />
           ))}
         </div>
 
-        {/* Corporate group */}
+        {/* Solo / SkyMiles-only group */}
         <p
           style={{
             fontSize: 'var(--type-scale-11)',
@@ -247,10 +247,10 @@ export default function EnrollIndividualPage() {
             marginBottom: '8px',
           }}
         >
-          For companies
+          For individuals
         </p>
         <div className="space-y-2 mb-6">
-          {(['smb-flex', 'corporate-pro', 'enterprise-elite'] as PlanId[]).map((id) => (
+          {(['individual', 'skymiles-only'] as PlanId[]).map((id) => (
             <PlanOption key={id} plan={PLANS[id]} active={planId === id} onSelect={() => switchPlan(id)} />
           ))}
         </div>

@@ -27,6 +27,129 @@ export default function SkyClubPage() {
         </div>
       </section>
 
+      {/* Photo gallery — Inside the Clubs */}
+      <section className="py-16" style={{ background: 'var(--color-neutral-0)' }}>
+        <div className="mx-auto px-6 lg:px-8" style={{ maxWidth: 'var(--container-wide)' }}>
+          <div className="text-center" style={{ marginBottom: '32px' }}>
+            <p
+              style={{
+                fontSize: 'var(--type-scale-12)',
+                fontWeight: '700',
+                textTransform: 'uppercase',
+                letterSpacing: '0.1em',
+                color: 'var(--color-delta-red-400)',
+                marginBottom: '6px',
+              }}
+            >
+              A look inside
+            </p>
+            <h2
+              style={{
+                fontSize: 'clamp(1.5rem, 2.4vw, var(--type-scale-32))',
+                fontFamily: 'var(--font-display)',
+                fontWeight: '700',
+                color: 'var(--color-delta-blue-700)',
+              }}
+            >
+              Designed for the way business travelers actually use airports
+            </h2>
+          </div>
+
+          {/* Hero shot */}
+          <figure
+            className="rounded-[var(--radius-l)] overflow-hidden"
+            style={{
+              background: 'var(--color-neutral-5)',
+              border: '1px solid var(--color-neutral-10)',
+              boxShadow: 'var(--shadow-card)',
+              marginBottom: '20px',
+              aspectRatio: '16 / 9',
+              maxHeight: '70vh',
+            }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/assets/images/skyclub/lounge-fire-pit.webp"
+              alt="Delta Sky Club lounge featuring a circular fire pit, leather banquettes, and a designed ceiling at SLC"
+              style={{ width: '100%', height: '100%', display: 'block', objectFit: 'cover', objectPosition: 'center' }}
+              loading="lazy"
+            />
+            <figcaption
+              className="px-6 py-3"
+              style={{
+                fontSize: 'var(--type-scale-12)',
+                color: 'var(--color-neutral-600)',
+                background: 'var(--color-neutral-0)',
+                borderTop: '1px solid var(--color-neutral-10)',
+              }}
+            >
+              <strong style={{ color: 'var(--color-delta-blue-700)' }}>Salt Lake City flagship</strong> — fire-pit social area with low-light banquettes
+            </figcaption>
+          </figure>
+
+          {/* Two-up grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <figure
+              className="rounded-[var(--radius-l)] overflow-hidden"
+              style={{
+                background: 'var(--color-neutral-5)',
+                border: '1px solid var(--color-neutral-10)',
+                boxShadow: 'var(--shadow-card)',
+                aspectRatio: '4 / 3',
+              }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/assets/images/skyclub/lounge-interior.avif"
+                alt="Delta Sky Club main lounge interior with seating, soft lighting and skyline views"
+                style={{ width: '100%', height: '100%', display: 'block', objectFit: 'cover', objectPosition: 'center' }}
+                loading="lazy"
+              />
+              <figcaption
+                className="px-5 py-3"
+                style={{
+                  fontSize: 'var(--type-scale-12)',
+                  color: 'var(--color-neutral-600)',
+                  background: 'var(--color-neutral-0)',
+                  borderTop: '1px solid var(--color-neutral-10)',
+                }}
+              >
+                <strong style={{ color: 'var(--color-delta-blue-700)' }}>Quiet workspaces</strong> — power at every seat, soft lighting, runway-side views
+              </figcaption>
+            </figure>
+
+            <figure
+              className="rounded-[var(--radius-l)] overflow-hidden"
+              style={{
+                background: 'var(--color-neutral-5)',
+                border: '1px solid var(--color-neutral-10)',
+                boxShadow: 'var(--shadow-card)',
+                aspectRatio: '4 / 3',
+              }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/assets/images/skyclub/food-display.jpeg"
+                alt="Delta Sky Club hot food and snack display — bakery items, fresh pastries, and chef-curated bites"
+                style={{ width: '100%', height: '100%', display: 'block', objectFit: 'cover', objectPosition: 'center' }}
+                loading="lazy"
+              />
+              <figcaption
+                className="px-5 py-3"
+                style={{
+                  fontSize: 'var(--type-scale-12)',
+                  color: 'var(--color-neutral-600)',
+                  background: 'var(--color-neutral-0)',
+                  borderTop: '1px solid var(--color-neutral-10)',
+                }}
+              >
+                <strong style={{ color: 'var(--color-delta-blue-700)' }}>Hot food &amp; bakery</strong> — chef-curated rotating menu plus fresh pastries
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
       {/* What's inside */}
       <section className="py-20" style={{ background: 'var(--color-neutral-0)' }}>
         <div className="mx-auto px-6 lg:px-8" style={{ maxWidth: 'var(--container-narrow)' }}>
