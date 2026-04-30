@@ -37,11 +37,14 @@ export function DeltaSyncSection() {
           boxShadow: '0px -6px 30px 0px rgba(0,0,0,0.2)',
         }}
       >
-        {/* Dashboard preview */}
+        {/* Dashboard preview — narrower + centered, original aspect locked */}
         <Link
           href="/account/dashboard"
-          className="group relative w-full block"
+          className="group relative block"
           style={{
+            width: '100%',
+            maxWidth: '880px',
+            margin: '0 auto',
             background: 'var(--color-neutral-0)',
             border: '1px solid var(--color-neutral-5)',
             borderRadius: 'var(--radius-l)',
@@ -49,7 +52,6 @@ export function DeltaSyncSection() {
             overflow: 'hidden',
             color: 'var(--color-neutral-0)',
             aspectRatio: '1200 / 594',
-            maxHeight: '100vh',
           }}
           aria-label="Open the Delta Business Tool dashboard"
         >

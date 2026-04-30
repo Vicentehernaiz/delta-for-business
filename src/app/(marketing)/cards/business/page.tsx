@@ -10,22 +10,24 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://business.delta.com/cards/business' },
 }
 
+// Brand palette per Amex card tier — matches CSS tokens in tokens.css
+// Gold = #8f6c32 amber-gold · Platinum = #6f7f8d silver-grey · Reserve = #726394 purple
 const tierColors: Record<string, string> = {
-  gold: '#d97706',
-  platinum: '#7c3aed',
-  reserve: '#1e3a5f',
+  gold: '#8f6c32',
+  platinum: '#6f7f8d',
+  reserve: '#726394',
 }
 
 const tierBg: Record<string, string> = {
-  gold: 'rgba(217,119,6,0.08)',
-  platinum: 'rgba(124,58,237,0.08)',
-  reserve: 'rgba(30,58,95,0.08)',
+  gold: 'rgba(143,108,50,0.10)',
+  platinum: 'rgba(111,127,141,0.10)',
+  reserve: 'rgba(114,99,148,0.10)',
 }
 
 const tierGradient: Record<string, string> = {
-  gold: 'linear-gradient(135deg, #92400e, #d97706)',
-  platinum: 'linear-gradient(135deg, #4c1d95, #7c3aed)',
-  reserve: 'linear-gradient(135deg, #0B1940, #1e3a5f)',
+  gold: 'linear-gradient(135deg, #5d4716 0%, #b8904f 100%)',
+  platinum: 'linear-gradient(135deg, #475560 0%, #8c9aa8 100%)',
+  reserve: 'linear-gradient(135deg, #483a64 0%, #9d8ec0 100%)',
 }
 
 export default function BusinessCardsPage() {

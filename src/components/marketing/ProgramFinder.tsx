@@ -1,3 +1,6 @@
+'use client'
+
+import { useState } from 'react'
 import Link from 'next/link'
 
 interface ProgramFinderProps {
@@ -108,6 +111,236 @@ const plans = [
   },
 ]
 
+type Plan = (typeof plans)[number]
+
+// ── Plan card (collapsible perks) ────────────────────────────────────────────
+
+function PlanCard({ plan, active }: { plan: Plan; active: boolean }) {
+  const [showAll, setShowAll] = useState(false)
+  const hiddenCount =
+    plan.employeeBenefits.length + plan.included.length + plan.excluded.length
+
+  return (
+    <div
+      className="flex flex-col rounded-[var(--radius-l)]"
+      style={{
+        background: 'var(--color-neutral-0)',
+        border: `1px solid ${active ? 'var(--color-delta-red-400)' : 'var(--color-neutral-5)'}`,
+        boxShadow: 'var(--shadow-card)',
+        padding: '32px',
+        flex: '1 0 340px',
+        minWidth: '340px',
+        gap: '24px',
+      }}
+    >
+      {/* Header */}
+      <div className="flex flex-col" style={{ gap: '16px' }}>
+        <p
+          style={{
+            fontSize: 'var(--type-scale-28)',
+            lineHeight: 'var(--line-height-heading-m)',
+            letterSpacing: 'var(--letter-spacing-heading-xxs)',
+            color: plan.nameColor,
+            fontFamily: 'var(--font-body)',
+            fontWeight: '500',
+          }}
+        >
+          {plan.name}
+        </p>
+        <hr style={{ border: 'none', borderTop: '1px solid var(--color-neutral-10)', margin: 0 }} />
+        <div
+          style={{
+            fontSize: 'var(--type-scale-18)',
+            lineHeight: 'var(--line-height-body-medium)',
+            letterSpacing: 'var(--letter-spacing-marketing-small)',
+            color: 'var(--color-delta-blue-500)',
+            fontFamily: 'var(--font-display)',
+            fontWeight: '700',
+            whiteSpace: 'pre-line',
+          }}
+        >
+          {plan.subtitle}
+        </div>
+      </div>
+
+      {/* Benefits — always-visible "Company gets" */}
+      <div className="flex flex-col flex-1" style={{ gap: '20px' }}>
+        <div className="flex flex-col" style={{ gap: '10px' }}>
+          <p style={{
+            fontSize: 'var(--type-scale-12)',
+            fontWeight: '700',
+            textTransform: 'uppercase',
+            letterSpacing: '0.08em',
+            color: 'var(--color-neutral-600)',
+            fontFamily: 'var(--font-display)',
+          }}>
+            {plan.companyLabel}
+          </p>
+          {plan.companyBenefits.map((item) => (
+            <p key={item} style={{
+              color: 'var(--color-delta-blue-500)',
+              fontSize: 'var(--type-scale-15)',
+              lineHeight: 'var(--line-height-body-medium)',
+              fontFamily: 'var(--font-body)',
+              fontWeight: '500',
+              display: 'flex', alignItems: 'center', gap: '8px'
+            }}>
+              <i className="ph-bold ph-check text-sm flex-shrink-0" style={{ color: 'var(--color-success)' }} />
+              {item}
+            </p>
+          ))}
+        </div>
+
+        {/* Collapsible: Employee + included + excluded */}
+        {showAll && (
+          <>
+            {/* Employee gets */}
+            <div className="flex flex-col" style={{ gap: '10px' }}>
+              <p style={{
+                fontSize: 'var(--type-scale-12)',
+                fontWeight: '700',
+                textTransform: 'uppercase',
+                letterSpacing: '0.08em',
+                color: 'var(--color-neutral-600)',
+                fontFamily: 'var(--font-display)',
+              }}>
+                {plan.employeeLabel}
+              </p>
+              {plan.employeeBenefits.map((item) => (
+                <p key={item} style={{
+                  color: 'var(--color-delta-blue-500)',
+                  fontSize: 'var(--type-scale-15)',
+                  lineHeight: 'var(--line-height-body-medium)',
+                  fontFamily: 'var(--font-body)',
+                  fontWeight: '500',
+                  display: 'flex', alignItems: 'center', gap: '8px'
+                }}>
+                  <i className="ph-bold ph-check text-sm flex-shrink-0" style={{ color: 'var(--color-success)' }} />
+                  {item}
+                </p>
+              ))}
+            </div>
+
+            {/* Also included */}
+            {plan.included.length > 0 && (
+              <div className="flex flex-col" style={{ gap: '10px' }}>
+                <p style={{
+                  fontSize: 'var(--type-scale-12)',
+                  fontWeight: '700',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.08em',
+                  color: 'var(--color-neutral-600)',
+                  fontFamily: 'var(--font-display)',
+                }}>
+                  Also included
+                </p>
+                {plan.included.map((item) => (
+                  <p key={item} style={{
+                    color: 'var(--color-delta-blue-500)',
+                    fontSize: 'var(--type-scale-15)',
+                    lineHeight: 'var(--line-height-body-medium)',
+                    fontFamily: 'var(--font-body)',
+                    fontWeight: '500',
+                    display: 'flex', alignItems: 'center', gap: '8px'
+                  }}>
+                    <i className="ph-bold ph-check text-sm flex-shrink-0" style={{ color: 'var(--color-success)' }} />
+                    <span>{item}</span>
+                    {item.startsWith('Hertz') && (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src="/assets/images/logos/logo-hetz-png.png" alt="Hertz" style={{ height: '14px', width: 'auto', opacity: 0.8, flexShrink: 0 }} />
+                    )}
+                  </p>
+                ))}
+              </div>
+            )}
+
+            {/* Not included */}
+            {plan.excluded.length > 0 && (
+              <div className="flex flex-col" style={{ gap: '10px' }}>
+                {plan.excluded.map((item) => (
+                  <p key={item} style={{
+                    color: 'var(--color-neutral-500)',
+                    fontSize: 'var(--type-scale-15)',
+                    lineHeight: 'var(--line-height-body-medium)',
+                    fontFamily: 'var(--font-body)',
+                    fontWeight: '500',
+                    display: 'flex', alignItems: 'center', gap: '8px'
+                  }}>
+                    <i className="ph-bold ph-x text-sm flex-shrink-0" style={{ color: 'var(--color-neutral-400)' }} />
+                    {item}
+                  </p>
+                ))}
+              </div>
+            )}
+          </>
+        )}
+
+        {/* Toggle */}
+        {hiddenCount > 0 && (
+          <button
+            type="button"
+            onClick={() => setShowAll((v) => !v)}
+            aria-expanded={showAll}
+            className="self-start inline-flex items-center gap-2 transition-colors"
+            style={{
+              fontSize: 'var(--type-scale-13)',
+              fontWeight: '700',
+              fontFamily: 'var(--font-display)',
+              color: 'var(--color-delta-blue-700)',
+              background: 'transparent',
+              border: 'none',
+              padding: '4px 0',
+              cursor: 'pointer',
+              textDecoration: 'underline',
+              textUnderlineOffset: '3px',
+            }}
+          >
+            {showAll ? 'Hide perks' : `Show all perks (${hiddenCount} more)`}
+            <i
+              className={`ph-bold ph-caret-down text-xs transition-transform duration-200 ${showAll ? 'rotate-180' : ''}`}
+              aria-hidden="true"
+            />
+          </button>
+        )}
+      </div>
+
+      {/* CTAs — always pinned at the bottom */}
+      <div className="flex items-end justify-between" style={{ paddingTop: '16px', marginTop: 'auto' }}>
+        <Link
+          href={plan.ctaKnow}
+          style={{
+            fontSize: 'var(--type-scale-16)',
+            fontWeight: '700',
+            fontFamily: 'var(--font-display)',
+            letterSpacing: 'var(--letter-spacing-marketing-x-large)',
+            color: 'var(--color-delta-blue-700)',
+            textDecoration: 'underline',
+            textDecorationColor: 'var(--color-delta-blue-700)',
+            textUnderlineOffset: '3px',
+          }}
+        >
+          Know more
+        </Link>
+        <Link
+          href={plan.ctaEnroll}
+          style={{
+            fontSize: 'var(--type-scale-16)',
+            fontWeight: '700',
+            fontFamily: 'var(--font-display)',
+            letterSpacing: 'var(--letter-spacing-marketing-x-large)',
+            color: 'var(--color-delta-red-400)',
+            textDecoration: 'underline',
+            textDecorationColor: 'var(--color-delta-red-400)',
+            textUnderlineOffset: '3px',
+          }}
+        >
+          {plan.ctaEnrollLabel}
+        </Link>
+      </div>
+    </div>
+  )
+}
+
 // ── Component ─────────────────────────────────────────────────────────────────
 
 export function ProgramFinder({ activeSegment }: ProgramFinderProps) {
@@ -145,186 +378,7 @@ export function ProgramFinder({ activeSegment }: ProgramFinderProps) {
         {/* 3 plan cards */}
         <div className="flex flex-wrap items-stretch w-full" style={{ gap: '32px' }}>
           {plans.map((plan) => (
-            <div
-              key={plan.id}
-              className="flex flex-col rounded-[var(--radius-l)]"
-              style={{
-                background: 'var(--color-neutral-0)',
-                border: `1px solid ${activeSegment === plan.id ? 'var(--color-delta-red-400)' : 'var(--color-neutral-5)'}`,
-                boxShadow: 'var(--shadow-card)',
-                padding: '32px',
-                flex: '1 0 340px',
-                minWidth: '340px',
-                gap: '32px',
-              }}
-            >
-              {/* Header */}
-              <div className="flex flex-col" style={{ gap: '16px' }}>
-                <p
-                  style={{
-                    fontSize: 'var(--type-scale-28)',
-                    lineHeight: 'var(--line-height-heading-m)',
-                    letterSpacing: 'var(--letter-spacing-heading-xxs)',
-                    color: plan.nameColor,
-                    fontFamily: 'var(--font-body)',
-                    fontWeight: '500',
-                  }}
-                >
-                  {plan.name}
-                </p>
-                <hr style={{ border: 'none', borderTop: '1px solid var(--color-neutral-10)', margin: 0 }} />
-                <div
-                  style={{
-                    fontSize: 'var(--type-scale-18)',
-                    lineHeight: 'var(--line-height-body-medium)',
-                    letterSpacing: 'var(--letter-spacing-marketing-small)',
-                    color: 'var(--color-delta-blue-500)',
-                    fontFamily: 'var(--font-display)',
-                    fontWeight: '700',
-                    whiteSpace: 'pre-line',
-                  }}
-                >
-                  {plan.subtitle}
-                </div>
-              </div>
-
-              {/* Benefits list */}
-              <div className="flex flex-col flex-1" style={{ gap: '20px' }}>
-                {/* Company gets */}
-                <div className="flex flex-col" style={{ gap: '10px' }}>
-                  <p style={{
-                    fontSize: 'var(--type-scale-12)',
-                    fontWeight: '700',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.08em',
-                    color: 'var(--color-neutral-600)',
-                    fontFamily: 'var(--font-display)',
-                  }}>
-                    {plan.companyLabel}
-                  </p>
-                  {plan.companyBenefits.map((item) => (
-                    <p key={item} style={{
-                      color: 'var(--color-delta-blue-500)',
-                      fontSize: 'var(--type-scale-15)',
-                      lineHeight: 'var(--line-height-body-medium)',
-                      fontFamily: 'var(--font-body)',
-                      fontWeight: '500',
-                      display: 'flex', alignItems: 'center', gap: '8px'
-                    }}>
-                      ✓&nbsp;&nbsp;{item}
-                    </p>
-                  ))}
-                </div>
-
-                {/* Employee gets */}
-                <div className="flex flex-col" style={{ gap: '10px' }}>
-                  <p style={{
-                    fontSize: 'var(--type-scale-12)',
-                    fontWeight: '700',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.08em',
-                    color: 'var(--color-neutral-600)',
-                    fontFamily: 'var(--font-display)',
-                  }}>
-                    {plan.employeeLabel}
-                  </p>
-                  {plan.employeeBenefits.map((item) => (
-                    <p key={item} style={{
-                      color: 'var(--color-delta-blue-500)',
-                      fontSize: 'var(--type-scale-15)',
-                      lineHeight: 'var(--line-height-body-medium)',
-                      fontFamily: 'var(--font-body)',
-                      fontWeight: '500',
-                    }}>
-                      ✓&nbsp;&nbsp;{item}
-                    </p>
-                  ))}
-                </div>
-
-                {/* Additional perks */}
-                {plan.included.length > 0 && (
-                  <div className="flex flex-col" style={{ gap: '10px' }}>
-                    <p style={{
-                      fontSize: 'var(--type-scale-12)',
-                      fontWeight: '700',
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.08em',
-                      color: 'var(--color-neutral-600)',
-                      fontFamily: 'var(--font-display)',
-                    }}>
-                      Also included
-                    </p>
-                    {plan.included.map((item) => (
-                      <p key={item} style={{
-                        color: 'var(--color-delta-blue-500)',
-                        fontSize: 'var(--type-scale-15)',
-                        lineHeight: 'var(--line-height-body-medium)',
-                        fontFamily: 'var(--font-body)',
-                        fontWeight: '500',
-                        display: 'flex', alignItems: 'center', gap: '8px'
-                      }}>
-                        <span>✓&nbsp;&nbsp;{item}</span>
-                        {item.startsWith('Hertz') && (
-                          // eslint-disable-next-line @next/next/no-img-element
-                          <img src="/assets/images/logos/logo-hetz-png.png" alt="Hertz" style={{ height: '14px', width: 'auto', opacity: 0.8, flexShrink: 0 }} />
-                        )}
-                      </p>
-                    ))}
-                  </div>
-                )}
-
-                {/* Not included */}
-                {plan.excluded.length > 0 && (
-                  <div className="flex flex-col" style={{ gap: '10px' }}>
-                    {plan.excluded.map((item) => (
-                      <p key={item} style={{
-                        color: 'var(--color-neutral-500)',
-                        fontSize: 'var(--type-scale-15)',
-                        lineHeight: 'var(--line-height-body-medium)',
-                        fontFamily: 'var(--font-body)',
-                        fontWeight: '500',
-                      }}>
-                        ✗&nbsp;&nbsp;{item}
-                      </p>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              {/* CTAs */}
-              <div className="flex items-end justify-between" style={{ paddingTop: '16px' }}>
-                <Link
-                  href={plan.ctaKnow}
-                  style={{
-                    fontSize: 'var(--type-scale-16)',
-                    fontWeight: '700',
-                    fontFamily: 'var(--font-display)',
-                    letterSpacing: 'var(--letter-spacing-marketing-x-large)',
-                    color: 'var(--color-delta-blue-700)',
-                    textDecoration: 'underline',
-                    textDecorationColor: 'var(--color-delta-blue-700)',
-                    textUnderlineOffset: '3px',
-                  }}
-                >
-                  Know more
-                </Link>
-                <Link
-                  href={plan.ctaEnroll}
-                  style={{
-                    fontSize: 'var(--type-scale-16)',
-                    fontWeight: '700',
-                    fontFamily: 'var(--font-display)',
-                    letterSpacing: 'var(--letter-spacing-marketing-x-large)',
-                    color: 'var(--color-delta-red-400)',
-                    textDecoration: 'underline',
-                    textDecorationColor: 'var(--color-delta-red-400)',
-                    textUnderlineOffset: '3px',
-                  }}
-                >
-                  {plan.ctaEnrollLabel}
-                </Link>
-              </div>
-            </div>
+            <PlanCard key={plan.id} plan={plan} active={activeSegment === plan.id} />
           ))}
         </div>
 

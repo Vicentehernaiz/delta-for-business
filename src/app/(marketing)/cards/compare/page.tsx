@@ -11,11 +11,12 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://business.delta.com/cards/compare' },
 }
 
+// Brand palette per Amex card tier — matches CSS tokens in tokens.css
 const tierColors: Record<string, string> = {
-  blue: '#6b7280',
-  gold: '#d97706',
-  platinum: '#7c3aed',
-  reserve: '#1e3a5f',
+  blue: '#5970c2',
+  gold: '#8f6c32',
+  platinum: '#6f7f8d',
+  reserve: '#726394',
 }
 
 function CheckCell({ value }: { value: string | boolean | null }) {

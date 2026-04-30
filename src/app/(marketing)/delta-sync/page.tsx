@@ -86,10 +86,10 @@ export default function DeltaSyncPage() {
           screenshot of the Delta Business Manager UI
           ═══════════════════════════════════════════════════ */}
       <section className="pb-24">
-        <div className="mx-auto max-w-[var(--container-wide)]">
+        <div className="mx-auto px-6">
           <div
-            className="overflow-hidden rounded-[var(--radius-l)] border border-[var(--color-neutral-5)] bg-[var(--color-neutral-0)] shadow-[var(--shadow-card)]"
-            style={{ aspectRatio: '1200 / 594', maxHeight: '100vh' }}
+            className="overflow-hidden rounded-[var(--radius-l)] border border-[var(--color-neutral-5)] bg-[var(--color-neutral-0)] shadow-[var(--shadow-card)] mx-auto"
+            style={{ aspectRatio: '1200 / 594', maxWidth: '880px', width: '100%' }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img

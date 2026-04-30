@@ -433,7 +433,7 @@ export function CardsTeaser() {
               }}
             >
                 {businessCards.map((card) => (
-                <div key={card.id} style={{ scrollSnapAlign: 'start', flexShrink: 0 }}>
+                <div key={card.id} className="flex" style={{ scrollSnapAlign: 'start', flexShrink: 0 }}>
                   <CardTile card={card} narrow />
                 </div>
               ))}
@@ -502,7 +502,7 @@ export function CardsTeaser() {
               }}
             >
               {personalCards.map((card) => (
-                <div key={card.id} style={{ scrollSnapAlign: 'start', flexShrink: 0 }}>
+                <div key={card.id} className="flex" style={{ scrollSnapAlign: 'start', flexShrink: 0 }}>
                   <CardTile card={card} narrow />
                 </div>
               ))}
