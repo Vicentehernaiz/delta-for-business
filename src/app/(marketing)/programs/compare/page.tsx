@@ -540,10 +540,11 @@ export default function CompareBusinessPlansPage() {
             </p>
             <h2
               style={{
-                fontSize: 'clamp(1.5rem, 2.4vw, var(--type-scale-32))',
+                fontSize: 'clamp(2rem, 4vw, var(--type-scale-48))',
                 fontFamily: 'var(--font-display)',
                 fontWeight: '700',
                 color: 'var(--color-delta-blue-700)',
+                lineHeight: 1.1,
               }}
             >
               You&apos;re still not sure?
