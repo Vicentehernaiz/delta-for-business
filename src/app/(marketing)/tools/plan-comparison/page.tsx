@@ -37,7 +37,7 @@ const PLANS: Plan[] = [
   },
   {
     key: 'smb-flex',
-    name: 'SMB Flex',
+    name: 'Gold business plan',
     badge: 'Self-serve · Free',
     travelers: '1 – 49',
     spend: 'Up to $50K / yr',
@@ -50,7 +50,7 @@ const PLANS: Plan[] = [
   },
   {
     key: 'corporate-pro',
-    name: 'Corporate Pro',
+    name: 'Platinum business plan',
     badge: 'Negotiated',
     travelers: '50 – 499',
     spend: '$50K – $300K / yr',
@@ -63,7 +63,7 @@ const PLANS: Plan[] = [
   },
   {
     key: 'enterprise-elite',
-    name: 'Enterprise Elite',
+    name: 'Diamond business plan',
     badge: 'Enterprise',
     travelers: '500+',
     spend: '$300K+ / yr',

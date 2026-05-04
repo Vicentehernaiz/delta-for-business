@@ -4,7 +4,7 @@ import { MQDCalculator } from '@/components/tools/MQDCalculator'
 export const metadata: Metadata = {
   title: 'MQD Calculator — Medallion Status Projection | Delta for Business',
   description:
-    'Calculate how quickly you can reach Delta Medallion status. Input your annual airfare spend and see your Silver, Gold, Platinum, or Diamond projection.',
+    'Calculate how quickly you can reach Delta Medallion status. Input your annual airfare spend and see your Gold, Platinum, or Diamond projection.',
   alternates: { canonical: 'https://business.delta.com/medallion/mqd-calculator' },
 }
 

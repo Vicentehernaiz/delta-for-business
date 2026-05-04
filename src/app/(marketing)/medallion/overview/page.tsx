@@ -12,19 +12,17 @@ import type { BenefitRow, SeatUpgradeRow, MedallionXerRow } from '@/config/medal
 export const metadata: Metadata = {
   title: 'Medallion Benefits Overview | Delta for Business',
   description:
-    'Complete Medallion tier comparison for business travelers: benefits, upgrade likelihood, miles multipliers. Silver, Gold, Platinum, Diamond.',
+    'Complete Medallion tier comparison for business travelers: benefits, upgrade likelihood, miles multipliers. Gold, Platinum, Diamond.',
   alternates: { canonical: 'https://business.delta.com/medallion/overview' },
 }
 
 const tierColorVar: Record<string, string> = {
-  silver: 'var(--color-medallion-silver)',
   gold: 'var(--color-medallion-gold)',
   platinum: 'var(--color-medallion-platinum)',
   diamond: 'var(--color-medallion-diamond)',
 }
 
 const tierMqd: Record<string, string> = {
-  silver: '$5,000',
   gold: '$10,000',
   platinum: '$15,000',
   diamond: '$28,000',
@@ -83,7 +81,7 @@ const CATEGORY_GROUPS: CategoryGroup[] = [
   {
     label: 'Business',
     rows: MEDALLION_BENEFITS_TABLE.filter((r) =>
-      ['Company can gift status', 'Corporate Priority stacks'].includes(r.feature)
+      ['Corporate Priority stacks'].includes(r.feature)
     ),
   },
 ]
@@ -186,7 +184,7 @@ export default function OverviewPage() {
               lineHeight: 1.6,
             }}
           >
-            Comparación exhaustiva de los cuatro tiers Medallion: beneficios por categoría,
+            Comparación exhaustiva de los tres tiers Medallion: beneficios por categoría,
             probabilidad de upgrade y multiplicadores de millas.
           </p>
         </div>
@@ -277,7 +275,7 @@ export default function OverviewPage() {
                       style={{ background: 'var(--color-delta-blue-700)' }}
                     >
                       <td
-                        colSpan={5}
+                        colSpan={4}
                         style={{
                           padding: '6px 16px',
                           fontSize: 'var(--type-scale-11)',
@@ -309,9 +307,6 @@ export default function OverviewPage() {
                           }}
                         >
                           {row.feature}
-                        </td>
-                        <td style={{ textAlign: 'center', padding: '10px 16px' }}>
-                          <CellValue value={row.silver} />
                         </td>
                         <td style={{ textAlign: 'center', padding: '10px 16px' }}>
                           <CellValue value={row.gold} />
@@ -595,7 +590,7 @@ export default function OverviewPage() {
               marginBottom: '24px',
             }}
           >
-            Los cuatro tiers en detalle
+            Los tres tiers en detalle
           </h2>
           <div
             style={{

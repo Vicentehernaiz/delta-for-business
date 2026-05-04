@@ -9,7 +9,7 @@ const faqSections = [
     label: 'Program Structure',
     icon: 'ph-fill ph-buildings',
     faqs: [
-      { q: 'Which Delta for Business program is right for me?', a: 'It depends on your company size and travel volume. SMB Flex is free for anyone traveling for work — you get a business rewards pool, partner perks, and dual SkyMiles earning. Corporate Pro is for 50–500 travelers spending $50K+/year — dynamic fare discounts, seat access pools, and Corporate Priority. Enterprise Elite is for 500+ traveler companies — custom pricing, full reporting, and dedicated support. Use the Business Calculator to get a personalized recommendation.' },
+      { q: 'Which Delta for Business program is right for me?', a: 'It depends on your company size and travel volume. The Gold business plan is free for anyone traveling for work — you get a business rewards pool, partner perks, and dual SkyMiles earning. The Platinum business plan is for 50–500 travelers spending $50K+/year — dynamic fare discounts, seat access pools, and Corporate Priority. The Diamond business plan is for 500+ traveler companies — custom pricing, full reporting, and dedicated support. Use the Business Calculator to get a personalized recommendation.' },
       { q: 'Can my company be enrolled in multiple programs?', a: 'No. Each company account is in one tier. As your spend grows, your account automatically upgrades within the SkyMiles for Business tiers (Member → Plus → Elite). If you reach mid-market or enterprise spending levels, your account manager will transition you to a negotiated agreement.' },
       { q: 'What\'s the difference between SkyMiles for Business and a Corporate Sales Agreement?', a: 'SkyMiles for Business is a self-serve program where your company earns miles — it\'s free and requires no minimum commitment. A Corporate Sales Agreement (CSA/MSA) is a negotiated contract with customized fares, dedicated support, and Corporate Priority benefits. CSAs are available for companies spending $50K+ annually.' },
       { q: 'Does Delta for Business replace SkyMiles?', a: 'No. SkyMiles for Business sits alongside each employee\'s personal SkyMiles account. The company earns separate company miles while employees continue earning their full personal SkyMiles and MQDs on every flight.' },
@@ -44,8 +44,8 @@ const faqSections = [
     icon: 'ph-fill ph-medal',
     faqs: [
       { q: 'What is Medallion status and how does it differ from SkyMiles for Business?', a: 'Medallion status is individual elite status earned by a person based on their personal flying. SkyMiles for Business is a company-level program where the business earns miles. They are parallel systems — an employee can have Diamond Medallion status while their company is at Member tier, and vice versa.' },
-      { q: 'Can the company earn Medallion status?', a: 'No. Medallion status is individual. The company earns company miles. However, the company can award Silver Medallion certificates to employees using company miles.' },
-      { q: 'How does a business traveler qualify for Medallion status?', a: 'Medallion status is based on Medallion Qualifying Dollars (MQDs) — money spent on Delta flights in a calendar year. Silver requires $5,000 MQD, Gold $10,000, Platinum $15,000, Diamond $28,000. Delta Amex Platinum and Reserve cards also earn MQDs from card spend, helping qualify faster.' },
+      { q: 'Can the company earn Medallion status?', a: 'No. Medallion status is individual. The company earns company miles, which can be transferred to employees or redeemed as eCredits and Sky Club memberships.' },
+      { q: 'How does a business traveler qualify for Medallion status?', a: 'Medallion status is based on Medallion Qualifying Dollars (MQDs) — money spent on Delta flights in a calendar year. Gold requires $10,000 MQD, Platinum $15,000, Diamond $28,000. Delta Amex Platinum and Reserve cards also earn MQDs from card spend, helping qualify faster.' },
       { q: 'Do mid-market and enterprise corporate bookings count toward employee Medallion status?', a: 'Yes. Corporate bookings made under a Business ID count toward the employee\'s personal MQD total, as long as the employee\'s SkyMiles number is associated with the booking.' },
     ],
   },
@@ -65,7 +65,7 @@ const faqSections = [
     label: 'Enrollment',
     icon: 'ph-fill ph-user-plus',
     faqs: [
-      { q: 'How do I enroll my company?', a: 'For SMB Flex: enroll at delta.com/business — takes about 5 minutes. For Corporate Pro and Enterprise Elite: complete the sales inquiry form and a Delta representative will contact you within 2 business days.' },
+      { q: 'How do I enroll my company?', a: 'For the Gold business plan: enroll at delta.com/business — takes about 5 minutes. For the Platinum and Diamond business plans: complete the sales inquiry form and a Delta representative will contact you within 2 business days.' },
       { q: 'Is there a cost to enroll?', a: 'No. All Delta for Business programs are free to join. There is no enrollment fee, annual fee, or minimum spend requirement to create an account (though company mile earning requires reaching the Plus tier at $5K annual spend).' },
       { q: 'How quickly does the company start earning miles after enrollment?', a: 'Miles begin earning on flights booked after enrollment with your Business ID attached. Flights booked before enrollment are not retroactively credited. Allow 72 hours after each flight for miles to post.' },
       { q: 'Can a company switch programs as it grows?', a: 'Yes. Self-serve program accounts automatically upgrade tiers as spend grows. When you reach mid-market spend levels ($50K+), your Delta account manager will reach out to discuss transitioning to a negotiated agreement.' },

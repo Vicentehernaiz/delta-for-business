@@ -19,34 +19,6 @@ export const medallionTiers: Record<string, MedallionTier & {
   deltaOneUpgrade: string
   companyPerk?: string
 }> = {
-  silver: {
-    id: 'silver',
-    name: 'Silver Medallion',
-    shortName: 'Silver',
-    mqdThreshold: 5000,
-    boardingZone: 6,
-    boardingLabel: 'Main Cabin 1',
-    skymilesBonus: 40,
-    skymilesMult: 7,
-    upgradeWindow: 24,
-    skyClubAccess: 'None',
-    skyClubNote: 'No access',
-    choiceBenefits: false,
-    upgradeQueuePosition: 4,
-    color: 'var(--color-medallion-silver)',
-    hex: '#6f7f8d',
-    gradient: 'linear-gradient(135deg, #4a5a68 0%, #6f7f8d 100%)',
-    freeBags: 1,
-    sameDayChange: 'Free standby',
-    internationalLounge: 'No',
-    waivedFees: 'Basic fees',
-    businessTagline: 'Entry-level status for business travelers spending $5K+ on Delta.',
-    businessContext: 'Ideal for employees who fly Delta 8–12 times per year. The $2,500 MQD Headstart from a Delta Reserve card means just $2,500 more in flight spend gets you here.',
-    mainCabinPlusUpgrade: 'Rare',
-    firstClassUpgrade: 'Very rare',
-    deltaOneUpgrade: 'No',
-    companyPerk: 'Companies on SkyMiles for Business can redeem company miles to gift 90-day Silver status to any employee.',
-  },
   gold: {
     id: 'gold',
     name: 'Gold Medallion',
@@ -68,7 +40,7 @@ export const medallionTiers: Record<string, MedallionTier & {
     sameDayChange: 'Free same-day confirmed',
     internationalLounge: 'SkyTeam (Delta Plus)',
     waivedFees: 'Most change fees',
-    businessTagline: 'The sweet spot for frequent corporate travelers — real upgrade access starts here.',
+    businessTagline: 'The entry tier for frequent corporate travelers — real upgrade access starts here.',
     businessContext: 'At $10K MQD, business travelers flying 15–20 round trips see consistent First Class upgrades. The 72-hour window means upgrades clear before departure day.',
     mainCabinPlusUpgrade: 'Occasional',
     firstClassUpgrade: 'Limited',
@@ -130,36 +102,34 @@ export const medallionTiers: Record<string, MedallionTier & {
   },
 }
 
-export const medallionOrder = ['silver', 'gold', 'platinum', 'diamond'] as const
+export const medallionOrder = ['gold', 'platinum', 'diamond'] as const
 
 export interface BenefitRow {
   feature: string
   category?: string
-  silver: string
   gold: string
   platinum: string
   diamond: string
 }
 
 export const MEDALLION_BENEFITS_TABLE: BenefitRow[] = [
-  { feature: 'MQD to qualify', silver: '$5,000', gold: '$10,000', platinum: '$15,000', diamond: '$28,000' },
-  { feature: 'Miles multiplier', silver: '7× per $', gold: '8× per $', platinum: '9× per $', diamond: '11× per $' },
-  { feature: 'SkyMiles bonus', silver: '+40%', gold: '+60%', platinum: '+80%', diamond: '+120%' },
-  { feature: 'Boarding zone', silver: 'Main Cabin 1', gold: 'Sky Priority', platinum: 'Sky Priority', diamond: 'Sky Priority' },
-  { feature: 'Sky Priority service', silver: 'No', gold: 'Yes', platinum: 'Yes', diamond: 'Yes' },
-  { feature: 'Upgrade priority', silver: 'Low', gold: 'Medium', platinum: 'High', diamond: 'Highest' },
-  { feature: 'Upgrade window', silver: '24 hrs', gold: '72 hrs', platinum: '120 hrs', diamond: '120 hrs' },
-  { feature: 'Complimentary upgrades', silver: 'Limited', gold: 'Yes', platinum: 'Yes', diamond: 'Best odds' },
-  { feature: 'First Class upgrades', silver: 'Yes', gold: 'Yes', platinum: 'Yes', diamond: 'Yes' },
-  { feature: 'Comfort+ upgrades', silver: 'At gate', gold: 'Earlier', platinum: 'Shortly after booking', diamond: 'Immediately' },
-  { feature: 'Free checked bags', silver: '1 free', gold: '2 free', platinum: '3 free', diamond: '3 free' },
-  { feature: 'Same-day changes', silver: 'Free standby', gold: 'Free confirmed', platinum: 'Free', diamond: 'Free' },
-  { feature: 'Waived fees', silver: 'Basic', gold: 'More', platinum: 'Most', diamond: 'All' },
-  { feature: 'Sky Club access', silver: 'No', gold: 'No', platinum: '$50/visit', diamond: 'Complimentary' },
-  { feature: 'International lounges', silver: 'No', gold: 'SkyTeam Elite+', platinum: 'Yes', diamond: 'Yes' },
-  { feature: 'Choice Benefits', silver: 'No', gold: 'No', platinum: '1 choice', diamond: '2 choices' },
-  { feature: 'Company can gift status', silver: 'Yes (90-day certificates)', gold: 'No', platinum: 'No', diamond: 'No' },
-  { feature: 'Corporate Priority stacks', silver: 'Yes', gold: 'Yes', platinum: 'Yes', diamond: 'Yes' },
+  { feature: 'MQD to qualify', gold: '$10,000', platinum: '$15,000', diamond: '$28,000' },
+  { feature: 'Miles multiplier', gold: '8× per $', platinum: '9× per $', diamond: '11× per $' },
+  { feature: 'SkyMiles bonus', gold: '+60%', platinum: '+80%', diamond: '+120%' },
+  { feature: 'Boarding zone', gold: 'Sky Priority', platinum: 'Sky Priority', diamond: 'Sky Priority' },
+  { feature: 'Sky Priority service', gold: 'Yes', platinum: 'Yes', diamond: 'Yes' },
+  { feature: 'Upgrade priority', gold: 'Medium', platinum: 'High', diamond: 'Highest' },
+  { feature: 'Upgrade window', gold: '72 hrs', platinum: '120 hrs', diamond: '120 hrs' },
+  { feature: 'Complimentary upgrades', gold: 'Yes', platinum: 'Yes', diamond: 'Best odds' },
+  { feature: 'First Class upgrades', gold: 'Yes', platinum: 'Yes', diamond: 'Yes' },
+  { feature: 'Comfort+ upgrades', gold: 'Earlier', platinum: 'Shortly after booking', diamond: 'Immediately' },
+  { feature: 'Free checked bags', gold: '2 free', platinum: '3 free', diamond: '3 free' },
+  { feature: 'Same-day changes', gold: 'Free confirmed', platinum: 'Free', diamond: 'Free' },
+  { feature: 'Waived fees', gold: 'More', platinum: 'Most', diamond: 'All' },
+  { feature: 'Sky Club access', gold: 'No', platinum: '$50/visit', diamond: 'Complimentary' },
+  { feature: 'International lounges', gold: 'SkyTeam Elite+', platinum: 'Yes', diamond: 'Yes' },
+  { feature: 'Choice Benefits', gold: 'No', platinum: '1 choice', diamond: '2 choices' },
+  { feature: 'Corporate Priority stacks', gold: 'Yes', platinum: 'Yes', diamond: 'Yes' },
 ]
 
 export interface SeatUpgradeRow {
@@ -170,7 +140,6 @@ export interface SeatUpgradeRow {
 }
 
 export const SEAT_UPGRADE_LIKELIHOOD: SeatUpgradeRow[] = [
-  { tier: 'Silver',   mainCabinPlus: 'Rare',          firstClass: 'Very rare', deltaOne: '—' },
   { tier: 'Gold',     mainCabinPlus: 'Occasional',    firstClass: 'Limited',   deltaOne: '—' },
   { tier: 'Platinum', mainCabinPlus: 'Frequent',      firstClass: 'Possible',  deltaOne: '—' },
   { tier: 'Diamond',  mainCabinPlus: 'Very frequent', firstClass: 'Best odds', deltaOne: 'Via certificates' },
@@ -183,7 +152,6 @@ export interface MedallionXerRow {
 
 export const MEDALLION_XERS_TABLE: MedallionXerRow[] = [
   { status: 'No status',  multiplier: '5×' },
-  { status: 'Silver',     multiplier: '7×' },
   { status: 'Gold',       multiplier: '8×' },
   { status: 'Platinum',   multiplier: '9×' },
   { status: 'Diamond',    multiplier: '11×' },

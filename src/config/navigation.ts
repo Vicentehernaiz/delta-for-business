@@ -7,9 +7,9 @@ export const mainNav: NavItem[] = [
     href: '/programs',
     children: [
       { label: 'Individual traveler', href: '/programs/individual' },
-      { label: 'SMB Flex', href: '/programs/business-traveler' },
-      { label: 'Corporate Pro', href: '/programs/enterprise' },
-      { label: 'Enterprise Elite', href: '/programs/large-enterprise' },
+      { label: 'Gold business plan', href: '/programs/business-traveler' },
+      { label: 'Platinum business plan', href: '/programs/enterprise' },
+      { label: 'Diamond business plan', href: '/programs/large-enterprise' },
       { label: 'Compare business plans', href: '/programs/compare' },
     ],
   },
@@ -56,7 +56,7 @@ export const mainNav: NavItem[] = [
       {
         label: 'Plan Comparison Tool',
         href: '/tools/plan-comparison',
-        description: 'See Individual, SMB Flex, Corporate Pro and Enterprise Elite side by side',
+        description: 'See Individual, Gold, Platinum and Diamond business plans side by side',
         clarityEvent: 'nav_calculate_plan_comparison_clicked',
       },
     ],
@@ -81,9 +81,9 @@ export const authNav = {
 export const footerNav = {
   programs: [
     { label: 'Individual traveler', href: '/programs/individual' },
-    { label: 'SMB Flex', href: '/programs/business-traveler' },
-    { label: 'Corporate Pro', href: '/programs/enterprise' },
-    { label: 'Enterprise Elite', href: '/programs/large-enterprise' },
+    { label: 'Gold business plan', href: '/programs/business-traveler' },
+    { label: 'Platinum business plan', href: '/programs/enterprise' },
+    { label: 'Diamond business plan', href: '/programs/large-enterprise' },
     { label: 'Compare business plans', href: '/programs/compare' },
     { label: 'Delta Business Tool', href: '/delta-sync' },
   ],

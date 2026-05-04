@@ -64,7 +64,7 @@ const PLAN_DETAILS: Record<string, { included: string[]; excluded: string[]; con
       'Premium seat consistency',
       'Lounge access pathways',
       'Priority rebooking + support',
-      'All Corporate Pro benefits, plus:',
+      'All Platinum business plan benefits, plus:',
       'Full Corporate Priority suite globally',
       'Global partner airlines (AF, KLM, LATAM, Virgin Atlantic)',
       'Unused ticket transfer program',
@@ -84,9 +84,9 @@ const CONTEXT_OPTIONS: { value: QuizContext; label: string; desc: string; icon: 
 
 const SIZE_OPTIONS: { value: QuizCompanySize; label: string; sub: string }[] = [
   { value: 'just-me', label: 'Solo', sub: 'Just me traveling' },
-  { value: '2-50', label: '2–49 travelers', sub: 'SMB Flex · up to $50K spend' },
-  { value: '50-500', label: '50–499 travelers', sub: 'Corporate Pro · $50K–$300K spend' },
-  { value: '500+', label: '500+ travelers', sub: 'Enterprise Elite · $300K+ spend' },
+  { value: '2-50', label: '2–49 travelers', sub: 'Gold business plan · up to $50K spend' },
+  { value: '50-500', label: '50–499 travelers', sub: 'Platinum business plan · $50K–$300K spend' },
+  { value: '500+', label: '500+ travelers', sub: 'Diamond business plan · $300K+ spend' },
 ]
 
 const SPEND_OPTIONS_INDIVIDUAL: { value: QuizSpend; label: string }[] = [
@@ -113,9 +113,9 @@ const GOAL_OPTIONS: { value: QuizGoal; label: string; icon: string }[] = [
 ]
 
 const PROGRAM_NAMES: Record<string, string> = {
-  'business-traveler': 'SMB Flex',
-  enterprise: 'Corporate Pro',
-  'large-enterprise': 'Enterprise Elite',
+  'business-traveler': 'Gold business plan',
+  enterprise: 'Platinum business plan',
+  'large-enterprise': 'Diamond business plan',
 }
 
 const SYNC_ELIGIBLE = ['enterprise', 'large-enterprise']

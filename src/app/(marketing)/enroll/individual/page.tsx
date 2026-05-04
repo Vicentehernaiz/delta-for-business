@@ -58,7 +58,7 @@ const PLANS: Record<PlanId, Plan> = {
     badgeIcon: 'ph-fill ph-arrows-split',
     name: 'SkyMiles for Business only',
     short: 'Just open a company SkyMiles pool — no negotiated tier, no commitment.',
-    long: 'Open a company-side SkyMiles pool that earns alongside your travelers\' personal SkyMiles. Upgrade to SMB Flex, Corporate Pro, or Enterprise Elite later when you\'re ready.',
+    long: 'Open a company-side SkyMiles pool that earns alongside your travelers\' personal SkyMiles. Upgrade to the Gold, Platinum, or Diamond business plan later when you\'re ready.',
     formKind: 'self-serve',
     ctaLabel: 'Open company SkyMiles pool',
     learnHref: '/skymiles',
@@ -77,9 +77,9 @@ const PLANS: Record<PlanId, Plan> = {
     group: 'corporate',
     badge: 'Free · 1–49 travelers OR up to $50K spend',
     badgeIcon: 'ph-fill ph-buildings',
-    name: 'SMB Flex',
+    name: 'Gold business plan',
     short: 'For 1–49 travelers OR up to $50K/yr Delta spend. Company rewards pool, dual earning, partner perks — all free.',
-    long: 'SMB Flex is Delta\'s free self-serve corporate program. Earn up to 10 company miles per dollar, manage travelers from a dashboard, and unlock partner perks from day one.',
+    long: 'The Gold business plan is Delta\'s free self-serve corporate program. Earn up to 10 company miles per dollar, manage travelers from a dashboard, and unlock partner perks from day one.',
     formKind: 'self-serve',
     ctaLabel: 'Create company account',
     learnHref: '/programs/business-traveler',
@@ -99,7 +99,7 @@ const PLANS: Record<PlanId, Plan> = {
     group: 'corporate',
     badge: '50–499 travelers OR $50K–$300K spend · Negotiated',
     badgeIcon: 'ph-fill ph-briefcase',
-    name: 'Corporate Pro',
+    name: 'Platinum business plan',
     short: 'For 50–499 travelers OR $50K–$300K/yr Delta spend. Dynamic fares, full Corporate Priority, dedicated account manager.',
     long: 'Negotiated agreement with discounted fares, full Corporate Priority benefits suite, and a dedicated Delta account manager. Concur / TMC integration included.',
     formKind: 'sales',
@@ -113,7 +113,7 @@ const PLANS: Record<PlanId, Plan> = {
     ],
     programNote: {
       title: 'SkyMiles for Business is created automatically.',
-      body: 'When the Corporate Pro agreement is signed, Delta opens a company SkyMiles pool alongside the negotiated fares — no separate signup needed.',
+      body: 'When the Platinum business plan agreement is signed, Delta opens a company SkyMiles pool alongside the negotiated fares — no separate signup needed.',
     },
   },
   'enterprise-elite': {
@@ -121,7 +121,7 @@ const PLANS: Record<PlanId, Plan> = {
     group: 'corporate',
     badge: '500+ travelers OR $300K+ spend · Enterprise',
     badgeIcon: 'ph-fill ph-globe-hemisphere-west',
-    name: 'Enterprise Elite',
+    name: 'Diamond business plan',
     short: 'For 500+ travelers OR $300K+/yr Delta spend. Custom pricing, global priority, full Delta Business Tool access.',
     long: 'Delta\'s top-tier managed travel program — custom pricing, partner airline coverage (AF, KLM, LATAM, Virgin Atlantic), unused ticket transfer, 24/7 Corporate Solutions, and full Delta Business Tool platform access.',
     formKind: 'sales',
@@ -135,7 +135,7 @@ const PLANS: Record<PlanId, Plan> = {
     ],
     programNote: {
       title: 'SkyMiles for Business is created automatically.',
-      body: 'Enterprise Elite includes a global SkyMiles pool, full Delta Business Tool access, and dedicated onboarding — no separate signup needed.',
+      body: 'The Diamond business plan includes a global SkyMiles pool, full Delta Business Tool access, and dedicated onboarding — no separate signup needed.',
     },
   },
 }
@@ -392,7 +392,7 @@ export default function EnrollIndividualPage() {
                   <i className="ph-fill ph-arrows-clockwise text-lg flex-shrink-0 mt-0.5" style={{ color: 'var(--color-delta-blue-600)' }}></i>
                   <p style={{ fontSize: 'var(--type-scale-13)', color: 'var(--color-neutral-700)', lineHeight: 1.55 }}>
                     <strong style={{ color: 'var(--color-delta-blue-700)' }}>Switch plans whenever.</strong>{' '}
-                    You can move between Individual, SkyMiles for Business, SMB Flex, Corporate Pro and Enterprise Elite at any time after signup — your earnings and traveler list come with you.
+                    You can move between Individual, SkyMiles for Business, the Gold, Platinum and Diamond business plan at any time after signup — your earnings and traveler list come with you.
                   </p>
                 </div>
               </div>
@@ -462,7 +462,7 @@ function PlanOption({ plan, active, onSelect }: { plan: Plan; active: boolean; o
 }
 
 // ──────────────────────────────────────────────────────────────────────────────
-// Self-serve form (Individual / SkyMiles only / SMB Flex)
+// Self-serve form (Individual / SkyMiles only / Gold business plan)
 // ──────────────────────────────────────────────────────────────────────────────
 
 function SelfServeForm({
@@ -613,7 +613,7 @@ function SelfServeForm({
 }
 
 // ──────────────────────────────────────────────────────────────────────────────
-// Sales form (Corporate Pro / Enterprise Elite)
+// Sales form (Platinum / Diamond business plan)
 // ──────────────────────────────────────────────────────────────────────────────
 
 function SalesForm({

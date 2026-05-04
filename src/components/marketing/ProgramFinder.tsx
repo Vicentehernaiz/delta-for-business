@@ -12,7 +12,7 @@ interface ProgramFinderProps {
 const plans = [
   {
     id: 'business-traveler',
-    name: 'SMB Flex',
+    name: 'Gold business plan',
     nameColor: 'var(--color-delta-blue-300)',
     subtitle: '1–49 travelers OR up to $50K spend · Free enroll\nSelf-serve · Enroll in 60 seconds via SkyMiles login',
     companyLabel: 'Company gets',
@@ -47,7 +47,7 @@ const plans = [
   },
   {
     id: 'enterprise',
-    name: 'Corporate Pro',
+    name: 'Platinum business plan',
     nameColor: 'var(--color-delta-red-400)',
     subtitle: '50–499 travelers OR $50K–$300K spend\nNegotiated agreement · Managed travel tool\nAccount manager + Corporate Priority',
     companyLabel: 'Company gets',
@@ -79,7 +79,7 @@ const plans = [
   },
   {
     id: 'large-enterprise',
-    name: 'Enterprise Elite',
+    name: 'Diamond business plan',
     nameColor: 'var(--color-delta-red-400)',
     subtitle: '500+ travelers OR $300K+ spend\nFull managed travel · Negotiated agreement\nFull Corporate Priority suite globally',
     companyLabel: 'Company gets',
@@ -98,7 +98,7 @@ const plans = [
       'Priority rebooking + support',
     ],
     included: [
-      'All Corporate Pro benefits, plus:',
+      'All Platinum business plan benefits, plus:',
       'Full Corporate Priority suite globally',
       'Global partner airlines (AF, KLM, LATAM, Virgin Atlantic)',
       'Unused ticket transfer program',

@@ -4,9 +4,9 @@ import { segments, segmentOrder } from '@/config/segments'
 import { FadeIn, StaggerChildren, StaggerItem } from '@/components/ui/FadeIn'
 
 export const metadata: Metadata = {
-  title: 'Delta Business Programs | Individual, SMB Flex, Corporate Pro & Enterprise Elite',
+  title: 'Delta Business Programs | Individual, Gold, Platinum & Diamond business plans',
   description:
-    'Compare Delta for Business paths: Individual (solo, free), SMB Flex (free), Corporate Pro, and Enterprise Elite. Find the right plan in 60 seconds.',
+    'Compare Delta for Business paths: Individual (solo, free), Gold business plan (free), Platinum business plan, and Diamond business plan. Find the right plan in 60 seconds.',
   openGraph: {
     title: 'Delta Business Programs',
     description: 'Four paths covering every traveler — solo, small team, mid-market, enterprise.',

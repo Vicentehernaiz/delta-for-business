@@ -190,7 +190,7 @@ export function Footer() {
               className="text-[length:var(--type-scale-14)]"
               style={{ color: 'var(--color-neutral-400)' }}
             >
-              Free enrollment for SMB Flex. Contact sales for Corporate Pro &amp; Enterprise Elite.
+              Free enrollment for the Gold business plan. Contact sales for the Platinum and Diamond business plans.
             </p>
           </div>
           <div className="flex items-center gap-3">

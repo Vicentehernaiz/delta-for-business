@@ -4,7 +4,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Redeeming SkyMiles for Business | eCredits, Upgrades & More',
   description:
-    'Redeem company SkyMiles as eCredits (~1.5–2¢/mile), employee transfers, Sky Club memberships, or Silver Medallion certificates. Personal miles book flights and upgrades.',
+    'Redeem company SkyMiles as eCredits (~1.5–2¢/mile), employee transfers, or Sky Club memberships. Personal miles book flights and upgrades.',
   alternates: { canonical: 'https://business.delta.com/skymiles/redeeming' },
 }
 
@@ -35,7 +35,7 @@ export default function RedeemingPage() {
               <i className="ph-fill ph-buildings text-xl" style={{ color: 'var(--color-delta-red-400)' }}></i>
             </div>
             <h2 style={{ fontSize: 'var(--type-scale-28)', fontFamily: 'var(--font-display)', fontWeight: '700', color: 'var(--color-delta-blue-700)' }}>
-              Company miles — 4 redemption options
+              Company miles — 3 redemption options
             </h2>
           </div>
 
@@ -59,12 +59,6 @@ export default function RedeemingPage() {
                 title: 'Sky Club membership',
                 value: '12-month membership',
                 desc: 'Purchase a Delta Sky Club annual membership for a company traveler using company miles. The membership covers access to all Sky Club locations.',
-              },
-              {
-                icon: 'ph-fill ph-medal',
-                title: 'Silver Medallion certificate',
-                value: '12-month status',
-                desc: 'Award a Silver Medallion status certificate to an eligible employee. Processed within 1 business day. This grants the employee full Silver Medallion benefits for 12 months.',
               },
             ].map((item) => (
               <div

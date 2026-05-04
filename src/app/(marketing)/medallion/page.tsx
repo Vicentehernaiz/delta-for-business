@@ -11,26 +11,23 @@ import type { BenefitRow, SeatUpgradeRow, MedallionXerRow } from '@/config/medal
 export const metadata: Metadata = {
   title: 'Medallion Status for Business Travelers | Delta for Business',
   description:
-    'Medallion elite status and how corporate travel earns it faster. Silver $5K · Gold $10K · Platinum $15K · Diamond $28K. MQD-only since 2024.',
+    'Medallion elite status and how corporate travel earns it faster. Gold $10K · Platinum $15K · Diamond $28K. MQD-only since 2024.',
   alternates: { canonical: 'https://business.delta.com/medallion' },
 }
 
 const tierColorVar: Record<string, string> = {
-  silver: 'var(--color-medallion-silver)',
   gold: 'var(--color-medallion-gold)',
   platinum: 'var(--color-medallion-platinum)',
   diamond: 'var(--color-medallion-diamond)',
 }
 
 const tierMqd: Record<string, string> = {
-  silver: '$5,000',
   gold: '$10,000',
   platinum: '$15,000',
   diamond: '$28,000',
 }
 
 const tierLabel: Record<string, string> = {
-  silver: 'Silver',
   gold: 'Gold',
   platinum: 'Platinum',
   diamond: 'Diamond',
@@ -47,7 +44,7 @@ const faqs: Array<{ q: string; a: string }> = [
   },
   {
     q: '¿Puede la empresa ganar estatus Medallion?',
-    a: 'No. Medallion es estrictamente un programa personal — ninguna empresa puede alcanzar un tier Medallion. Sin embargo, las empresas inscritas en SkyMiles for Business pueden canjear millas corporativas para regalar certificados de Silver Medallion de 90 días a empleados específicos.',
+    a: 'No. Medallion es estrictamente un programa personal — ninguna empresa puede alcanzar un tier Medallion. Sin embargo, las empresas inscritas en SkyMiles for Business pueden canjear millas corporativas para transferirlas a empleados específicos o adquirir membresías Sky Club.',
   },
   {
     q: '¿Se acumula Medallion con Corporate Priority?',
@@ -119,7 +116,7 @@ export default function MedallionPage() {
               lineHeight: 1.6,
             }}
           >
-            Elite status earned by individual travelers from Delta flight spend. Four tiers, one
+            Elite status earned by individual travelers from Delta flight spend. Three tiers, one
             metric: Medallion Qualifying Dollars. Corporate Priority and Medallion stack — both
             benefit your travelers simultaneously.
           </p>
@@ -276,9 +273,6 @@ export default function MedallionPage() {
                       }}
                     >
                       {row.feature}
-                    </td>
-                    <td style={{ textAlign: 'center', padding: '10px 16px' }}>
-                      <CellValue value={row.silver} />
                     </td>
                     <td style={{ textAlign: 'center', padding: '10px 16px' }}>
                       <CellValue value={row.gold} />
@@ -610,11 +604,6 @@ export default function MedallionPage() {
                 desc: 'Si la empresa tiene un acuerdo con Corporate Priority, los beneficios se suman a los de Medallion personal. Un Platinum Medallion con acuerdo corporativo recibe ambos stacks.',
               },
               {
-                icon: 'ph-fill ph-certificate',
-                title: 'La empresa puede regalar Silver',
-                desc: 'Las empresas inscritas en SkyMiles for Business pueden canjear millas corporativas para otorgar certificados de Silver Medallion de 90 días a empleados concretos.',
-              },
-              {
                 icon: 'ph-fill ph-buildings',
                 title: 'Independencia de programas',
                 desc: 'Un empleado puede tener Diamond Medallion mientras su empresa está en el tier Member de SkyMiles for Business — y al revés. Los tiers son completamente independientes.',
@@ -941,6 +930,9 @@ function BusinessMedallionTiersSection() {
           ))}
         </div>
 
+        {/* ── Business Medallion Tier Capabilities table ──────────── */}
+        <BusinessTierCapabilitiesTable />
+
         {/* ── How It Works header ─────────────────────────────────── */}
         <div className="text-center" style={{ marginBottom: '40px' }}>
           <p
@@ -1069,6 +1061,478 @@ function BusinessMedallionTiersSection() {
         <WhyThisWorks />
       </div>
     </section>
+  )
+}
+
+// ── Business Medallion Tier Capabilities table ──────────────────────────────
+
+type CapabilityCell =
+  | { kind: 'level'; level: 0 | 1 | 2 | 3; note?: string }
+  | { kind: 'text'; value: string }
+
+interface CapabilityRow {
+  feature: string
+  gold: CapabilityCell
+  platinum: CapabilityCell
+  diamond: CapabilityCell
+}
+
+const CAPABILITY_ROWS: readonly CapabilityRow[] = [
+  {
+    feature: 'MQD Threshold',
+    gold: { kind: 'text', value: '$10,000 MQDs' },
+    platinum: { kind: 'text', value: '$30,000 MQDs' },
+    diamond: { kind: 'text', value: '$50,000 MQDs' },
+  },
+  {
+    feature: 'Disruption / Rebooking Priority',
+    gold: { kind: 'level', level: 1 },
+    platinum: { kind: 'level', level: 1 },
+    diamond: { kind: 'level', level: 1 },
+  },
+  {
+    feature: 'Miles Per Dollar',
+    gold: { kind: 'level', level: 1, note: '12 SkyMiles / Dollar (when paired with card)' },
+    platinum: { kind: 'level', level: 2, note: '14 SkyMiles / Dollar (when paired with card)' },
+    diamond: { kind: 'level', level: 3, note: '16 SkyMiles / Dollar (when paired with card)' },
+  },
+  {
+    feature: 'Pooled SkyMiles Wallet',
+    gold: { kind: 'level', level: 1 },
+    platinum: { kind: 'level', level: 1 },
+    diamond: { kind: 'level', level: 1 },
+  },
+  {
+    feature: 'Pooled MQDs for Medallion Status',
+    gold: { kind: 'level', level: 1 },
+    platinum: { kind: 'level', level: 1 },
+    diamond: { kind: 'level', level: 1 },
+  },
+  {
+    feature: 'Reduced Fair Rates',
+    gold: { kind: 'level', level: 1 },
+    platinum: { kind: 'level', level: 2 },
+    diamond: { kind: 'level', level: 3 },
+  },
+  {
+    feature: 'Max Seat Reserves',
+    gold: { kind: 'level', level: 1, note: '(2 seats up to 24 hours)' },
+    platinum: { kind: 'level', level: 2, note: '(3 seats up to 24 hours)' },
+    diamond: { kind: 'level', level: 3, note: '(5 seats up to 24 hours)' },
+  },
+  {
+    feature: 'Travel Management Dashboard',
+    gold: { kind: 'level', level: 1 },
+    platinum: { kind: 'level', level: 2, note: '(AI Insights)' },
+    diamond: { kind: 'level', level: 2, note: '(AI Insights)' },
+  },
+  {
+    feature: 'American Express Pairing',
+    gold: { kind: 'text', value: 'AMEX SkyMiles Gold (Annual Fee Waived)' },
+    platinum: { kind: 'text', value: 'AMEX SkyMiles Platinum (Annual Fee Waived)' },
+    diamond: { kind: 'text', value: 'AMEX SkyMiles Reserve (Annual Fee Waived)' },
+  },
+  {
+    feature: 'Account Linking (Delta Business)',
+    gold: { kind: 'level', level: 1 },
+    platinum: { kind: 'level', level: 1 },
+    diamond: { kind: 'level', level: 1 },
+  },
+  {
+    feature: '24/7 Priority Support Line',
+    gold: { kind: 'level', level: 1 },
+    platinum: { kind: 'level', level: 1 },
+    diamond: { kind: 'level', level: 1 },
+  },
+  {
+    feature: 'Dedicated Account Support Concierge',
+    gold: { kind: 'level', level: 0 },
+    platinum: { kind: 'level', level: 0 },
+    diamond: { kind: 'level', level: 1 },
+  },
+  {
+    feature: 'Universal Comfort+ Seating',
+    gold: { kind: 'level', level: 1 },
+    platinum: { kind: 'level', level: 1 },
+    diamond: { kind: 'level', level: 1 },
+  },
+  {
+    feature: 'Keep / Maintain Personal SkyMiles + Medallion Status',
+    gold: { kind: 'level', level: 1 },
+    platinum: { kind: 'level', level: 1 },
+    diamond: { kind: 'level', level: 1 },
+  },
+  {
+    feature: 'Account Link Bonus Miles (Initial Incentive)',
+    gold: { kind: 'level', level: 1 },
+    platinum: { kind: 'level', level: 2 },
+    diamond: { kind: 'level', level: 3 },
+  },
+  {
+    feature: 'Complimentary Seat Upgrade Priority',
+    gold: { kind: 'level', level: 1 },
+    platinum: { kind: 'level', level: 1 },
+    diamond: { kind: 'level', level: 2 },
+  },
+  {
+    feature: 'Share of Miles on Business Travel',
+    gold: { kind: 'level', level: 1, note: '(10% of miles added to personal wallet)' },
+    platinum: { kind: 'level', level: 2, note: '(15% of miles added to personal wallet)' },
+    diamond: { kind: 'level', level: 3, note: '(20% of miles added to personal wallet)' },
+  },
+  {
+    feature: 'Matched MQDs on Business Travel',
+    gold: { kind: 'level', level: 1 },
+    platinum: { kind: 'level', level: 1 },
+    diamond: { kind: 'level', level: 1 },
+  },
+  {
+    feature: 'SkyClub Lounge Access',
+    gold: { kind: 'level', level: 1, note: '(Entry with fee)' },
+    platinum: { kind: 'level', level: 2, note: '(Reduced entry fee)' },
+    diamond: { kind: 'level', level: 3, note: '(Waived entry fee)' },
+  },
+  {
+    feature: 'Priority Boarding',
+    gold: { kind: 'level', level: 1, note: '(Zone 4)' },
+    platinum: { kind: 'level', level: 2, note: '(Zone 3)' },
+    diamond: { kind: 'level', level: 3, note: '(Zone 2)' },
+  },
+] as const
+
+function TierCellValue({ cell }: { cell: CapabilityCell }) {
+  if (cell.kind === 'text') {
+    return (
+      <span
+        style={{
+          fontSize: 'var(--type-scale-13)',
+          color: 'var(--color-neutral-700)',
+          fontWeight: '600',
+          lineHeight: 1.5,
+        }}
+      >
+        {cell.value}
+      </span>
+    )
+  }
+
+  if (cell.level === 0) {
+    return (
+      <i
+        className="ph-bold ph-x"
+        style={{
+          color: 'var(--color-error)',
+          fontSize: '18px',
+        }}
+        aria-label="Not included"
+      />
+    )
+  }
+
+  return (
+    <div className="flex flex-col items-center" style={{ gap: '2px' }}>
+      <span
+        className="inline-flex items-center"
+        style={{ gap: '2px' }}
+        aria-label={
+          cell.level === 1
+            ? 'Included'
+            : cell.level === 2
+              ? 'Strong capability'
+              : 'Premium capability'
+        }
+      >
+        {Array.from({ length: cell.level }).map((_, i) => (
+          <i
+            key={i}
+            className="ph-bold ph-check"
+            style={{
+              color: 'var(--color-success)',
+              fontSize: '16px',
+            }}
+            aria-hidden="true"
+          />
+        ))}
+      </span>
+      {cell.note ? (
+        <span
+          style={{
+            fontSize: '12px',
+            color: 'var(--color-neutral-600)',
+            lineHeight: 1.4,
+            textAlign: 'center',
+            marginTop: '2px',
+          }}
+        >
+          {cell.note}
+        </span>
+      ) : null}
+    </div>
+  )
+}
+
+function BusinessTierCapabilitiesTable() {
+  const tiers = [
+    {
+      id: 'gold',
+      name: 'Business Gold',
+      mqd: '$10,000 MQDs',
+      img: '/assets/images/medallion/gold.svg',
+      accent: 'var(--color-medallion-gold)',
+    },
+    {
+      id: 'platinum',
+      name: 'Business Platinum',
+      mqd: '$30,000 MQDs',
+      img: '/assets/images/medallion/platinum.svg',
+      accent: 'var(--color-medallion-platinum)',
+    },
+    {
+      id: 'diamond',
+      name: 'Business Diamond',
+      mqd: '$50,000 MQDs',
+      img: '/assets/images/medallion/diamond.svg',
+      accent: 'var(--color-medallion-diamond)',
+    },
+  ] as const
+
+  return (
+    <div style={{ marginBottom: '80px' }}>
+      {/* Section header */}
+      <div className="text-center" style={{ marginBottom: '20px' }}>
+        <p
+          style={{
+            fontSize: 'var(--type-scale-12)',
+            fontWeight: '700',
+            textTransform: 'uppercase',
+            letterSpacing: '0.1em',
+            color: 'var(--color-delta-red-400)',
+            marginBottom: '8px',
+          }}
+        >
+          Capabilities by tier
+        </p>
+        <h3
+          style={{
+            fontSize: 'clamp(1.5rem, 2.4vw, var(--type-scale-32))',
+            fontFamily: 'var(--font-display)',
+            fontWeight: '700',
+            color: 'var(--color-delta-blue-700)',
+            marginBottom: '12px',
+          }}
+        >
+          Business Medallion Tier Capabilities
+        </h3>
+        <p
+          style={{
+            fontSize: 'var(--type-scale-14)',
+            color: 'var(--color-neutral-600)',
+            maxWidth: '620px',
+            margin: '0 auto',
+            lineHeight: 1.6,
+          }}
+        >
+          Every benefit, side by side. Strength scales with tier — three checks means premium,
+          optimized capability.
+        </p>
+      </div>
+
+      {/* Symbol legend */}
+      <div
+        className="flex flex-wrap items-center justify-center"
+        style={{
+          gap: '14px',
+          marginBottom: '20px',
+          fontSize: 'var(--type-scale-13)',
+          color: 'var(--color-neutral-600)',
+        }}
+      >
+        <span className="inline-flex items-center" style={{ gap: '6px' }}>
+          <i
+            className="ph-bold ph-check"
+            style={{ color: 'var(--color-success)', fontSize: '14px' }}
+          />
+          Included
+        </span>
+        <span style={{ color: 'var(--color-neutral-50)' }} aria-hidden="true">
+          ·
+        </span>
+        <span className="inline-flex items-center" style={{ gap: '6px' }}>
+          <span className="inline-flex" style={{ gap: '2px' }}>
+            <i
+              className="ph-bold ph-check"
+              style={{ color: 'var(--color-success)', fontSize: '14px' }}
+            />
+            <i
+              className="ph-bold ph-check"
+              style={{ color: 'var(--color-success)', fontSize: '14px' }}
+            />
+          </span>
+          Strong capability
+        </span>
+        <span style={{ color: 'var(--color-neutral-50)' }} aria-hidden="true">
+          ·
+        </span>
+        <span className="inline-flex items-center" style={{ gap: '6px' }}>
+          <span className="inline-flex" style={{ gap: '2px' }}>
+            <i
+              className="ph-bold ph-check"
+              style={{ color: 'var(--color-success)', fontSize: '14px' }}
+            />
+            <i
+              className="ph-bold ph-check"
+              style={{ color: 'var(--color-success)', fontSize: '14px' }}
+            />
+            <i
+              className="ph-bold ph-check"
+              style={{ color: 'var(--color-success)', fontSize: '14px' }}
+            />
+          </span>
+          Premium capability
+        </span>
+        <span style={{ color: 'var(--color-neutral-50)' }} aria-hidden="true">
+          ·
+        </span>
+        <span className="inline-flex items-center" style={{ gap: '6px' }}>
+          <i className="ph-bold ph-x" style={{ color: 'var(--color-error)', fontSize: '14px' }} />
+          Not included
+        </span>
+      </div>
+
+      {/* Table card */}
+      <div
+        style={{
+          background: 'var(--color-neutral-0)',
+          border: '1px solid var(--color-neutral-10)',
+          borderRadius: 'var(--radius-l)',
+          boxShadow: 'var(--shadow-card)',
+          overflow: 'hidden',
+        }}
+      >
+        <div style={{ overflowX: 'auto' }}>
+          <table
+            style={{
+              width: '100%',
+              minWidth: '720px',
+              borderCollapse: 'collapse',
+              tableLayout: 'fixed',
+            }}
+          >
+            <colgroup>
+              <col style={{ width: '34%' }} />
+              <col style={{ width: '22%' }} />
+              <col style={{ width: '22%' }} />
+              <col style={{ width: '22%' }} />
+            </colgroup>
+            <thead>
+              <tr
+                style={{
+                  background: 'var(--color-neutral-5)',
+                  borderBottom: '1px solid var(--color-neutral-10)',
+                }}
+              >
+                <th
+                  scope="col"
+                  style={{
+                    padding: '18px 20px',
+                    textAlign: 'left',
+                    fontSize: 'var(--type-scale-12)',
+                    fontWeight: '700',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.08em',
+                    color: 'var(--color-neutral-600)',
+                  }}
+                >
+                  Feature
+                </th>
+                {tiers.map((tier) => (
+                  <th
+                    key={tier.id}
+                    scope="col"
+                    style={{
+                      padding: '18px 16px',
+                      textAlign: 'center',
+                      borderTop: `3px solid ${tier.accent}`,
+                    }}
+                  >
+                    <div className="flex flex-col items-center" style={{ gap: '6px' }}>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={tier.img}
+                        alt=""
+                        style={{ width: '24px', height: '21px' }}
+                      />
+                      <span
+                        style={{
+                          fontSize: 'var(--type-scale-14)',
+                          fontFamily: 'var(--font-display)',
+                          fontWeight: '700',
+                          color: 'var(--color-delta-blue-700)',
+                          lineHeight: 1.2,
+                        }}
+                      >
+                        {tier.name}
+                      </span>
+                      <span
+                        style={{
+                          fontSize: 'var(--type-scale-12)',
+                          fontWeight: '700',
+                          color: tier.accent,
+                        }}
+                      >
+                        {tier.mqd}
+                      </span>
+                    </div>
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {CAPABILITY_ROWS.map((row, idx) => (
+                <tr
+                  key={row.feature}
+                  style={{
+                    borderBottom:
+                      idx === CAPABILITY_ROWS.length - 1
+                        ? 'none'
+                        : '1px solid var(--color-neutral-10)',
+                    background:
+                      idx % 2 === 0 ? 'var(--color-neutral-0)' : 'var(--color-neutral-5)',
+                  }}
+                >
+                  <th
+                    scope="row"
+                    style={{
+                      padding: '14px 20px',
+                      textAlign: 'left',
+                      verticalAlign: 'middle',
+                      fontSize: 'var(--type-scale-13)',
+                      fontWeight: '600',
+                      color: 'var(--color-delta-blue-700)',
+                      lineHeight: 1.45,
+                    }}
+                  >
+                    {row.feature}
+                  </th>
+                  {(['gold', 'platinum', 'diamond'] as const).map((tierKey) => (
+                    <td
+                      key={tierKey}
+                      style={{
+                        padding: '14px 16px',
+                        textAlign: 'center',
+                        verticalAlign: 'middle',
+                      }}
+                    >
+                      <TierCellValue cell={row[tierKey]} />
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   )
 }
 

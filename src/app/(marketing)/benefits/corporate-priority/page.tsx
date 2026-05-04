@@ -28,7 +28,7 @@ export default function CorporatePriorityPage() {
               Mid-Market program
             </span>
             <span className="px-3 py-1 rounded-full font-semibold" style={{ background: 'rgba(255,255,255,0.15)', color: 'var(--color-neutral-0)', fontSize: 'var(--type-scale-13)' }}>
-              Corporate Pro
+              Platinum business plan
             </span>
           </div>
         </div>

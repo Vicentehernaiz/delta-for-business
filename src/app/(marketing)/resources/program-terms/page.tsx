@@ -65,10 +65,9 @@ const sections = [
     title: 'Medallion Status (Individual)',
     items: [
       'Medallion status is earned by individual travelers based on personal Medallion Qualifying Dollars (MQDs) spent on eligible Delta flights in a calendar year.',
-      'MQD thresholds: Silver Medallion $5,000 · Gold Medallion $10,000 · Platinum Medallion $15,000 · Diamond Medallion $28,000.',
+      'MQD thresholds: Gold Medallion $10,000 · Platinum Medallion $15,000 · Diamond Medallion $28,000.',
       'Medallion status is strictly personal and cannot be transferred, purchased, assigned by a company, or shared.',
       'Delta Amex Platinum and Reserve cardholders (personal and business) earn MQD Headstart at the start of each Medallion year and ongoing MQD Boosts from card spending. See card terms for current amounts.',
-      'Company Silver Medallion certificates redeemed from company miles grant 90-day Silver Medallion status to a named employee. They do not confer Gold, Platinum, or Diamond status.',
       'Medallion status qualifications, thresholds, and benefits are subject to change at Delta\'s discretion with reasonable notice.',
     ],
   },

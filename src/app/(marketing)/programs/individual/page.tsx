@@ -60,32 +60,32 @@ const exclusions: { icon: string; title: string; desc: string }[] = [
   {
     icon: 'ph-bold ph-x-circle',
     title: 'No company mile account',
-    desc: 'Individual is personal-only — there is no company-side SkyMiles pool. If you want pooled company miles, upgrade to SMB Flex (still free) or a corporate program.',
+    desc: 'Individual is personal-only — there is no company-side SkyMiles pool. If you want pooled company miles, upgrade to the Gold business plan (still free) or a corporate program.',
   },
   {
     icon: 'ph-bold ph-x-circle',
     title: 'No Corporate Priority benefits',
-    desc: 'Preferred seating, priority boarding, upgrade certificates and service-recovery priority require Corporate Pro or Enterprise Elite — not part of Individual.',
+    desc: 'Preferred seating, priority boarding, upgrade certificates and service-recovery priority require the Platinum or Diamond business plan — not part of Individual.',
   },
   {
     icon: 'ph-bold ph-x-circle',
     title: 'No Medallion acceleration',
-    desc: 'You earn MQDs at the standard rate. Negotiated MQD bonuses and corporate-status matching are reserved for Corporate Pro and Enterprise Elite agreements.',
+    desc: 'You earn MQDs at the standard rate. Negotiated MQD bonuses and corporate-status matching are reserved for the Platinum and Diamond business plans.',
   },
 ]
 
 const faqs: { q: string; a: string }[] = [
   {
-    q: 'How is this different from SMB Flex?',
-    a: 'Individual is for one person — you, no team. There is no company SkyMiles pool, no traveler roster, no company miles. SMB Flex adds a company-side rewards pool that earns alongside your personal miles, and a dashboard to manage other travelers if you have a team.',
+    q: 'How is this different from the Gold business plan?',
+    a: 'Individual is for one person — you, no team. There is no company SkyMiles pool, no traveler roster, no company miles. The Gold business plan adds a company-side rewards pool that earns alongside your personal miles, and a dashboard to manage other travelers if you have a team.',
   },
   {
     q: 'Do I need a business email?',
     a: 'No. Any email works — personal Gmail, your own domain, or work email. Delta does not verify employer status for the Individual path.',
   },
   {
-    q: 'What if I get hired by a company with Corporate Pro?',
-    a: 'Your personal SkyMiles account follows you. When the new employer adds you to their Corporate Pro program, you\'ll start earning company miles for them on the same flights — without losing personal earnings.',
+    q: 'What if I get hired by a company with the Platinum business plan?',
+    a: 'Your personal SkyMiles account follows you. When the new employer adds you to their Platinum business plan, you\'ll start earning company miles for them on the same flights — without losing personal earnings.',
   },
   {
     q: 'Is there any cost?',
@@ -93,7 +93,7 @@ const faqs: { q: string; a: string }[] = [
   },
   {
     q: 'Can I open a company SkyMiles pool later?',
-    a: 'Yes. From your account dashboard you can open a company pool (the "SkyMiles for Business only" plan) or upgrade to SMB Flex / Corporate Pro / Enterprise Elite at any time.',
+    a: 'Yes. From your account dashboard you can open a company pool (the "SkyMiles for Business only" plan) or upgrade to the Gold / Platinum / Diamond business plan at any time.',
   },
 ]
 
@@ -278,7 +278,7 @@ export default function IndividualProgramPage() {
             What&apos;s not included
           </h2>
           <p style={{ fontSize: 'var(--type-scale-14)', color: 'var(--color-neutral-600)', marginBottom: '20px' }}>
-            Individual is purpose-built for solo travelers. If you need any of the below, jump to SMB Flex (still free) or a corporate plan.
+            Individual is purpose-built for solo travelers. If you need any of the below, jump to the Gold business plan (still free) or a corporate plan.
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '12px' }}>
             {exclusions.map((e) => (
@@ -308,14 +308,14 @@ export default function IndividualProgramPage() {
         </div>
       </section>
 
-      {/* ── Compare row (Individual vs SMB Flex) ─────────────────── */}
+      {/* ── Compare row (Individual vs Gold business plan) ─────────────────── */}
       <section style={{ background: 'var(--color-neutral-0)', padding: '64px 24px' }}>
         <div style={{ maxWidth: 'var(--container-narrow)', margin: '0 auto' }}>
           <h2 style={{ fontSize: 'var(--type-scale-24)', fontFamily: 'var(--font-display)', fontWeight: '700', color: 'var(--color-delta-blue-700)', marginBottom: '8px' }}>
-            Individual vs SMB Flex — what changes?
+            Individual vs Gold business plan — what changes?
           </h2>
           <p style={{ fontSize: 'var(--type-scale-14)', color: 'var(--color-neutral-600)', marginBottom: '24px' }}>
-            Both are free. SMB Flex adds a company-side layer; Individual keeps everything personal.
+            Both are free. The Gold business plan adds a company-side layer; Individual keeps everything personal.
           </p>
           <div className="overflow-x-auto">
             <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 'var(--type-scale-13)' }}>
@@ -323,7 +323,7 @@ export default function IndividualProgramPage() {
                 <tr style={{ borderBottom: '2px solid var(--color-neutral-10)' }}>
                   <th style={{ textAlign: 'left', padding: '12px 16px', color: 'var(--color-neutral-500)', fontWeight: '600' }}>Feature</th>
                   <th style={{ textAlign: 'center', padding: '12px 16px', color: 'var(--color-delta-blue-700)', fontWeight: '700' }}>Individual</th>
-                  <th style={{ textAlign: 'center', padding: '12px 16px', color: 'var(--color-delta-blue-700)', fontWeight: '700' }}>SMB Flex</th>
+                  <th style={{ textAlign: 'center', padding: '12px 16px', color: 'var(--color-delta-blue-700)', fontWeight: '700' }}>Gold business plan</th>
                 </tr>
               </thead>
               <tbody>
@@ -395,7 +395,7 @@ export default function IndividualProgramPage() {
               Ready in 90 seconds.
             </p>
             <p style={{ fontSize: 'var(--type-scale-14)', color: 'var(--color-neutral-600)' }}>
-              You can switch to SMB Flex, Corporate Pro or Enterprise Elite any time.
+              You can switch to the Gold, Platinum or Diamond business plan any time.
             </p>
           </div>
           <div className="flex flex-wrap gap-2">
@@ -429,7 +429,7 @@ export default function IndividualProgramPage() {
                 textDecoration: 'none',
               }}
             >
-              Compare with SMB Flex →
+              Compare with Gold business plan →
             </Link>
           </div>
         </div>

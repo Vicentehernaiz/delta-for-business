@@ -44,7 +44,7 @@ const PLAN_CATALOG: Record<PlanKey, PlanInfo> = {
   },
   'smb-flex': {
     key: 'smb-flex',
-    name: 'SMB Flex',
+    name: 'Gold business plan',
     badge: '1–49 travelers OR up to $50K spend · Free',
     enrollHref: '/enroll/individual',
     enrollLabel: 'Get started free',
@@ -63,7 +63,7 @@ const PLAN_CATALOG: Record<PlanKey, PlanInfo> = {
   },
   'corporate-pro': {
     key: 'corporate-pro',
-    name: 'Corporate Pro',
+    name: 'Platinum business plan',
     badge: '50–499 travelers OR $50K–$300K spend',
     enrollHref: '/enroll/enterprise',
     enrollLabel: 'Contact sales',
@@ -82,7 +82,7 @@ const PLAN_CATALOG: Record<PlanKey, PlanInfo> = {
   },
   'enterprise-elite': {
     key: 'enterprise-elite',
-    name: 'Enterprise Elite',
+    name: 'Diamond business plan',
     badge: '500+ travelers OR $300K+ spend',
     enrollHref: '/enroll/enterprise',
     enrollLabel: 'Contact sales',

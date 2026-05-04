@@ -3,8 +3,8 @@ import type { Segment } from '@/types'
 export const segments: Record<string, Segment> = {
   'business-traveler': {
     id: 'business-traveler',
-    name: 'SMB Flex',
-    shortName: 'SMB Flex',
+    name: 'Gold business plan',
+    shortName: 'Gold business plan',
     tagline: 'Company rewards pool, personal perks, and dual SkyMiles earning — free to join.',
     description: 'For individual travelers and small teams. Free self-serve enrollment, dual SkyMiles earning, and partner perks from day one.',
     color: 'var(--color-segment-individual)',
@@ -25,8 +25,8 @@ export const segments: Record<string, Segment> = {
   },
   enterprise: {
     id: 'enterprise',
-    name: 'Corporate Pro',
-    shortName: 'Corporate Pro',
+    name: 'Platinum business plan',
+    shortName: 'Platinum business plan',
     tagline: 'Dynamic fares, seat pools, and full Corporate Priority — built for growing teams.',
     description: 'For companies with 50–500 travelers spending $50K+/year. Negotiated agreement with full Corporate Priority suite.',
     color: 'var(--color-segment-mid)',
@@ -47,8 +47,8 @@ export const segments: Record<string, Segment> = {
   },
   'large-enterprise': {
     id: 'large-enterprise',
-    name: 'Enterprise Elite',
-    shortName: 'Enterprise Elite',
+    name: 'Diamond business plan',
+    shortName: 'Diamond business plan',
     tagline: 'Custom pricing, full reporting, and dedicated support at global scale.',
     description: 'For companies with 500+ travelers spending $300K+. Custom pricing, seat inventory control, full reporting, and dedicated support.',
     color: 'var(--color-segment-enterprise)',
@@ -64,7 +64,7 @@ export const segments: Record<string, Segment> = {
       'Custom pricing + seat inventory control',
       'Full reporting + forecasting',
       'Dedicated support + Amex integration',
-      'All Corporate Pro benefits globally',
+      'All Platinum business plan benefits globally',
     ],
   },
 }

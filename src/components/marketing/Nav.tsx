@@ -14,7 +14,7 @@ const megaDescriptions: Record<string, string> = {
   '/programs/business-traveler':   '1–49 travelers OR up to $50K spend · Free self-serve · Rewards pool',
   '/programs/enterprise':          '50–499 travelers OR $50K–$300K spend · Dynamic fares · Seat pools',
   '/programs/large-enterprise':    '500+ travelers OR $300K+ spend · Custom pricing · Global support',
-  '/programs/compare':             'Side-by-side: Individual · SMB Flex · Corporate Pro · Enterprise Elite',
+  '/programs/compare':             'Side-by-side: Individual · Gold · Platinum · Diamond business plans',
   '/benefits/corporate-priority':  'Preferred seating, priority boarding & upgrade queue',
   '/benefits/sky-club':            'Lounge access across 50+ domestic & international airports',
   '/benefits/meetings-groups':     'Discounted fares for group travel and events',

@@ -36,7 +36,7 @@ export interface QuizResult {
   programTier: string | null
   cardId: string
   cardTier: 'blue' | 'gold' | 'platinum' | 'reserve'
-  medallionTier: 'silver' | 'gold' | 'platinum' | 'diamond' | null
+  medallionTier: 'gold' | 'platinum' | 'diamond' | null
   medallionMonths: number | null
   annualSpendEstimate: number
   travelersEstimate: number
@@ -145,7 +145,7 @@ function computeCard(
 function computeMedallion(
   spend: number,
   cardTier: 'blue' | 'gold' | 'platinum' | 'reserve'
-): { medallionTier: 'silver' | 'gold' | 'platinum' | 'diamond' | null; medallionMonths: number | null } {
+): { medallionTier: 'gold' | 'platinum' | 'diamond' | null; medallionMonths: number | null } {
   // Card headstart
   const cardHeadstart =
     cardTier === 'platinum' || cardTier === 'reserve' ? 2500 : 0
@@ -154,7 +154,7 @@ function computeMedallion(
   const monthlySpend = spend / 12
   const annualMqd = spend + cardHeadstart
 
-  let medallionTier: 'silver' | 'gold' | 'platinum' | 'diamond' | null = null
+  let medallionTier: 'gold' | 'platinum' | 'diamond' | null = null
   let threshold = 0
 
   if (annualMqd >= 28000) {
@@ -166,9 +166,6 @@ function computeMedallion(
   } else if (annualMqd >= 10000) {
     medallionTier = 'gold'
     threshold = 10000
-  } else if (annualMqd >= 5000) {
-    medallionTier = 'silver'
-    threshold = 5000
   }
 
   if (!medallionTier) return { medallionTier: null, medallionMonths: null }

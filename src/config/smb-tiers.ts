@@ -30,7 +30,6 @@ export const smbTiers: Record<string, SMBTier> = {
       'eCredit redemptions (~1.5–2¢/mile)',
       'Transfer miles to employee personal accounts',
       'Sky Club membership purchase',
-      'Silver Medallion certificates',
       'Management dashboard',
     ],
   },

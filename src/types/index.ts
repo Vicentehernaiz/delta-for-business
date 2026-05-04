@@ -99,7 +99,7 @@ export interface Card {
 // Medallion Status
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-export type MedallionTierLevel = 'silver' | 'gold' | 'platinum' | 'diamond'
+export type MedallionTierLevel = 'gold' | 'platinum' | 'diamond'
 
 export interface MedallionTier {
   id: string

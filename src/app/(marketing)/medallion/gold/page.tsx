@@ -57,9 +57,9 @@ export default function GoldPage() {
           <p style={{ fontSize: 'var(--type-scale-14)', color: 'var(--color-neutral-500)', marginBottom: '28px', lineHeight: 1.6 }}>Where Sky Priority boarding, real upgrade odds, and international lounge access begin.</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px' }}>
             {[
-              { icon: 'ph-airplane-takeoff', title: 'Sky Priority boarding', body: 'Board with Sky Priority — ahead of Silver and all Main Cabin passengers on every Delta-operated flight.' },
+              { icon: 'ph-airplane-takeoff', title: 'Sky Priority boarding', body: 'Board with Sky Priority — ahead of all Main Cabin passengers on every Delta-operated flight.' },
               { icon: 'ph-trend-up', title: '+60% SkyMiles bonus', body: `Earn ${tier.skymilesMult}× miles per dollar on qualifying Delta flights. Meaningful accumulation on a normal travel schedule.` },
-              { icon: 'ph-clock', title: '72-hour upgrade window', body: '3 days of advance notice means upgrades clear before you even start packing — far better odds than Silver.' },
+              { icon: 'ph-clock', title: '72-hour upgrade window', body: '3 days of advance notice means upgrades clear before you even start packing.' },
               { icon: 'ph-bag-simple', title: '2 free checked bags', body: 'Two bags fly free for the employee and up to 8 companions — no more bag fees on business trips.' },
               { icon: 'ph-calendar-check', title: 'Free same-day confirmed changes', body: 'Switch to an earlier flight at no charge on the day of travel — flexibility that matters when meetings run long.' },
               { icon: 'ph-globe-hemisphere-west', title: 'International SkyTeam lounge access', body: 'Access to SkyTeam partner lounges internationally when traveling on qualifying Delta Plus tickets.' },
@@ -103,7 +103,7 @@ export default function GoldPage() {
             {[
               { v: '~20 flights', s: 'At ~$500 avg fare, 20 one-way trips reach $10K MQD — about 10 round trips per year.' },
               { v: '~8 domestic trips', s: 'At ~$1,200 per round-trip business travel spend, 8 trips bring you to Gold.' },
-              { v: 'Amex headstart', s: '$2,500 MQD Reserve headstart reduces flight spend needed to $7,500 — a full year in savings.' },
+              { v: 'Amex headstart', s: '$2,500 MQD Reserve headstart reduces flight spend needed to $7,500 — a full year of savings.' },
             ].map((s) => (
               <div key={s.v} style={{ borderRadius: 'var(--radius-l)', padding: '20px', background: 'var(--color-neutral-0)', border: '1px solid var(--color-neutral-10)', boxShadow: 'var(--shadow-card)' }}>
                 <p style={{ fontSize: 'var(--type-scale-20)', fontWeight: '700', color: 'var(--color-medallion-gold)', marginBottom: '6px' }}>{s.v}</p>
@@ -153,11 +153,11 @@ export default function GoldPage() {
           </div>
           <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
             <Link
-              href="/medallion/silver"
+              href="/medallion"
               style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', height: '44px', padding: '0 20px', borderRadius: 'var(--radius-full)', background: 'var(--color-neutral-5)', color: 'var(--color-delta-blue-700)', fontSize: 'var(--type-scale-14)', fontWeight: '600', border: '1px solid var(--color-neutral-10)', textDecoration: 'none' }}
             >
               <i className="ph-bold ph-arrow-left" style={{ fontSize: '0.875rem' }}></i>
-              Silver
+              All tiers
             </Link>
             <Link
               href="/medallion/platinum"

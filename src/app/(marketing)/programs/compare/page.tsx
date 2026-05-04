@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Compare Delta Business Plans | Individual, SMB Flex, Corporate Pro & Enterprise Elite',
+  title: 'Compare Delta Business Plans | Individual, Gold, Platinum & Diamond business plans',
   description:
     'Side-by-side comparison of all four Delta for Business plans — pick the right one for solo travelers, small teams, mid-market companies, or global enterprises.',
   openGraph: {
     title: 'Compare Delta Business Plans',
-    description: 'Individual vs SMB Flex vs Corporate Pro vs Enterprise Elite — every feature, eligibility, and benefit in one table.',
+    description: 'Individual vs Gold vs Platinum vs Diamond business plans — every feature, eligibility, and benefit in one table.',
   },
   alternates: { canonical: 'https://business.delta.com/programs/compare' },
 }
@@ -28,7 +28,7 @@ const PLANS: { key: ColKey; name: string; sub: string; href: string; enrollHref:
   },
   {
     key: 'smb-flex',
-    name: 'SMB Flex',
+    name: 'Gold business plan',
     sub: '1–49 travelers OR up to $50K spend · Free',
     href: '/programs/business-traveler',
     enrollHref: '/enroll/individual',
@@ -37,7 +37,7 @@ const PLANS: { key: ColKey; name: string; sub: string; href: string; enrollHref:
   },
   {
     key: 'corporate-pro',
-    name: 'Corporate Pro',
+    name: 'Platinum business plan',
     sub: '50–499 travelers OR $50K–$300K spend · Negotiated',
     href: '/programs/enterprise',
     enrollHref: '/enroll/enterprise',
@@ -46,7 +46,7 @@ const PLANS: { key: ColKey; name: string; sub: string; href: string; enrollHref:
   },
   {
     key: 'enterprise-elite',
-    name: 'Enterprise Elite',
+    name: 'Diamond business plan',
     sub: '500+ travelers OR $300K+ spend · Enterprise',
     href: '/programs/large-enterprise',
     enrollHref: '/enroll/enterprise',

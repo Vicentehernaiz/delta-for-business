@@ -10,7 +10,6 @@ const tierColors: Record<string, string> = {
   Diamond: 'var(--color-medallion-diamond)',
   Platinum: 'var(--color-medallion-platinum)',
   Gold: 'var(--color-medallion-gold)',
-  Silver: 'var(--color-medallion-silver)',
   Member: 'var(--color-neutral-400)',
 }
 

@@ -57,7 +57,7 @@ export default function PlatinumPage() {
           <p style={{ fontSize: 'var(--type-scale-14)', color: 'var(--color-neutral-500)', marginBottom: '28px', lineHeight: 1.6 }}>Sky Club access, 5-day upgrade windows, and the first Choice Benefit — the high-volume traveler's tier.</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px' }}>
             {[
-              { icon: 'ph-airplane-takeoff', title: 'Sky Priority boarding (top 2 priority)', body: 'Board among the first passengers — position #2 in the Sky Priority queue, ahead of Gold and Silver.' },
+              { icon: 'ph-airplane-takeoff', title: 'Sky Priority boarding (top 2 priority)', body: 'Board among the first passengers — position #2 in the Sky Priority queue, ahead of Gold.' },
               { icon: 'ph-trend-up', title: '+80% SkyMiles bonus', body: `Earn ${tier.skymilesMult}× miles per dollar. An employee spending $15K on Delta generates far more personal SkyMiles than at lower tiers.` },
               { icon: 'ph-clock', title: '120-hour upgrade window', body: '5 full days of advance notice — upgrades routinely clear before the day of departure for domestic routes.' },
               { icon: 'ph-bag-simple', title: '3 free checked bags', body: 'Three bags fly free for the traveler and up to 8 companions — ideal for longer international business trips.' },

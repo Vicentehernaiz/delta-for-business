@@ -84,12 +84,12 @@ export default function PlatinumBusinessCardPage() {
               {
                 icon: 'ph-fill ph-rocket-launch',
                 title: `$2,500 MQD head start`,
-                body: 'Start every Medallion year $2,500 closer to Silver status. Paired with the boost rate, this card accelerates status faster than any entry-level card.',
+                body: 'Start every Medallion year $2,500 closer to Gold status. Paired with the boost rate, this card accelerates status faster than any entry-level card.',
               },
               {
                 icon: 'ph-fill ph-trend-up',
                 title: `MQD boost: ${card.mqdBoostRate}`,
-                body: 'Every $20 in purchases earns $1 MQD. Combined with the head start, serious travelers can reach Silver Medallion on card spend alone.',
+                body: 'Every $20 in purchases earns $1 MQD. Combined with the head start, serious travelers can accelerate toward Gold Medallion on card spend.',
               },
               {
                 icon: 'ph-fill ph-package',

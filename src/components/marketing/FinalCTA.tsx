@@ -6,7 +6,7 @@ const paths = [
     iconColor: 'var(--color-delta-red-400)',
     iconBg: 'var(--color-delta-red-50)',
     title: 'Quick start',
-    desc: 'SMB Flex — free for any team. Get set up in minutes, no employer needed.',
+    desc: 'Gold business plan — free for any team. Get set up in minutes, no employer needed.',
     cta: 'Enroll now',
     href: '/enroll/individual',
   },

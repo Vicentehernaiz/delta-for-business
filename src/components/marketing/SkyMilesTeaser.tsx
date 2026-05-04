@@ -12,7 +12,6 @@ const companyPerks = [
   'Exchange company SkyMiles for eCredits or flight tickets',
   'eCredit redemptions (≈1.5–2¢/mile)',
   'Transfer to employee. One-way, non-refundable',
-  'Grant 12-month Silver status to any employee',
   'Purchase annual individual Sky Club membership with company miles',
 ]
 
