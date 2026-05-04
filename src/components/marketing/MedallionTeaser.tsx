@@ -24,8 +24,8 @@ export function MedallionTeaser() {
           </p>
         </div>
 
-        {/* Tier cards */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+        {/* Tier cards — 3 tiers (Gold / Platinum / Diamond), full-width row */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
           {medallionOrder.map((tierId) => {
             const tier = medallionTiers[tierId]
             if (!tier) return null
