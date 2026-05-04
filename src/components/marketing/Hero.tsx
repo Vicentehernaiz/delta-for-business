@@ -60,22 +60,60 @@ export function Hero() {
               Delta for Business
             </h1>
 
-            <div
+            <ul
               className="flex flex-col"
               style={{
-                gap: '16px',
+                gap: '14px',
                 fontSize: 'var(--type-scale-18)',
                 lineHeight: 'var(--line-height-body-medium)',
                 letterSpacing: 'var(--letter-spacing-marketing-small)',
                 color: 'var(--color-delta-blue-500)',
                 fontFamily: 'var(--font-display)',
                 fontWeight: '700',
+                listStyle: 'none',
+                margin: 0,
+                padding: 0,
               }}
             >
-              <p>For business travellers of all types and large corporations.</p>
-              <p>Plans, benefits, and management tools tailored to business needs.</p>
-              <p>Cost reduction, ease of management, greater convenience and more advantages.</p>
-            </div>
+              {[
+                {
+                  icon: 'ph-fill ph-users-three',
+                  text: 'For business travellers of all types and large corporations.',
+                },
+                {
+                  icon: 'ph-fill ph-squares-four',
+                  text: 'Plans, benefits, and management tools tailored to business needs.',
+                },
+                {
+                  icon: 'ph-fill ph-trend-up',
+                  text: 'Cost reduction, ease of management, greater convenience and more advantages.',
+                },
+              ].map((item) => (
+                <li
+                  key={item.text}
+                  className="flex items-start"
+                  style={{ gap: '12px' }}
+                >
+                  <span
+                    className="flex items-center justify-center flex-shrink-0"
+                    style={{
+                      width: '28px',
+                      height: '28px',
+                      borderRadius: 'var(--radius-full)',
+                      background: 'var(--color-delta-red-50)',
+                      marginTop: '2px',
+                    }}
+                    aria-hidden="true"
+                  >
+                    <i
+                      className={`${item.icon} text-base`}
+                      style={{ color: 'var(--color-delta-red-400)' }}
+                    />
+                  </span>
+                  <span>{item.text}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* CTA */}
