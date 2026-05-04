@@ -1,4 +1,8 @@
+'use client'
+
+import { useState } from 'react'
 import Link from 'next/link'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const SKYTEAM_BADGE   = '/assets/images/logos/logo-skyteam.webp'
 const LOGO_KLM        = 'https://upload.wikimedia.org/wikipedia/commons/c/c7/KLM_logo.svg'
@@ -56,6 +60,8 @@ const subHeadStyle: React.CSSProperties = {
 }
 
 export function SkyMilesTeaser() {
+  const [expanded, setExpanded] = useState(false)
+
   return (
     <section
       className="flex flex-col items-center w-full"
@@ -102,56 +108,40 @@ export function SkyMilesTeaser() {
         className="flex flex-col items-center w-full"
         style={{ maxWidth: '1200px', gap: '32px' }}
       >
-        {/* Two info cards */}
-        <div className="flex flex-wrap items-stretch w-full" style={{ gap: '32px' }}>
-          {/* Company & employee perks */}
-          <div
-            className="flex flex-col flex-1"
-            style={{ ...cardStyle, minWidth: '340px' }}
-          >
-            <div className="flex flex-col" style={{ gap: '16px' }}>
-              <p style={subHeadStyle}>Company SkyMiles perks</p>
-              <div className="flex flex-col" style={{ ...bodyTextStyle, gap: '16px' }}>
-                {companyPerks.map((p) => (
-                  <p key={p}>✓&nbsp;&nbsp;{p}</p>
-                ))}
-              </div>
-            </div>
-            <div className="flex flex-col" style={{ gap: '16px' }}>
-              <p style={subHeadStyle}>Employee SkyMiles perks</p>
-              <div className="flex flex-col" style={{ ...bodyTextStyle, gap: '16px' }}>
-                {employeePerks.map((p) => (
-                  <p key={p}>✓&nbsp;&nbsp;{p}</p>
-                ))}
-              </div>
-            </div>
+        {/* ── 1) Earn miles (primary, moved to top) ────────── */}
+        <div className="flex flex-col w-full" style={cardStyle}>
+          <div className="flex flex-col" style={{ gap: '12px' }}>
+            <p style={subHeadStyle}>Earn miles</p>
+            <p style={bodyTextStyle}>
+              When an employee flies on a company-linked ticket, BOTH the company&apos;s SkyMiles for Business account AND the employee&apos;s personal SkyMiles account earn simultaneously — with no reduction to either.
+            </p>
           </div>
-
-          {/* How to apply */}
+          <p style={bodyTextStyle}>
+            Miles accumulate from everyday business and personal spending through Delta&apos;s partner network: hotels, car rentals, credit cards, rideshare, retail &amp; shopping, dining, vacations and financial services.
+          </p>
           <div
-            className="flex flex-col flex-1"
-            style={{ ...cardStyle, minWidth: '340px' }}
+            className="flex flex-wrap items-center"
+            style={{
+              gap: '16px',
+              fontSize: 'var(--type-scale-14)',
+              lineHeight: 'var(--line-height-body-small)',
+              letterSpacing: 'var(--letter-spacing-marketing-x-large)',
+              color: 'var(--color-delta-blue-500)',
+              fontFamily: 'var(--font-body)',
+              fontWeight: '500',
+            }}
           >
-            <div className="flex flex-col" style={{ gap: '16px' }}>
-              <p style={subHeadStyle}>How to apply</p>
-              <p style={{ ...bodyTextStyle, whiteSpace: 'pre-line' }}>
-                {`1–50 travellers\nUS & Canada only · Free enrollment\nSelf-serve portal tool`}
-              </p>
-            </div>
-            <div className="flex flex-col" style={{ gap: '16px' }}>
-              <p style={subHeadStyle}>Membership tiers</p>
-              <p style={bodyTextStyle}>Member</p>
-              <p style={bodyTextStyle}>Plus (+$5,000 and +5 travelers) gets 10 mi/$ in non-hub premium cabin</p>
-              <p style={bodyTextStyle}>Elite (+$300,000 and +5 travelers) gets +15% bonus on all miles</p>
-            </div>
+            {['Company flight spend', 'Partners (hotels etc)', 'Amex card spend', 'Amex Membership Rwds', 'Flying Delta'].map((item, i, arr) => (
+              <span key={item} className="flex items-center" style={{ gap: '16px' }}>
+                {item}
+                {i < arr.length - 1 && <span style={{ color: 'var(--color-neutral-400)' }}> · </span>}
+              </span>
+            ))}
           </div>
         </div>
 
-        {/* Partner airlines card */}
-        <div
-          className="flex flex-col w-full"
-          style={cardStyle}
-        >
+        {/* ── 2) Fly on more airlines (partner airlines) ────── */}
+        <div className="flex flex-col w-full" style={cardStyle}>
           <div className="flex flex-col" style={{ gap: '16px' }}>
             <p style={subHeadStyle}>Fly on more airlines with the same miles</p>
             <p style={bodyTextStyle}>
@@ -175,39 +165,127 @@ export function SkyMilesTeaser() {
           </div>
         </div>
 
-        {/* Earn miles card */}
-        <div
-          className="flex flex-col w-full"
-          style={cardStyle}
-        >
-          <div className="flex flex-col" style={{ gap: '12px' }}>
-            <p style={subHeadStyle}>Earn miles</p>
-            <p style={bodyTextStyle}>
-              When an employee flies on a company-linked ticket, BOTH the company&apos;s SkyMiles for Business account AND the employee&apos;s personal SkyMiles account earn simultaneously — with no reduction to either.
-            </p>
-          </div>
-          <p style={bodyTextStyle}>
-            Miles accumulate from everyday business and personal spending through Delta&apos;s partner network: hotels, car rentals, credit cards, rideshare, retail & shopping, dining, vacations and financial services
-          </p>
-          <div
-            className="flex flex-wrap items-center"
+        {/* ── 3) Expandable: See more about perks, tiers and how to apply ── */}
+        <div className="w-full">
+          <button
+            type="button"
+            onClick={() => setExpanded((v) => !v)}
+            aria-expanded={expanded}
+            aria-controls="skymiles-details"
+            className="w-full flex items-center justify-between transition-colors"
             style={{
+              padding: '20px 28px',
+              borderRadius: 'var(--radius-l)',
+              background: 'var(--color-neutral-0)',
+              border: '1px solid var(--color-neutral-5)',
+              boxShadow: 'var(--shadow-card)',
+              cursor: 'pointer',
               gap: '16px',
-              fontSize: 'var(--type-scale-14)',
-              lineHeight: 'var(--line-height-body-small)',
-              letterSpacing: 'var(--letter-spacing-marketing-x-large)',
-              color: 'var(--color-delta-blue-500)',
-              fontFamily: 'var(--font-body)',
-              fontWeight: '500',
+              textAlign: 'left',
             }}
           >
-            {['Company flight spend', 'Partners (hotels etc)', 'Amex card spend', 'Amex Membership Rwds', 'Flying Delta'].map((item, i, arr) => (
-              <span key={item} className="flex items-center" style={{ gap: '16px' }}>
-                {item}
-                {i < arr.length - 1 && <span style={{ color: 'var(--color-neutral-400)' }}> · </span>}
+            <span className="flex items-center" style={{ gap: '14px' }}>
+              <span
+                className="flex items-center justify-center flex-shrink-0"
+                style={{
+                  width: '36px',
+                  height: '36px',
+                  borderRadius: 'var(--radius-full)',
+                  background: 'var(--color-delta-red-50)',
+                }}
+              >
+                <i
+                  className="ph-fill ph-info text-lg"
+                  style={{ color: 'var(--color-delta-red-400)' }}
+                />
               </span>
-            ))}
-          </div>
+              <span
+                style={{
+                  ...subHeadStyle,
+                  color: 'var(--color-delta-blue-700)',
+                }}
+              >
+                See more about perks, tiers and how to apply
+              </span>
+            </span>
+            <i
+              className={`ph-bold ph-caret-down text-base transition-transform duration-200 ${expanded ? 'rotate-180' : ''}`}
+              style={{ color: 'var(--color-delta-blue-700)' }}
+              aria-hidden="true"
+            />
+          </button>
+
+          <AnimatePresence initial={false}>
+            {expanded && (
+              <motion.div
+                id="skymiles-details"
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.28, ease: 'easeOut' }}
+                style={{ overflow: 'hidden' }}
+              >
+                <div
+                  className="flex flex-wrap items-stretch w-full"
+                  style={{ gap: '32px', marginTop: '24px' }}
+                >
+                  {/* Company & employee perks */}
+                  <div
+                    className="flex flex-col flex-1"
+                    style={{ ...cardStyle, minWidth: '340px' }}
+                  >
+                    <div className="flex flex-col" style={{ gap: '16px' }}>
+                      <p style={subHeadStyle}>Company SkyMiles perks</p>
+                      <ul className="flex flex-col" style={{ ...bodyTextStyle, gap: '12px', listStyle: 'none', margin: 0, padding: 0 }}>
+                        {companyPerks.map((p) => (
+                          <li key={p} className="flex items-start" style={{ gap: '10px' }}>
+                            <i
+                              className="ph-bold ph-check text-sm flex-shrink-0"
+                              style={{ color: 'var(--color-success)', marginTop: '4px' }}
+                            />
+                            <span>{p}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="flex flex-col" style={{ gap: '16px' }}>
+                      <p style={subHeadStyle}>Employee SkyMiles perks</p>
+                      <ul className="flex flex-col" style={{ ...bodyTextStyle, gap: '12px', listStyle: 'none', margin: 0, padding: 0 }}>
+                        {employeePerks.map((p) => (
+                          <li key={p} className="flex items-start" style={{ gap: '10px' }}>
+                            <i
+                              className="ph-bold ph-check text-sm flex-shrink-0"
+                              style={{ color: 'var(--color-success)', marginTop: '4px' }}
+                            />
+                            <span>{p}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* How to apply + Membership tiers */}
+                  <div
+                    className="flex flex-col flex-1"
+                    style={{ ...cardStyle, minWidth: '340px' }}
+                  >
+                    <div className="flex flex-col" style={{ gap: '16px' }}>
+                      <p style={subHeadStyle}>How to apply</p>
+                      <p style={{ ...bodyTextStyle, whiteSpace: 'pre-line' }}>
+                        {`1–50 travellers\nUS & Canada only · Free enrollment\nSelf-serve portal tool`}
+                      </p>
+                    </div>
+                    <div className="flex flex-col" style={{ gap: '16px' }}>
+                      <p style={subHeadStyle}>Membership tiers</p>
+                      <p style={bodyTextStyle}>Member</p>
+                      <p style={bodyTextStyle}>Plus (+$5,000 and +5 travelers) gets 10 mi/$ in non-hub premium cabin</p>
+                      <p style={bodyTextStyle}>Elite (+$300,000 and +5 travelers) gets +15% bonus on all miles</p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
 

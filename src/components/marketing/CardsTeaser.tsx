@@ -420,6 +420,28 @@ export function CardsTeaser() {
       <div className="flex flex-col items-center w-full" style={{ maxWidth: '1200px', gap: '32px' }}>
         {activeTab === 'business' ? (
           <>
+            {/* Description — placed ABOVE the carousel per user-test feedback */}
+            <div className="flex flex-col items-center text-center w-full" style={{ gap: '8px', maxWidth: '560px' }}>
+              <p
+                style={{
+                  fontSize: 'var(--type-scale-12)',
+                  fontWeight: '700',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.1em',
+                  color: 'var(--color-delta-red-400)',
+                }}
+              >
+                Delta-Amex Cards
+              </p>
+              <p
+                style={{
+                  ...bodyText,
+                  color: 'var(--color-delta-blue-700)',
+                }}
+              >
+                The Delta-Amex Cards are requested, managed, and issued by the company to its employees using its management tools.
+              </p>
+            </div>
             <div
               className="flex items-stretch w-full"
               style={{
@@ -438,16 +460,6 @@ export function CardsTeaser() {
                 </div>
               ))}
             </div>
-            <p
-              className="text-center"
-              style={{
-                ...bodyText,
-                color: 'var(--color-delta-blue-700)',
-                maxWidth: '400px',
-              }}
-            >
-              The Delta-Amex Cards are requested, managed, and issued by the company to its employees using its management tools.
-            </p>
             <div className="flex flex-wrap items-center justify-center w-full" style={{ gap: '12px' }}>
               <Link
                 href="/cards/business"
@@ -489,6 +501,28 @@ export function CardsTeaser() {
           </>
         ) : (
           <>
+            {/* Description — placed ABOVE the carousel per user-test feedback */}
+            <div className="flex flex-col items-center text-center w-full" style={{ gap: '8px', maxWidth: '720px' }}>
+              <p
+                style={{
+                  fontSize: 'var(--type-scale-12)',
+                  fontWeight: '700',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.1em',
+                  color: 'var(--color-delta-red-400)',
+                }}
+              >
+                Delta-Amex Personal Cards
+              </p>
+              <p
+                style={{
+                  ...bodyText,
+                  color: 'var(--color-delta-blue-700)',
+                }}
+              >
+                Personal card + SkyMiles for Business can run simultaneously, they stack, they don&apos;t conflict. Payments made with personal cards accrue miles in the individual account. When the company purchases the flights, the miles are credited to both the company and personal accounts. Personal cards are acquired by the individual themselves.
+              </p>
+            </div>
             <div
               className="flex items-stretch w-full"
               style={{
@@ -507,16 +541,6 @@ export function CardsTeaser() {
                 </div>
               ))}
             </div>
-            <p
-              className="text-center"
-              style={{
-                ...bodyText,
-                color: 'var(--color-delta-blue-700)',
-                maxWidth: '600px',
-              }}
-            >
-              Personal card + SkyMiles for Business can run simultaneously, they stack, they don&apos;t conflict. Payments made with personal cards accrue miles in the individual account. When the company purchases the flights, the miles are credited to both the company and personal accounts. Personal cards are acquired by the individual themselves.
-            </p>
             <div className="flex flex-wrap items-center justify-center w-full" style={{ gap: '12px' }}>
               <Link
                 href="/cards/personal"
