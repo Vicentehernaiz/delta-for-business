@@ -13,8 +13,8 @@ const plans = [
   {
     id: 'business-traveler',
     name: 'Gold business plan',
-    nameColor: 'var(--color-delta-blue-300)',
-    subtitle: '1–49 travelers OR up to $50K spend · Free enroll\nSelf-serve · Enroll in 60 seconds via SkyMiles login',
+    nameColor: '#8f6c32',
+    subtitle: '$5K–$50K annual Delta spend · Free enroll\nTypically accommodates 2 to 49 travelers\nSelf-serve · Enroll in 60 seconds via SkyMiles login',
     companyLabel: 'Company gets',
     companyBenefits: [
       'Business rewards pool',
@@ -42,14 +42,14 @@ const plans = [
       'No Medallion acceleration',
     ],
     ctaKnow: '/programs/business-traveler',
-    ctaEnroll: '/enroll/individual',
+    ctaEnroll: '/enroll/gold',
     ctaEnrollLabel: 'Get in',
   },
   {
     id: 'enterprise',
     name: 'Platinum business plan',
-    nameColor: 'var(--color-delta-red-400)',
-    subtitle: '50–499 travelers OR $50K–$300K spend\nNegotiated agreement · Managed travel tool\nAccount manager + Corporate Priority',
+    nameColor: '#6f7f8d',
+    subtitle: '$50K–$300K annual Delta spend\nTypically accommodates 50 to 499 travelers\nNegotiated agreement · Managed travel tool\nAccount manager + Corporate Priority',
     companyLabel: 'Company gets',
     companyBenefits: [
       'Dynamic fare discounts',
@@ -74,14 +74,14 @@ const plans = [
     ],
     excluded: [],
     ctaKnow: '/programs/enterprise',
-    ctaEnroll: '/enroll/enterprise',
+    ctaEnroll: '/enroll/platinum',
     ctaEnrollLabel: 'Contact Sales',
   },
   {
     id: 'large-enterprise',
     name: 'Diamond business plan',
-    nameColor: 'var(--color-delta-red-400)',
-    subtitle: '500+ travelers OR $300K+ spend\nFull managed travel · Negotiated agreement\nFull Corporate Priority suite globally',
+    nameColor: '#726394',
+    subtitle: '$300K+ annual Delta spend\nTypically accommodates 500+ travelers\nFull managed travel · Negotiated agreement\nFull Corporate Priority suite globally',
     companyLabel: 'Company gets',
     companyBenefits: [
       'Custom pricing',
@@ -106,7 +106,7 @@ const plans = [
     ],
     excluded: [],
     ctaKnow: '/programs/large-enterprise',
-    ctaEnroll: '/enroll/enterprise',
+    ctaEnroll: '/enroll/diamond',
     ctaEnrollLabel: 'Contact Sales',
   },
 ]

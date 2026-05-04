@@ -195,14 +195,14 @@ export function Footer() {
           </div>
           <div className="flex items-center gap-3">
             <Link
-              href="/enroll/small-business"
+              href="/enroll/individual"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[var(--radius-full)] text-[length:var(--type-scale-14)] font-semibold shadow-[var(--shadow-button)] transition-colors"
               style={{ backgroundColor: 'var(--color-delta-red-400)', color: 'var(--color-neutral-0)' }}
             >
               Enroll now
             </Link>
             <Link
-              href="/enroll/enterprise"
+              href="/enroll/platinum"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[var(--radius-full)] border text-[length:var(--type-scale-14)] font-semibold transition-colors"
               style={{ borderColor: 'var(--color-neutral-0)', color: 'var(--color-neutral-0)' }}
             >

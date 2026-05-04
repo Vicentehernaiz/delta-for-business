@@ -73,7 +73,7 @@ export default function SkyMilesPage() {
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link
-                  href="/enroll/small-business"
+                  href="/enroll/gold"
                   className="inline-flex items-center gap-2 font-semibold"
                   style={{
                     height: '48px',
@@ -317,7 +317,7 @@ export default function SkyMilesPage() {
             Free to join. No minimum spend to start. Miles activate on your first flight.
           </p>
           <Link
-            href="/enroll/small-business"
+            href="/enroll/gold"
             className="inline-flex items-center gap-2 font-semibold"
             style={{
               height: '48px',

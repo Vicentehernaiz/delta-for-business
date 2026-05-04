@@ -334,7 +334,7 @@ export default function IndividualProgramPage() {
                   ['Company SkyMiles pool', '—', '✅ Up to 10 / $'],
                   ['Traveler roster + dashboard', '—', '✅'],
                   ['Hertz / CLEAR / LinkedIn perks', '✅', '✅'],
-                  ['Best for', 'Solo traveler', '1–49 travelers OR up to $50K spend'],
+                  ['Best for', 'Solo traveler', '$5K–$50K spend · 2–49 travelers (typical)'],
                 ].map((row, i) => (
                   <tr key={row[0]} style={{ background: i % 2 === 0 ? 'var(--color-neutral-0)' : 'var(--color-neutral-5)', borderBottom: '1px solid var(--color-neutral-10)' }}>
                     <td style={{ padding: '12px 16px', color: 'var(--color-neutral-600)', fontWeight: '500' }}>{row[0]}</td>

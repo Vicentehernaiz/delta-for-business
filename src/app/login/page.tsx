@@ -237,7 +237,7 @@ export default function LoginPage() {
 
           <div className="flex flex-col gap-3">
             <Link
-              href="/enroll/small-business"
+              href="/enroll/gold"
               className="w-full flex items-center justify-center gap-2 font-semibold"
               style={{
                 height: '48px',

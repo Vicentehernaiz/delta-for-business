@@ -10,10 +10,10 @@ import { NavSearch } from './NavSearch'
 // ── Mega-menu content (descriptions per child link) ──────────────────────────
 
 const megaDescriptions: Record<string, string> = {
-  '/programs/individual':          'Solo traveler · Free · No employer needed · Personal SkyMiles + perks',
-  '/programs/business-traveler':   '1–49 travelers OR up to $50K spend · Free self-serve · Rewards pool',
-  '/programs/enterprise':          '50–499 travelers OR $50K–$300K spend · Dynamic fares · Seat pools',
-  '/programs/large-enterprise':    '500+ travelers OR $300K+ spend · Custom pricing · Global support',
+  '/programs/individual':          'Up to $5K annual Delta spend · Solo · Free · No employer needed',
+  '/programs/business-traveler':   '$5K–$50K spend · Free self-serve · Rewards pool',
+  '/programs/enterprise':          '$50K–$300K spend · Negotiated · Dynamic fares · Seat pools',
+  '/programs/large-enterprise':    '$300K+ spend · Enterprise · Custom pricing · Global support',
   '/programs/compare':             'Side-by-side: Individual · Gold · Platinum · Diamond business plans',
   '/benefits/corporate-priority':  'Preferred seating, priority boarding & upgrade queue',
   '/benefits/sky-club':            'Lounge access across 50+ domestic & international airports',

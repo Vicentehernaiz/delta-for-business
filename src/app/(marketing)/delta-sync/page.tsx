@@ -62,7 +62,7 @@ export default function DeltaSyncPage() {
           <div className="mt-10 flex flex-wrap items-center justify-center gap-[var(--spacing-12)]">
             {/* Primary CTA — delta-red-400 */}
             <a
-              href="/enroll/small-business"
+              href="/enroll/gold"
               className="inline-flex h-12 items-center justify-center rounded-[var(--radius-full)] bg-[var(--color-delta-red-400)] px-[var(--spacing-24)] shadow-[var(--shadow-button)] text-[length:var(--type-scale-16)] font-[family-name:var(--font-display)] leading-[var(--type-scale-18)] tracking-[var(--letter-spacing-marketing-x-large)] text-[color:var(--color-neutral-2)]"
             >
               Get Started Free
@@ -375,7 +375,7 @@ export default function DeltaSyncPage() {
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-[var(--spacing-12)]">
             <a
-              href="/enroll/small-business"
+              href="/enroll/gold"
               className="inline-flex h-12 items-center justify-center rounded-[var(--radius-full)] bg-[var(--color-delta-red-400)] px-[var(--spacing-24)] shadow-[var(--shadow-button)] text-[length:var(--type-scale-16)] font-[family-name:var(--font-display)] leading-[var(--type-scale-18)] tracking-[var(--letter-spacing-marketing-x-large)] text-[color:var(--color-neutral-2)]"
             >
               Enroll Now — Free

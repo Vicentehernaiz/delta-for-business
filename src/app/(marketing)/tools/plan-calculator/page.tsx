@@ -45,8 +45,8 @@ const PLAN_CATALOG: Record<PlanKey, PlanInfo> = {
   'smb-flex': {
     key: 'smb-flex',
     name: 'Gold business plan',
-    badge: '1–49 travelers OR up to $50K spend · Free',
-    enrollHref: '/enroll/individual',
+    badge: '$5K–$50K spend · Free self-serve',
+    enrollHref: '/enroll/gold',
     enrollLabel: 'Get started free',
     learnHref: '/programs/business-traveler',
     perks: [
@@ -58,14 +58,14 @@ const PLAN_CATALOG: Record<PlanKey, PlanInfo> = {
     ],
     mqdNote:
       'Personal MQDs are unaffected — travelers keep full Medallion progression. Company miles accrue separately and convert to eCredits.',
-    eligibility: '1–49 travelers · Up to $50K annual Delta spend',
-    accent: 'var(--color-segment-smb)',
+    eligibility: '$5K–$50K annual Delta spend · typically accommodates 2 to 49 travelers',
+    accent: '#8f6c32',
   },
   'corporate-pro': {
     key: 'corporate-pro',
     name: 'Platinum business plan',
-    badge: '50–499 travelers OR $50K–$300K spend',
-    enrollHref: '/enroll/enterprise',
+    badge: '$50K–$300K spend · Negotiated',
+    enrollHref: '/enroll/platinum',
     enrollLabel: 'Contact sales',
     learnHref: '/programs/enterprise',
     perks: [
@@ -77,14 +77,14 @@ const PLAN_CATALOG: Record<PlanKey, PlanInfo> = {
     ],
     mqdNote:
       'Personal MQDs remain personal. Negotiated agreements may include 6-month Medallion status matching at onboarding for designated travelers.',
-    eligibility: '50–499 travelers · $50K–$300K annual Delta spend',
-    accent: 'var(--color-segment-mid)',
+    eligibility: '$50K–$300K annual Delta spend · typically accommodates 50 to 499 travelers',
+    accent: '#6f7f8d',
   },
   'enterprise-elite': {
     key: 'enterprise-elite',
     name: 'Diamond business plan',
-    badge: '500+ travelers OR $300K+ spend',
-    enrollHref: '/enroll/enterprise',
+    badge: '$300K+ spend · Enterprise',
+    enrollHref: '/enroll/diamond',
     enrollLabel: 'Contact sales',
     learnHref: '/programs/large-enterprise',
     perks: [
@@ -96,8 +96,8 @@ const PLAN_CATALOG: Record<PlanKey, PlanInfo> = {
     ],
     mqdNote:
       'Personal MQDs unaffected. Eligible for Business Medallion — pool MQDs across employees toward Business Gold ($10K), Platinum ($30K) or Diamond ($50K) tiers.',
-    eligibility: '500+ travelers · $300K+ annual Delta spend',
-    accent: 'var(--color-segment-enterprise)',
+    eligibility: '$300K+ annual Delta spend · typically accommodates 500+ travelers',
+    accent: '#726394',
   },
 }
 

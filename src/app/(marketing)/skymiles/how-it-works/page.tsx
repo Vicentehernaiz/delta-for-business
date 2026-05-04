@@ -130,7 +130,7 @@ export default function HowItWorksPage() {
           </h2>
           <p style={{ fontSize: 'var(--type-scale-16)', color: 'rgba(255,255,255,0.75)', marginBottom: '24px' }}>Free enrollment. Miles start on your first flight.</p>
           <Link
-            href="/enroll/small-business"
+            href="/enroll/gold"
             className="inline-flex items-center gap-2 font-semibold"
             style={{ height: '48px', padding: '0 28px', borderRadius: 'var(--radius-full)', background: 'var(--color-delta-red-400)', color: 'var(--color-neutral-0)', fontSize: 'var(--type-scale-16)', boxShadow: 'var(--shadow-button)' }}
           >

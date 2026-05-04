@@ -119,7 +119,7 @@ interface ROICalculatorProps {
 
 export function ROICalculator({
   outputExtras,
-  ctaHref = '/enroll/small-business',
+  ctaHref = '/enroll/gold',
   ctaLabel = 'Get started free',
 }: ROICalculatorProps = {}) {
   const { inputs, outputs, setTravelers, setTripsPerYear, setAvgFare, setRouteType, setProgramTier } =

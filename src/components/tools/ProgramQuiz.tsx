@@ -31,7 +31,7 @@ const PLAN_DETAILS: Record<string, { included: string[]; excluded: string[]; con
       'No Corporate Priority benefits',
       'No Medallion acceleration',
     ],
-    conditions: '1–49 travelers OR up to $50K annual Delta spend · Free enrollment · Self-serve via SkyMiles login · US & Canada',
+    conditions: '$5K–$50K annual Delta spend · typically accommodates 2 to 49 travelers · Free enrollment · Self-serve via SkyMiles login · US & Canada',
   },
   enterprise: {
     included: [
@@ -51,7 +51,7 @@ const PLAN_DETAILS: Record<string, { included: string[]; excluded: string[]; con
       'Corporate Priority: preferred seating, priority boarding, re-booking & service recovery',
     ],
     excluded: [],
-    conditions: '50–499 travelers OR $50K–$300K annual Delta spend · Negotiated agreement · Managed travel tool required',
+    conditions: '$50K–$300K annual Delta spend · typically accommodates 50 to 499 travelers · Negotiated agreement · Managed travel tool required',
   },
   'large-enterprise': {
     included: [
@@ -71,7 +71,7 @@ const PLAN_DETAILS: Record<string, { included: string[]; excluded: string[]; con
       'Employees still earn personal SkyMiles + MQDs',
     ],
     excluded: [],
-    conditions: '500+ travelers OR $300K+ annual Delta spend · Negotiated agreement · Full managed travel + Delta Business Tool included',
+    conditions: '$300K+ annual Delta spend · typically accommodates 500+ travelers · Negotiated agreement · Full managed travel + Delta Business Tool included',
   },
 }
 
@@ -84,9 +84,9 @@ const CONTEXT_OPTIONS: { value: QuizContext; label: string; desc: string; icon: 
 
 const SIZE_OPTIONS: { value: QuizCompanySize; label: string; sub: string }[] = [
   { value: 'just-me', label: 'Solo', sub: 'Just me traveling' },
-  { value: '2-50', label: '2–49 travelers', sub: 'Gold business plan · up to $50K spend' },
-  { value: '50-500', label: '50–499 travelers', sub: 'Platinum business plan · $50K–$300K spend' },
-  { value: '500+', label: '500+ travelers', sub: 'Diamond business plan · $300K+ spend' },
+  { value: '2-50', label: '2–49 travelers', sub: '$5K–$50K spend · Gold business plan' },
+  { value: '50-500', label: '50–499 travelers', sub: '$50K–$300K spend · Platinum business plan' },
+  { value: '500+', label: '500+ travelers', sub: '$300K+ spend · Diamond business plan' },
 ]
 
 const SPEND_OPTIONS_INDIVIDUAL: { value: QuizSpend; label: string }[] = [

@@ -22,15 +22,15 @@ const programIcons: Record<string, string> = {
 }
 
 const programSpend: Record<string, string> = {
-  'business-traveler': 'Up to $50K / year',
-  enterprise: '$50K – $300K / year',
+  'business-traveler': '$5K–$50K / year',
+  enterprise: '$50K–$300K / year',
   'large-enterprise': '$300K+ / year',
 }
 
 const programTravelers: Record<string, string> = {
-  'business-traveler': '1 – 49 travelers',
-  enterprise: '50 – 499 travelers',
-  'large-enterprise': '500+ travelers',
+  'business-traveler': '2–49 travelers (typical)',
+  enterprise: '50–499 travelers (typical)',
+  'large-enterprise': '500+ travelers (typical)',
 }
 
 export default function ProgramsPage() {
@@ -183,14 +183,14 @@ export default function ProgramsPage() {
 
                   <div className="mb-4 space-y-1">
                     <div className="flex items-center gap-2">
-                      <i className="ph ph-users text-sm" style={{ color: 'var(--color-neutral-500)' }}></i>
-                      <span style={{ fontSize: 'var(--type-scale-13)', color: 'var(--color-neutral-600)' }}>
-                        {programTravelers[key]} <span style={{ color: 'var(--color-neutral-500)' }}>OR</span>
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-2">
                       <i className="ph ph-currency-dollar text-sm" style={{ color: 'var(--color-neutral-500)' }}></i>
                       <span style={{ fontSize: 'var(--type-scale-13)', color: 'var(--color-neutral-600)' }}>{programSpend[key]} Delta spend</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <i className="ph ph-users text-sm" style={{ color: 'var(--color-neutral-500)' }}></i>
+                      <span style={{ fontSize: 'var(--type-scale-13)', color: 'var(--color-neutral-600)' }}>
+                        {programTravelers[key]}
+                      </span>
                     </div>
                   </div>
 

@@ -8,7 +8,7 @@ const paths = [
     title: 'Quick start',
     desc: 'Gold business plan — free for any team. Get set up in minutes, no employer needed.',
     cta: 'Enroll now',
-    href: '/enroll/individual',
+    href: '/enroll/gold',
   },
   {
     icon: 'ph-duotone ph-handshake',
@@ -17,7 +17,7 @@ const paths = [
     title: 'Talk to sales',
     desc: 'Enterprise or Large-Enterprise? Connect with our corporate team.',
     cta: 'Contact sales',
-    href: '/enroll/enterprise',
+    href: '/enroll/platinum',
   },
   {
     icon: 'ph-duotone ph-chart-bar',

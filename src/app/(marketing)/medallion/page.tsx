@@ -1110,21 +1110,21 @@ const CAPABILITY_ROWS: readonly CapabilityRow[] = [
   },
   {
     feature: 'Reduced Fair Rates',
-    gold: { kind: 'level', level: 1 },
-    platinum: { kind: 'level', level: 2 },
-    diamond: { kind: 'level', level: 3 },
+    gold: { kind: 'level', level: 1, note: 'Standard discount' },
+    platinum: { kind: 'level', level: 2, note: 'Stronger discount' },
+    diamond: { kind: 'level', level: 3, note: 'Premium discount' },
   },
   {
     feature: 'Max Seat Reserves',
-    gold: { kind: 'level', level: 1, note: '(2 seats up to 24 hours)' },
-    platinum: { kind: 'level', level: 2, note: '(3 seats up to 24 hours)' },
-    diamond: { kind: 'level', level: 3, note: '(5 seats up to 24 hours)' },
+    gold: { kind: 'level', level: 1, note: '2 seats · up to 24 h' },
+    platinum: { kind: 'level', level: 2, note: '3 seats · up to 24 h' },
+    diamond: { kind: 'level', level: 3, note: '5 seats · up to 24 h' },
   },
   {
     feature: 'Travel Management Dashboard',
-    gold: { kind: 'level', level: 1 },
-    platinum: { kind: 'level', level: 2, note: '(AI Insights)' },
-    diamond: { kind: 'level', level: 2, note: '(AI Insights)' },
+    gold: { kind: 'level', level: 1, note: 'Standard dashboard' },
+    platinum: { kind: 'level', level: 2, note: 'AI Insights' },
+    diamond: { kind: 'level', level: 2, note: 'AI Insights' },
   },
   {
     feature: 'American Express Pairing',
@@ -1164,21 +1164,21 @@ const CAPABILITY_ROWS: readonly CapabilityRow[] = [
   },
   {
     feature: 'Account Link Bonus Miles (Initial Incentive)',
-    gold: { kind: 'level', level: 1 },
-    platinum: { kind: 'level', level: 2 },
-    diamond: { kind: 'level', level: 3 },
+    gold: { kind: 'level', level: 1, note: 'Standard bonus' },
+    platinum: { kind: 'level', level: 2, note: 'Enhanced bonus' },
+    diamond: { kind: 'level', level: 3, note: 'Premium bonus' },
   },
   {
     feature: 'Complimentary Seat Upgrade Priority',
-    gold: { kind: 'level', level: 1 },
-    platinum: { kind: 'level', level: 1 },
-    diamond: { kind: 'level', level: 2 },
+    gold: { kind: 'level', level: 1, note: 'Standard priority' },
+    platinum: { kind: 'level', level: 1, note: 'Standard priority' },
+    diamond: { kind: 'level', level: 2, note: 'Stronger priority' },
   },
   {
     feature: 'Share of Miles on Business Travel',
-    gold: { kind: 'level', level: 1, note: '(10% of miles added to personal wallet)' },
-    platinum: { kind: 'level', level: 2, note: '(15% of miles added to personal wallet)' },
-    diamond: { kind: 'level', level: 3, note: '(20% of miles added to personal wallet)' },
+    gold: { kind: 'level', level: 1, note: '10% to personal wallet' },
+    platinum: { kind: 'level', level: 2, note: '15% to personal wallet' },
+    diamond: { kind: 'level', level: 3, note: '20% to personal wallet' },
   },
   {
     feature: 'Matched MQDs on Business Travel',
@@ -1188,25 +1188,34 @@ const CAPABILITY_ROWS: readonly CapabilityRow[] = [
   },
   {
     feature: 'SkyClub Lounge Access',
-    gold: { kind: 'level', level: 1, note: '(Entry with fee)' },
-    platinum: { kind: 'level', level: 2, note: '(Reduced entry fee)' },
-    diamond: { kind: 'level', level: 3, note: '(Waived entry fee)' },
+    gold: { kind: 'level', level: 1, note: 'Entry with fee' },
+    platinum: { kind: 'level', level: 2, note: 'Reduced entry fee' },
+    diamond: { kind: 'level', level: 3, note: 'Waived entry fee' },
   },
   {
     feature: 'Priority Boarding',
-    gold: { kind: 'level', level: 1, note: '(Zone 4)' },
-    platinum: { kind: 'level', level: 2, note: '(Zone 3)' },
-    diamond: { kind: 'level', level: 3, note: '(Zone 2)' },
+    gold: { kind: 'level', level: 1, note: 'Zone 4' },
+    platinum: { kind: 'level', level: 2, note: 'Zone 3' },
+    diamond: { kind: 'level', level: 3, note: 'Zone 2' },
   },
 ] as const
 
+/**
+ * Cell renderer aligned with the /programs/compare style:
+ * - text   → plain neutral-700 string
+ * - level 0 → red ph-bold ph-x
+ * - level 1+ → SINGLE green ph-bold ph-check + inline note label.
+ *   Strength differentiation (Strong / Premium) is conveyed via the
+ *   note copy itself (e.g. "Stronger discount", "Premium bonus") instead
+ *   of stacking 2 or 3 check marks.
+ */
 function TierCellValue({ cell }: { cell: CapabilityCell }) {
   if (cell.kind === 'text') {
     return (
       <span
         style={{
           fontSize: 'var(--type-scale-13)',
-          color: 'var(--color-neutral-700)',
+          color: 'var(--color-delta-blue-700)',
           fontWeight: '600',
           lineHeight: 1.5,
         }}
@@ -1218,56 +1227,40 @@ function TierCellValue({ cell }: { cell: CapabilityCell }) {
 
   if (cell.level === 0) {
     return (
-      <i
-        className="ph-bold ph-x"
-        style={{
-          color: 'var(--color-error)',
-          fontSize: '18px',
-        }}
+      <span
+        className="inline-flex items-center justify-center"
+        style={{ gap: '6px', color: 'var(--color-neutral-400)', fontSize: 'var(--type-scale-13)' }}
         aria-label="Not included"
-      />
+      >
+        <i
+          className="ph-bold ph-x"
+          style={{ color: 'var(--color-error)', fontSize: '0.95em' }}
+          aria-hidden="true"
+        />
+      </span>
     )
   }
 
+  // Single green check + inline label (matches /programs/compare cell style)
+  const label = cell.note ?? 'Included'
   return (
-    <div className="flex flex-col items-center" style={{ gap: '2px' }}>
-      <span
-        className="inline-flex items-center"
-        style={{ gap: '2px' }}
-        aria-label={
-          cell.level === 1
-            ? 'Included'
-            : cell.level === 2
-              ? 'Strong capability'
-              : 'Premium capability'
-        }
-      >
-        {Array.from({ length: cell.level }).map((_, i) => (
-          <i
-            key={i}
-            className="ph-bold ph-check"
-            style={{
-              color: 'var(--color-success)',
-              fontSize: '16px',
-            }}
-            aria-hidden="true"
-          />
-        ))}
-      </span>
-      {cell.note ? (
-        <span
-          style={{
-            fontSize: '12px',
-            color: 'var(--color-neutral-600)',
-            lineHeight: 1.4,
-            textAlign: 'center',
-            marginTop: '2px',
-          }}
-        >
-          {cell.note}
-        </span>
-      ) : null}
-    </div>
+    <span
+      className="inline-flex items-center justify-center"
+      style={{
+        gap: '6px',
+        color: 'var(--color-delta-blue-700)',
+        fontWeight: '600',
+        fontSize: 'var(--type-scale-13)',
+        lineHeight: 1.4,
+      }}
+    >
+      <i
+        className="ph-bold ph-check"
+        style={{ color: 'var(--color-success)', fontSize: '0.95em', flexShrink: 0 }}
+        aria-hidden="true"
+      />
+      <span style={{ textAlign: 'left' }}>{label}</span>
+    </span>
   )
 }
 
@@ -1332,12 +1325,13 @@ function BusinessTierCapabilitiesTable() {
             lineHeight: 1.6,
           }}
         >
-          Every benefit, side by side. Strength scales with tier — three checks means premium,
-          optimized capability.
+          Every benefit, side by side. Words next to the check mark indicate
+          strength — &ldquo;Standard&rdquo;, &ldquo;Stronger&rdquo;, or &ldquo;Premium&rdquo; — so you can see at a glance how
+          each tier scales.
         </p>
       </div>
 
-      {/* Symbol legend */}
+      {/* Symbol legend — matches /programs/compare cell style */}
       <div
         className="flex flex-wrap items-center justify-center"
         style={{
@@ -1348,53 +1342,12 @@ function BusinessTierCapabilitiesTable() {
         }}
       >
         <span className="inline-flex items-center" style={{ gap: '6px' }}>
-          <i
-            className="ph-bold ph-check"
-            style={{ color: 'var(--color-success)', fontSize: '14px' }}
-          />
+          <i className="ph-bold ph-check" style={{ color: 'var(--color-success)', fontSize: '0.95em' }} />
           Included
         </span>
-        <span style={{ color: 'var(--color-neutral-50)' }} aria-hidden="true">
-          ·
-        </span>
+        <span style={{ color: 'var(--color-neutral-50)' }} aria-hidden="true">·</span>
         <span className="inline-flex items-center" style={{ gap: '6px' }}>
-          <span className="inline-flex" style={{ gap: '2px' }}>
-            <i
-              className="ph-bold ph-check"
-              style={{ color: 'var(--color-success)', fontSize: '14px' }}
-            />
-            <i
-              className="ph-bold ph-check"
-              style={{ color: 'var(--color-success)', fontSize: '14px' }}
-            />
-          </span>
-          Strong capability
-        </span>
-        <span style={{ color: 'var(--color-neutral-50)' }} aria-hidden="true">
-          ·
-        </span>
-        <span className="inline-flex items-center" style={{ gap: '6px' }}>
-          <span className="inline-flex" style={{ gap: '2px' }}>
-            <i
-              className="ph-bold ph-check"
-              style={{ color: 'var(--color-success)', fontSize: '14px' }}
-            />
-            <i
-              className="ph-bold ph-check"
-              style={{ color: 'var(--color-success)', fontSize: '14px' }}
-            />
-            <i
-              className="ph-bold ph-check"
-              style={{ color: 'var(--color-success)', fontSize: '14px' }}
-            />
-          </span>
-          Premium capability
-        </span>
-        <span style={{ color: 'var(--color-neutral-50)' }} aria-hidden="true">
-          ·
-        </span>
-        <span className="inline-flex items-center" style={{ gap: '6px' }}>
-          <i className="ph-bold ph-x" style={{ color: 'var(--color-error)', fontSize: '14px' }} />
+          <i className="ph-bold ph-x" style={{ color: 'var(--color-error)', fontSize: '0.95em' }} />
           Not included
         </span>
       </div>

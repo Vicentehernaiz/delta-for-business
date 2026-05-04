@@ -18,7 +18,7 @@ const programDetails: Record<string, {
 }> = {
   'business-traveler': {
     tagline: 'Company rewards pool, personal perks, and dual SkyMiles earning — free to join.',
-    heroDesc: 'The Gold business plan is free for individuals and small teams. Free self-serve enrollment, business rewards pool, dual SkyMiles earning, and partner perks from day one. No minimum spend, no negotiation.',
+    heroDesc: 'The Gold business plan covers $5K–$50K annual Delta spend (typically accommodates 2 to 49 travelers). Free self-serve enrollment, business rewards pool, dual SkyMiles earning, and partner perks from day one. No minimum spend, no negotiation.',
     benefits: [
       { icon: 'ph-fill ph-arrows-split', title: 'True dual earning', desc: 'Company miles and personal employee SkyMiles are credited simultaneously on every eligible Delta flight. Link traveler SkyMiles numbers once — then every flight earns in both accounts.' },
       { icon: 'ph-fill ph-trend-up', title: 'Up to 10 miles per dollar', desc: 'Non-hub, premium cabin routes earn 10 miles/$. Hub routes earn 5 miles/$. Earning scales automatically as your team grows.' },
@@ -29,14 +29,14 @@ const programDetails: Record<string, {
       { q: 'Does my employer need to sign up too?', a: 'No. You enroll with your business email. If you have a team, you add them to your company account — no employer IT involvement required.' },
       { q: 'Do employees lose personal SkyMiles?', a: 'No. Employee personal miles (including MQDs toward Medallion status) are completely unaffected. Both earning streams are independent.' },
       { q: 'Is there a fee?', a: 'No. The Gold business plan is always free to enroll.' },
-      { q: 'Can I upgrade to the Platinum business plan later?', a: 'Yes. If your company grows and you cross $50K annual Delta spend with 50+ travelers, you can contact sales to upgrade to the Platinum business plan.' },
+      { q: 'Can I upgrade to the Platinum business plan later?', a: 'Yes. If your annual Delta spend grows past $50K, you can contact sales to upgrade to the Platinum business plan.' },
     ],
-    enrollHref: '/enroll/individual',
+    enrollHref: '/enroll/gold',
     enrollLabel: 'Get started free',
   },
   enterprise: {
     tagline: 'Dynamic fares, seat pools, and full Corporate Priority — built for growing teams.',
-    heroDesc: 'The Platinum business plan is Delta\'s negotiated program for companies with 50–500 travelers spending $50K+/year. Dynamic fare discounts, seat access pools, and advanced analytics that self-serve programs can\'t match.',
+    heroDesc: 'The Platinum business plan covers $50K–$300K annual Delta spend (typically accommodates 50 to 499 travelers). Dynamic fare discounts, seat access pools, and advanced analytics that self-serve programs can\'t match.',
     benefits: [
       { icon: 'ph-fill ph-tag', title: 'Negotiated fares', desc: 'Custom discount percentages off published fares on your most-traveled routes. Typically 5–15% off depending on volume and market.' },
       { icon: 'ph-fill ph-crown', title: 'Full Corporate Priority suite', desc: 'All Corporate Priority benefits: preferred seating, Zone 1 boarding, complimentary upgrades, service recovery priority, waived change fees, and priority rebooking during IROPS.' },
@@ -44,18 +44,18 @@ const programDetails: Record<string, {
       { icon: 'ph-fill ph-link', title: 'TMC & Concur integration', desc: 'Direct integration with Amex GBT, BCD Travel, CWT, Navan, and Concur for automated reporting and booking policy enforcement.' },
     ],
     faqs: [
-      { q: 'What is the minimum spend to qualify?', a: 'Approximately $50,000/year in Delta airfare. Your account manager will confirm during the sales call based on your route mix.' },
+      { q: 'What is the minimum spend to qualify?', a: 'Approximately $50,000/year in Delta airfare — the Platinum business plan typically accommodates 50 to 499 travelers at this spend level. Your account manager will confirm during the sales call based on your route mix.' },
       { q: 'How long does the negotiation take?', a: 'Typically 2–4 weeks from initial contact to signed agreement.' },
       { q: 'Do company miles still apply?', a: 'Yes — the Platinum business plan runs on top of SkyMiles for Business. You keep dual earning while also receiving dynamic fare discounts.' },
       { q: 'Is Delta Business Tool included?', a: 'Enterprise accounts get access to Delta Business Tool for travel management — spend reporting, policy controls, and traveler visibility.' },
     ],
-    enrollHref: '/enroll/enterprise',
+    enrollHref: '/enroll/platinum',
     enrollLabel: 'Contact sales',
     syncNote: 'Enterprise accounts include Delta Business Tool access for spend reporting, traveler management, and travel policy controls.',
   },
   'large-enterprise': {
     tagline: 'Custom pricing, full reporting, and dedicated support at global scale.',
-    heroDesc: 'The Diamond business plan is Delta\'s full managed travel program for 500+ traveler companies. Custom pricing, seat inventory control, full reporting and forecasting, Amex integration, and dedicated support at every level.',
+    heroDesc: 'The Diamond business plan covers $300K+ annual Delta spend (typically accommodates 500+ travelers). Custom pricing, seat inventory control, full reporting and forecasting, Amex integration, and dedicated support at every level.',
     benefits: [
       { icon: 'ph-fill ph-globe-hemisphere-west', title: 'Global Corporate Priority', desc: 'Corporate Priority extends across Air France, KLM, LATAM, and Virgin Atlantic — covering your international routes at the same priority level as Delta domestic.' },
       { icon: 'ph-fill ph-lightning', title: 'Delta Business Tool — full access', desc: 'Full access to Delta\'s travel management platform: spend dashboards, traveler tracking, policy automation, and real-time itinerary visibility.' },
@@ -63,12 +63,12 @@ const programDetails: Record<string, {
       { icon: 'ph-fill ph-headset', title: '24/7 Corporate Solutions', desc: 'Dedicated support line for any traveler emergency — rebooking, medical disruptions, last-minute changes — available around the clock.' },
     ],
     faqs: [
-      { q: 'What is the minimum traveler count?', a: 'Typically 500 active travelers per year, though exceptions apply for high-spend companies with fewer travelers.' },
+      { q: 'What spend qualifies for the Diamond business plan?', a: 'Approximately $300K+/year in Delta airfare — the Diamond business plan typically accommodates 500+ travelers at this spend level. Exceptions apply for high-spend companies with fewer travelers.' },
       { q: 'Which partner airlines are included?', a: 'Air France, KLM, LATAM, and Virgin Atlantic. Benefits on partner airlines are subject to each carrier\'s operational policies.' },
       { q: 'How does unused ticket transfer work?', a: 'Through the corporate portal, an admin can reassign an unused ticket to any enrolled traveler. The new traveler pays only the fare difference, if any.' },
       { q: 'What does Delta Business Tool include?', a: 'Full Delta Business Tool access covers spend reporting, real-time traveler location, policy controls, GDS integration, and dedicated onboarding support.' },
     ],
-    enrollHref: '/enroll/enterprise',
+    enrollHref: '/enroll/diamond',
     enrollLabel: 'Contact sales',
     syncNote: 'Large-Enterprise accounts include full Delta Business Tool access — the complete travel management platform for global teams.',
   },
