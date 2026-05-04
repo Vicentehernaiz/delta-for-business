@@ -204,6 +204,12 @@ export interface NavItem {
   description?: string
   /** Optional Microsoft Clarity event name fired when the link is clicked. */
   clarityEvent?: string
+  /**
+   * When true, the mega-menu renders a horizontal rule above this item to
+   * separate it visually from the items above (e.g. "Compare" placed below
+   * the four plan cards in the Programs dropdown).
+   */
+  separatorBefore?: boolean
 }
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

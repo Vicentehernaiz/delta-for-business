@@ -522,14 +522,158 @@ export default function CompareBusinessPlansPage() {
         </div>
       </section>
 
+      {/* ── Still not sure? — quiz + calculator entry points ────── */}
+      <section className="py-16 px-6" style={{ background: 'var(--color-neutral-5)' }}>
+        <div className="mx-auto" style={{ maxWidth: 'var(--container-wide)' }}>
+          <div className="text-center" style={{ marginBottom: '32px' }}>
+            <p
+              style={{
+                fontSize: 'var(--type-scale-12)',
+                fontWeight: '700',
+                textTransform: 'uppercase',
+                letterSpacing: '0.1em',
+                color: 'var(--color-delta-red-400)',
+                marginBottom: '6px',
+              }}
+            >
+              Need a hand?
+            </p>
+            <h2
+              style={{
+                fontSize: 'clamp(1.5rem, 2.4vw, var(--type-scale-32))',
+                fontFamily: 'var(--font-display)',
+                fontWeight: '700',
+                color: 'var(--color-delta-blue-700)',
+              }}
+            >
+              You&apos;re still not sure?
+            </h2>
+            <p style={{ fontSize: 'var(--type-scale-15)', color: 'var(--color-neutral-600)', marginTop: '8px' }}>
+              Two interactive tools — pick the one that fits how you think.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <Link
+              href="/tools/program-selector"
+              className="group flex items-start gap-4 rounded-[var(--radius-l)] p-6"
+              style={{
+                background: 'var(--color-neutral-0)',
+                border: '1px solid var(--color-neutral-10)',
+                boxShadow: 'var(--shadow-card)',
+                textDecoration: 'none',
+              }}
+            >
+              <div
+                className="flex items-center justify-center flex-shrink-0"
+                style={{
+                  width: '48px',
+                  height: '48px',
+                  borderRadius: 'var(--radius-l)',
+                  background: 'var(--color-delta-red-50)',
+                }}
+              >
+                <i className="ph-fill ph-question text-2xl" style={{ color: 'var(--color-delta-red-400)' }} />
+              </div>
+              <div className="flex-1">
+                <p
+                  style={{
+                    fontSize: 'var(--type-scale-11)',
+                    fontWeight: '700',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.07em',
+                    color: 'var(--color-delta-red-400)',
+                    marginBottom: '4px',
+                  }}
+                >
+                  60-second quiz
+                </p>
+                <h3
+                  style={{
+                    fontSize: 'var(--type-scale-18)',
+                    fontFamily: 'var(--font-display)',
+                    fontWeight: '700',
+                    color: 'var(--color-delta-blue-700)',
+                    marginBottom: '6px',
+                  }}
+                >
+                  Take the program selector quiz
+                </h3>
+                <p style={{ fontSize: 'var(--type-scale-14)', color: 'var(--color-neutral-600)', lineHeight: 1.55 }}>
+                  Answer four quick questions about your team and how you travel. We&apos;ll match you
+                  to the right plan and surface the matching Delta Amex card.
+                </p>
+              </div>
+              <i
+                className="ph-bold ph-arrow-right text-base flex-shrink-0 mt-1 transition-transform group-hover:translate-x-1"
+                style={{ color: 'var(--color-delta-blue-700)' }}
+              />
+            </Link>
+
+            <Link
+              href="/tools/plan-calculator"
+              className="group flex items-start gap-4 rounded-[var(--radius-l)] p-6"
+              style={{
+                background: 'var(--color-neutral-0)',
+                border: '1px solid var(--color-neutral-10)',
+                boxShadow: 'var(--shadow-card)',
+                textDecoration: 'none',
+              }}
+            >
+              <div
+                className="flex items-center justify-center flex-shrink-0"
+                style={{
+                  width: '48px',
+                  height: '48px',
+                  borderRadius: 'var(--radius-l)',
+                  background: 'var(--color-delta-blue-50)',
+                }}
+              >
+                <i className="ph-fill ph-calculator text-2xl" style={{ color: 'var(--color-delta-blue-600)' }} />
+              </div>
+              <div className="flex-1">
+                <p
+                  style={{
+                    fontSize: 'var(--type-scale-11)',
+                    fontWeight: '700',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.07em',
+                    color: 'var(--color-delta-blue-600)',
+                    marginBottom: '4px',
+                  }}
+                >
+                  Live ROI calculator
+                </p>
+                <h3
+                  style={{
+                    fontSize: 'var(--type-scale-18)',
+                    fontFamily: 'var(--font-display)',
+                    fontWeight: '700',
+                    color: 'var(--color-delta-blue-700)',
+                    marginBottom: '6px',
+                  }}
+                >
+                  Run the Plan Calculator
+                </h3>
+                <p style={{ fontSize: 'var(--type-scale-14)', color: 'var(--color-neutral-600)', lineHeight: 1.55 }}>
+                  Drag sliders for travelers, trips, and average fare. See live mile earnings,
+                  eCredit value, and the matched plan with its perks and MQD conditions.
+                </p>
+              </div>
+              <i
+                className="ph-bold ph-arrow-right text-base flex-shrink-0 mt-1 transition-transform group-hover:translate-x-1"
+                style={{ color: 'var(--color-delta-blue-700)' }}
+              />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ── Footer note ─────────────────────────────────────────── */}
       <section className="py-12 text-center" style={{ background: 'var(--color-delta-blue-700)' }}>
         <div className="mx-auto px-6" style={{ maxWidth: 'var(--container-narrow)' }}>
           <p style={{ fontSize: 'var(--type-scale-15)', color: 'rgba(255,255,255,0.85)', lineHeight: 1.6 }}>
-            Switch plans whenever — your earnings, traveler list, and Delta Amex perks travel with you.{' '}
-            <Link href="/tools/program-selector" style={{ color: 'var(--color-nav-section-title)', textDecoration: 'underline', textUnderlineOffset: '2px', fontWeight: '600' }}>
-              Take the quiz to get a recommendation →
-            </Link>
+            Switch plans whenever — your earnings, traveler list, and Delta Amex perks travel with you.
           </p>
         </div>
       </section>

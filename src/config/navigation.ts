@@ -10,7 +10,7 @@ export const mainNav: NavItem[] = [
       { label: 'Gold business plan', href: '/programs/business-traveler' },
       { label: 'Platinum business plan', href: '/programs/enterprise' },
       { label: 'Diamond business plan', href: '/programs/large-enterprise' },
-      { label: 'Compare business plans', href: '/programs/compare' },
+      { label: 'Compare business plans', href: '/programs/compare', separatorBefore: true },
     ],
   },
   {

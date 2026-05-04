@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useCallback, useEffect } from 'react'
+import { Fragment, useState, useRef, useCallback, useEffect } from 'react'
 import Link from 'next/link'
 import { mainNav, authNav } from '@/config/navigation'
 import type { NavItem } from '@/types'
@@ -76,50 +76,68 @@ function MegaPanel({ item, onSelect }: { item: NavItem; onSelect: () => void }) 
               onSelect()
             }
 
+            // Items flagged with `separatorBefore` get a full-width horizontal
+            // rule and span the entire grid row so they read as a footer-style
+            // entry below the plan cards (e.g. "Compare business plans").
+            const fullWidth = child.separatorBefore
+
             return (
-              <Link
-                key={`${child.label}-${child.href}`}
-                href={child.href}
-                target={child.isExternal ? '_blank' : undefined}
-                rel={child.isExternal ? 'noopener noreferrer' : undefined}
-                onClick={handleClick}
-                className="group flex flex-col rounded-[var(--radius-l)] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
-                style={{
-                  padding: '16px 20px',
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(255,255,255,0.07)'
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLAnchorElement).style.background = 'transparent'
-                }}
-              >
-                <span
+              <Fragment key={`${child.label}-${child.href}`}>
+                {fullWidth && (
+                  <hr
+                    aria-hidden="true"
+                    style={{
+                      gridColumn: '1 / -1',
+                      border: 'none',
+                      borderTop: '1px solid rgba(255,255,255,0.12)',
+                      margin: '8px 12px 4px',
+                    }}
+                  />
+                )}
+                <Link
+                  href={child.href}
+                  target={child.isExternal ? '_blank' : undefined}
+                  rel={child.isExternal ? 'noopener noreferrer' : undefined}
+                  onClick={handleClick}
+                  className="group flex flex-col rounded-[var(--radius-l)] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
                   style={{
-                    fontSize: 'var(--type-scale-15)',
-                    fontWeight: '700',
-                    color: 'var(--color-neutral-0)',
-                    fontFamily: 'var(--font-display)',
-                    marginBottom: '4px',
-                    display: 'block',
+                    padding: '16px 20px',
+                    gridColumn: fullWidth ? '1 / -1' : undefined,
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(255,255,255,0.07)'
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLAnchorElement).style.background = 'transparent'
                   }}
                 >
-                  {child.label}
-                </span>
-                {description && (
                   <span
                     style={{
-                      fontSize: 'var(--type-scale-13)',
-                      color: 'var(--color-nav-mega-description)',
-                      fontFamily: 'var(--font-body)',
-                      fontWeight: '400',
-                      lineHeight: '1.4',
+                      fontSize: 'var(--type-scale-15)',
+                      fontWeight: '700',
+                      color: 'var(--color-neutral-0)',
+                      fontFamily: 'var(--font-display)',
+                      marginBottom: '4px',
+                      display: 'block',
                     }}
                   >
-                    {description}
+                    {child.label}
                   </span>
-                )}
-              </Link>
+                  {description && (
+                    <span
+                      style={{
+                        fontSize: 'var(--type-scale-13)',
+                        color: 'var(--color-nav-mega-description)',
+                        fontFamily: 'var(--font-body)',
+                        fontWeight: '400',
+                        lineHeight: '1.4',
+                      }}
+                    >
+                      {description}
+                    </span>
+                  )}
+                </Link>
+              </Fragment>
             )
           })}
         </div>
