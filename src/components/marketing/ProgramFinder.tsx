@@ -115,7 +115,7 @@ type Plan = (typeof plans)[number]
 
 // ── Plan card (collapsible perks) ────────────────────────────────────────────
 
-function PlanCard({ plan, active }: { plan: Plan; active: boolean }) {
+function PlanCard({ plan }: { plan: Plan; active?: boolean }) {
   const [showAll, setShowAll] = useState(false)
   const hiddenCount =
     plan.employeeBenefits.length + plan.included.length + plan.excluded.length
@@ -125,7 +125,7 @@ function PlanCard({ plan, active }: { plan: Plan; active: boolean }) {
       className="flex flex-col rounded-[var(--radius-l)]"
       style={{
         background: 'var(--color-neutral-0)',
-        border: `1px solid ${active ? 'var(--color-delta-red-400)' : 'var(--color-neutral-5)'}`,
+        border: '1px solid var(--color-neutral-5)',
         boxShadow: 'var(--shadow-card)',
         padding: '32px',
         flex: '1 0 340px',
