@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const SKYTEAM_BADGE   = '/assets/images/logos/logo-skyteam.webp'
+const SKYTEAM_BADGE   = '/assets/images/logos/logo-skyteam.png'
 const LOGO_KLM        = 'https://upload.wikimedia.org/wikipedia/commons/c/c7/KLM_logo.svg'
 const LOGO_AIRFRANCE  = 'https://upload.wikimedia.org/wikipedia/commons/4/44/Air_France_Logo.svg'
 const LOGO_VIRGIN     = 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Virgin_Atlantic_logo_2018.svg'
